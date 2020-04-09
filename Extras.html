@@ -8,22 +8,22 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
         <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
         <!-- Popper.js -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
         <!-- Bootstrap JavaScript -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
         <link rel="stylesheet" href="styles/standardstyle.css">
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand mr-auto" href="#" id="brand">ResuME</a>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand mr-auto" href="#" id="brand">ResuMe</a>
             <ul class="navbar nav">
                 <li class="nav-item">
                     <a class="nav-link text-white" href="homepage.html">Home</a>
@@ -49,21 +49,128 @@
             </ul>
         </nav>
 
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3">
+                    <div class="nav flex-column nav-pills" id="extrasTab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link active" id="extrasUndergraduateTab" data-toggle="pill" href="#extrasUndergraduateContent" role="tab" aria-controls="extrasUndergraduateContent" aria-selected="true"><span>Undergraduate<span></a>
+                        <a class="nav-link" id="extrasGraduateTab" data-toggle="pill" href="#extrasGraduateContent" role="tab" aria-controls="extrasGraduateContent" aria-selected="false"><span>Graduate<span></a>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <div class="tab-content" id="extrasTabContent">
+                        <div class="tab-pane fade show active" id="extrasUndergraduateContent" role="tabpanel" aria-labelledby="extrasUndergraduateTab">
+                            <div class="container">
+                                <br>
+                                <h2 id="extrasnames">Eclipse</h2>
+                                <div id="bluebox">
+                                <hr>
+                                <h2 class="involvementDescription" id="descriptionI">Description</h2>
 
-
-
-
-
-
-
-            <!--bottom nav, enable later-->
-        <!-- <div class="container border border-primary">
-            <div class="bg bg-primary">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae, facere. Delectus ea ducimus odit vitae impedit. Sunt dicta dolorem minima sequi pariatur commodi asperiores ab, amet quis nam, aut ullam.
+                                <p id="extrasparagraph">
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium eum tempora quis et molestias. Dolorem excepturi obcaecati nemo non cumque similique ullam dolores, natus aut eaque delectus dignissimos repellendus quisquam autem harum, sunt voluptates ab expedita ex! Optio sapiente cum ducimus ipsa eum sunt hic quis deleniti. Eum nemo facere eaque ea vitae.
+                                </p>
+                              </div>
+                                <br>
+                                <h2 id="extrasnames">Moving On</h2>
+                                <div id="bluebox">
+                                <hr>
+                                <h2 class="involvementDescription" id="descriptionI">Description</h2>
+                                <p id="extrasparagraph">
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium eum tempora quis et molestias. Dolorem excepturi obcaecati nemo non cumque similique ullam dolores, natus aut eaque delectus dignissimos repellendus quisquam autem harum, sunt voluptates ab expedita ex! Optio sapiente cum ducimus ipsa eum sunt hic quis deleniti. Eum nemo facere eaque ea vitae.
+                                </p>
+                              </div>
+                                <br>
+                                <h2 id="extrasnames">Dash</h2>
+                                <div id="bluebox">
+                                <hr>
+                                <h2 class="involvementDescription" id="descriptionI">Description</h2>
+                                <p id="extrasparagraph">
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium eum tempora quis et molestias. Dolorem excepturi obcaecati nemo non cumque similique ullam dolores, natus aut eaque delectus dignissimos repellendus quisquam autem harum, sunt voluptates ab expedita ex! Optio sapiente cum ducimus ipsa eum sunt hic quis deleniti. Eum nemo facere eaque ea vitae.
+                                </p>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade skillsContentPage" id="extrasGraduateContent" role="tabpanel" aria-labelledby="extrasGraduateTab">
+                            <br>
+                            <h2>HTML</h2>
+                            <hr>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium eum tempora quis et molestias. Dolorem excepturi obcaecati nemo non cumque similique ullam dolores, natus aut eaque delectus dignissimos repellendus quisquam autem harum, sunt voluptates ab expedita ex! Optio sapiente cum ducimus ipsa eum sunt hic quis deleniti. Eum nemo facere eaque ea vitae consequuntur voluptatibus iste laboriosam amet libero, odio optio veritatis totam? Sequi eligendi quidem tenetur eius odit voluptatibus aliquam asperiores at ex rem similique explicabo amet magnam reprehenderit quis, illo praesentium temporibus. At dolorem impedit reiciendis delectus saepe? Aperiam facilis aspernatur molestiae. Veniam autem facere excepturi debitis et!
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div> -->
+        </div>
 
-        
+
+
+
+
+
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <ul class="navbar nav">
+                <li class="nav-item">
+                    <a class="nav-link text-white">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white">1-800-Resume</a>
+                </li>
+                <li class="nav-item">
+                    <a href="mailto:dtn5089@psu.com" id="footerEmail">email</a><br>
+                </li>
+        </nav>
+
+    <!--TESTING DON'T TOUCH-->
+    <!--
+                   <div class="row">
+                <div class="col-3">
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><span>Undergraduate<span></a>
+                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><span>Graduate<span></a>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                            <div class="container">
+                                <br>
+                                <h2>Eclipse</h2>
+                                <hr>
+                                <h2 class="involvementDescription">Description</h2>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium eum tempora quis et molestias. Dolorem excepturi obcaecati nemo non cumque similique ullam dolores, natus aut eaque delectus dignissimos repellendus quisquam autem harum, sunt voluptates ab expedita ex! Optio sapiente cum ducimus ipsa eum sunt hic quis deleniti. Eum nemo facere eaque ea vitae.
+                                </p>
+                                <br>
+
+                                <h2>Moving On</h2>
+                                <hr>
+                                <h2 class="involvementDescription">Description</h2>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium eum tempora quis et molestias. Dolorem excepturi obcaecati nemo non cumque similique ullam dolores, natus aut eaque delectus dignissimos repellendus quisquam autem harum, sunt voluptates ab expedita ex! Optio sapiente cum ducimus ipsa eum sunt hic quis deleniti. Eum nemo facere eaque ea vitae.
+                                </p>
+
+                                <h2>Dash</h2>
+                                <hr>
+                                <h2 class="involvementDescription">Description</h2>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium eum tempora quis et molestias. Dolorem excepturi obcaecati nemo non cumque similique ullam dolores, natus aut eaque delectus dignissimos repellendus quisquam autem harum, sunt voluptates ab expedita ex! Optio sapiente cum ducimus ipsa eum sunt hic quis deleniti. Eum nemo facere eaque ea vitae.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade skillsContentPage" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                            <br>
+                            <h2 id="skills">HTML</h2>
+                            <hr>
+                            <p id="skillsParagraph">
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium eum tempora quis et molestias. Dolorem excepturi obcaecati nemo non cumque similique ullam dolores, natus aut eaque delectus dignissimos repellendus quisquam autem harum, sunt voluptates ab expedita ex! Optio sapiente cum ducimus ipsa eum sunt hic quis deleniti. Eum nemo facere eaque ea vitae consequuntur voluptatibus iste laboriosam amet libero, odio optio veritatis totam? Sequi eligendi quidem tenetur eius odit voluptatibus aliquam asperiores at ex rem similique explicabo amet magnam reprehenderit quis, illo praesentium temporibus. At dolorem impedit reiciendis delectus saepe? Aperiam facilis aspernatur molestiae. Veniam autem facere excepturi debitis et!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    -->
 
     </body>
 </html>

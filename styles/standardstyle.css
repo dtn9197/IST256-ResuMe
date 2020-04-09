@@ -1,3 +1,519 @@
+/*
+Homepage style
+*/
 #brand {
     font-size: 2rem;
+    font-family: "Mr Eaves San OT";
+    font-weight: 300;
+}
+
+.navbar, .navbar-expand-lg, .navbar-dark{
+  background-color: #344349;
+}
+
+.nav-item {
+  font-family: "Futura";
+  font-weight: 600;
+  font-size: 12pt;
+  color: white;
+}
+
+.nav-item :hover{
+  background-color: #6C848C;
+  border: 1px;
+  border-color: #6C848C;
+  border-radius: 6px;
+}
+
+#aboutMe img {
+    display: block;
+    height: 20%;
+    margin: auto;
+}
+
+#aboutMe h1 {
+    font-family: "Big Caslon FB";
+    font-size: 30pt;
+    color: #344349;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+#aboutMe p {
+    display: block;
+
+    margin-left: 40px;
+    margin-right: 40px;
+    background-color: #D3E1E5;
+    border: 1px solid #D3E1E5;
+    padding: 20px;
+    margin-top: 5px;
+    border-radius: 6px;
+}
+
+#aboutMe * {
+    margin-bottom: 50px;
+}
+
+#header{
+  text-align: center;
+  margin-top: 20px;
+}
+
+#resumeheader{
+  font-family: "Big Caslon FB";
+  font-size: 30pt;
+}
+
+.headercolor{
+  color: #6C848C;
+}
+
+#portfolioSite, #footerEmail{
+  color: #6C848C;
+}
+
+#subhead{
+  font-size: 16pt;
+  font-weight: bold;
+}
+
+#extras{
+  margin-bottom: 50px;
+}
+
+#resume{
+    border: 1px solid #6C848C;
+    overflow: scroll;
+    margin: auto;
+    margin-bottom: 50px;
+    box-shadow: 10px 10px 8px #888888;
+    font-family: "Big Caslon FB";
+}
+#resume p{
+	font-size: 1rem;
+}
+
+
+hr{
+  border-top: 1px solid #6C848C;
+}
+
+#footer{
+  bottom: 0px;
+}
+
+
+
+/*
+Education Page style
+*/
+
+#collegeImage {
+    display: block;
+    width: 100%;
+    margin: auto;
+}
+
+#educationheader {
+  font-family: "Big Caslon FB";
+  font-size: 30pt;
+  color: #344349;
+}
+
+
+#profile-tab, #home-tab, #contact-tab {
+  color: #6C848C;
+  background-color: white;
+  font-family: "Futura";
+  font-weight: lighter;
+}
+
+#major, #minor{
+  font-family: "Big Caslon FB";
+  font-size: 20pt;
+  color: #344349;
+}
+
+#home, #profile, #contact{
+  background-color: #D3E1E5;
+  border: 1px solid #D3E1E5;
+  padding: 20px;
+  margin-top: 5px;
+  border-radius: 6px;
+}
+
+/*
+Skills Page Style
+*/
+
+nav:first-of-type{
+    margin-bottom: 30px;
+}
+
+#skillsLabel {
+    display:inline;
+    margin-left: 33%;
+    font-family: "Big Caslon FB";
+    font-size: 30pt;
+    color: #344349;
+}
+
+#skills {
+  font-family: "Big Caslon FB";
+  font-size: 20pt;
+  color: #344349;
+}
+
+#v-pills-tab{
+  font-family: "Futura";
+  font-size: 12pt;
+  background-color: #D3E1E5;
+  border: 1px solid #D3E1E5;
+  padding: 20px;
+  padding-right: 30px;
+  margin-top: 20px;
+  border-radius: 6px;
+}
+
+#skill4Tab, #skill3Tab, #skill2Tab, #skill1Tab, #v-pills-home-tab, #v-pills-profile-tab, #v-pills-messages-tab, #v-pills-settings-tab{
+  color: #344349;
+  background-color: #D3E1E5;
+}
+
+#skill4Tab, #skill3Tab, #skill2Tab, #skill1Tab{
+  visibility: hidden;
+  display: none;
+}
+
+.nav-link :active{
+  background-color: white;
+  border: 1px;
+  border-color: white;
+  border-radius: 6px;
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.nav-link :hover{
+  background-color: white;
+  border: 1px;
+  border-color: white;
+  border-radius: 6px;
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#skill4TabContent, #skill3TabContent, #skill2TabContent, #skill1TabContent, #v-pills-home, #v-pills-profile, #v-pills-messages, #v-pills-settings {
+  background-color: #D3E1E5;
+  border: 1px solid #D3E1E5;
+  padding: 20px;
+  padding-right: 30px;
+  margin-top: 20px;
+  border-radius: 6px;
+  margin-bottom: 50px;
+}
+
+#addSkill, #removeSkill{
+  margin-left: 10px;
+  font-family: "Futura";
+  font-size: 10pt;
+  color: #D3E1E5;
+  background-color: #344349;
+  padding: 9px;
+  border: 3px solid #D3E1E5;
+  border-radius: 7px;
+}
+
+#addSkill:hover{
+  background-color: #6C848C;
+}
+
+#removeSkill:hover{
+  background-color: #6C848C;
+}
+
+/*
+white shadow
+*/
+
+#skillsParagraph {
+  background-color: white;
+  border: 1px solid white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 3px;
+  box-shadow: 10px 10px 10px 2px #888888;
+}
+
+.skillsContentPage {
+
+    padding: 15px;
+    width: 80%;
+    margin: auto;
+}
+.skillsContentPage p {
+    overflow: auto;
+    height: 400px;
+}
+
+
+
+
+
+/*
+  EXPERIENCE Page Style
+*/
+#backgroundcolor, #employer2ContentTab{
+    background-color: #D3E1E5;
+    border: 1px solid #D3E1E5;
+    padding: 20px;
+    margin-top: 5px;
+    border-radius: 6px;
+  }
+  /*
+  WHITE
+  */
+#Employerparagraph{
+    background-color: white;
+    border: 1px solid white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 3px;
+    box-shadow: 10px 10px 10px 2px #888888;
+  }
+
+
+#Employerfont{
+  font-family: "Big Caslon FB";
+  font-size: 30pt;
+  color: #344349;
+}
+
+#responsibility, #EmfontItalicised{
+  font-family: "Big Caslon FB";
+  font-size: 25pt;
+  color: #344349;
+  font-style: italic;
+}
+
+#jobnames{
+  font-family: "Big Caslon FB";
+  font-size: 25pt;
+  color: #344349;
+}
+
+/*
+  Bootstrap
+*/
+
+/*
+  Bootstrap left tag
+*/
+#experienceEmployer1Tab, #experienceEmployer2Tab, #experienceTab{
+  color: #344349;
+  background-color: #D3E1E5;
+  border: 1px solid #D3E1E5;
+  padding: 20px;
+  margin-top: 5px;
+  border-radius: 6px;
+  font-family: "Futura";
+  font-weight: lighter;
+}
+
+#experienceTab :hover{
+  background-color: white;
+  border: 1px;
+  border-color: white;
+  border-radius: 6px;
+}
+
+
+/*
+  Cashier Dish Baker
+*/
+
+#employer2Responsibility1Tab, #employer2Responsibility2Tab, #responsibility3Tab{
+  color: #6C848C;
+  background-color: white;
+  font-family: "Futura";
+  font-weight: lighter;
+}
+
+#employer2Responsibility1Tab, #employer2Responsibility2Tab{
+  margin-right: 12px;
+}
+
+
+
+
+
+.experienceContentPage hr + h2 {
+  text-align: right;
+
+}
+.experienceContentPage div {
+  margin-bottom: 60px;
+}
+
+#experienceLeftGrid {
+  height: 70vh;
+}
+
+
+
+
+
+/* Projects Page Style
+*/
+
+#projectstype{
+  font-family: "Big Caslon FB";
+  font-size: 25pt;
+  color: #344349;
+}
+
+#blueback{
+    background-color: #D3E1E5;
+    border: 1px solid #D3E1E5;
+    padding: 20px;
+    margin-top: 5px;
+    border-radius: 6px;
+    margin-bottom: 50px;
+  }
+
+
+#imagesSlide {
+  margin-left: 150px;
+  width: 800px;
+  height: 600px;
+}
+
+#imagetext{
+  font-family: "Futura";
+  font-weight: bold;
+}
+
+
+
+
+/*Awards Page Style
+*/
+
+#awardstype{
+  font-family: "Big Caslon FB";
+  font-size: 25pt;
+  color: #344349;
+}
+
+#awardHeader{
+  font-family: "Big Caslon FB";
+  font-size: 25pt;
+  color: #344349;
+  font-style: italic;
+}
+
+#awardDescriptionText{
+  background-color: white;
+  border: 1px solid white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 3px;
+  box-shadow: 10px 10px 10px 2px #888888;
+}
+
+#awardSecondGrid{
+  color: #344349;
+  background-color: #D3E1E5;
+  border: 1px solid #D3E1E5;
+  padding: 20px;
+  margin-top: 5px;
+  border-radius: 6px;
+  margin-bottom: 50px;
+}
+
+
+#awardImage {
+  width: 100%;
+}
+#awardHeader {
+  text-align: right;
+}
+#awardSecondGrid {
+  margin-top: 60px;
+  padding: 3rem;
+}
+#awardDescriptionText {
+  overflow: auto;
+  height: 450px;
+}
+
+
+
+
+/* Extras Page Style
+*/
+#bluebox{
+    background-color: #D3E1E5;
+    border: 1px solid #D3E1E5;
+    padding: 20px;
+    margin-top: 5px;
+    border-radius: 6px;
+    margin-bottom: 50px;
+  }
+
+#extrasparagraph{
+    background-color: white;
+    border: 1px solid white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 3px;
+    box-shadow: 10px 10px 10px 2px #888888;
+
+  }
+
+  #extrasnames{
+    font-family: "Big Caslon FB";
+    font-size: 25pt;
+    color: #344349;
+  }
+
+  #descriptionI{
+    font-family: "Big Caslon FB";
+    font-size: 25pt;
+    color: #344349;
+    font-style: italic;
+  }
+
+/* Bootstrap
+*/
+#extrasGraduateTab, #extrasUndergraduateTab, #extrasTab{
+  color: #344349;
+  background-color: #D3E1E5;
+  border: 1px solid #D3E1E5;
+  padding: 20px;
+  margin-top: 5px;
+  border-radius: 6px;
+  font-family: "Futura";
+  font-weight: lighter;
+}
+
+#extrasTab :hover{
+  background-color: white;
+  border: 1px;
+  border-color: white;
+  border-radius: 6px;
+}
+
+
+#test {
+  color: red;
+  background-color: red;
+}
+
+.involvementDescription {
+  text-align: right;
 }

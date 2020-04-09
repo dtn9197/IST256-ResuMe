@@ -2,28 +2,32 @@
     <head>
         <meta charset="utf-8">
         <title>Home Page</title>
+
+        <!--
+            This Project includes external libraries such as Bootstrap, Jquery, and possibly Jquery UI Widgets
+        -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
         <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
         <!-- Popper.js -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
         <!-- Bootstrap JavaScript -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-        <link rel="stylesheet" href="styles/homepage.css">
+        <link rel="stylesheet" href="styles/standardstyle.css">
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand mr-auto" href="#" id="brand">ResuME</a>
+        <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+            <a class="navbar-brand mr-auto" href="#" id="brand">ResuMe</a>
             <ul class="navbar nav">
                 <li class="nav-item">
                     <a class="nav-link text-white" href="homepage.html">Home</a>
@@ -48,32 +52,27 @@
                 </li>
             </ul>
         </nav>
-        <h2>HelloWorld</h2>
-        <h2>HelloWorld</h2>
-        <h2>HelloWorld</h2>
-        <h2>HelloWorld</h2>
-        <h3>sdfsdfsd</h3>
-        
+
         <div class="container-fluid">
             <div class="row">
                 <div class="col-6" id="resume">
                     <header id="header">
-                        <h1>Duy Nguyen</h1>
-                        <address id="address">411 Waupelani Drive <br>
-                        717-614-0744 <br>
-                        dtn5089@psu.edu</address>
+                        <h1 id="resumeheader">John Doe</h1>
+                        <address id="address">411 Waupelani Drive &emsp;-&emsp; 717-614-0744 &emsp;-&emsp; dtn5089@psu.edu</address>
                     </header>
-                        
+                    <br>
+                    <hr>
+                    <br>
                     <main id="main">
                         <section id="education">
                             <h2 class="headercolor">Education</h2>
                             <hr class="linebreak">
-                            
-                            <h3>Pennsylvania State University, University Park Campus <span class="rightalign">May 2021 (Estimated)</span></h3>
-                        
+
+                            <h3 id="subhead">Pennsylvania State University, University Park <span class="rightalign"> &emsp;&emsp;May 2021 (Estimated)</span></h3>
+
                             <p>
                                 <span id="major">Major: B.S Information Sciences and Technology</span>
-                                
+
                                 <span class="rightalign">Cumulative GPA: 3.42</span>
                             </p>
                             <p>
@@ -85,9 +84,10 @@
                                 <li>Management Information System</li>
                             </ul>
                         </section>
+                        <br>
                         <section id="experience">
-                            <h2 class="headercolor">Work Experience:</h2><hr class="linebreak">
-                            <h3>Turkey Hill Mini Market - Cashier <span class="rightalign">January - May 2018</span></h3>
+                            <h2 class="headercolor">Work Experience</h2><hr class="linebreak">
+                            <h3 id="subhead">Turkey Hill Mini Market, Cashier <span class="rightalign">&emsp;&emsp;January - May 2018</span></h3>
                             <ul>
                                 <li>Coordinated with team to accomplish tasks on schedule</li>
                                 <li>Stocked/restocked merchandise</li>
@@ -95,8 +95,9 @@
                                 <li>Provided customer service such as answering phones</li>
                             </ul>
                         </section>
+                        <br>
                         <section id="skills">
-                            <h2 class="headercolor">Technical Skills: </h2> <hr class="linebreak">
+                            <h2 class="headercolor">Technical Skills </h2> <hr class="linebreak">
                             <p>
                                 Computer Programming: Java, Javascript, HTML, CSS, Bootstrap Framework, UML Modeling
                             </p>
@@ -104,90 +105,100 @@
                                 Software Tools: Github, Microsoft Word, Powerpoint, Microsoft Visio, Adobe XD, Wordpress, Draw.io
                             </p>
                         </section>
+                        <br>
                         <section id="projects">
-                
+
                             <h2 class="headercolor">Academic Experience and Projects </h2> <hr class="linebreak">
-                
-                            <h3>Database Systems & Organization of Data</h3>
+
+                            <h3 id="subhead">Database Systems & Organization of Data</h3>
                             <ul>
                                 <li>Designed and implemented a basic relational database table</li>
                                 <li>Manipulated database by using SQL queries to store and retrieve data</li>
                                 <li>Used Excel and Tableau to analyze Google Play Store data about mobile applications</li>
                             </ul>
-                
-                            <h3>Java Application Development</h3>
+
+                            <h3 id="subhead">Java Application Development</h3>
                             <ul>
                                 <li>Worked with a team to code a text-ased trivia game in Java</li>
                                 <li>Programmed a two-dimensional data table using Java GUI features to store and sort data</li>
                                 <li>Applied UML to design and model software requirements and implemented it in Java</li>
                             </ul>
-                
-                            <h3>Web Development</h3>
+
+                            <h3 id="subhead">Web Development</h3>
                             <ul>
                                 <li>Built a simple static, text-based web page using basic HTML/CSS</li>
                                 <li>Built a homepage with navbar, background image, and buttons using Bootstrap Framework</li>
                             </ul>
-                
-                            <h3>User Experience Design</h3>
+
+                            <h3 id="subhead">User Experience Design</h3>
                             <ul>
                                 <li>Designed and prototyped mobile applications using Adobe XD</li>
                                 <li>Conducted user-research by interviews to better understand moile shopping habits of college students</li>
                             </ul>
-                
-                            <h3>Project Management</h3>
+
+                            <h3 id="subhead">Project Management</h3>
                             <ul>
                                 <li>Collaborated with a team to conduct analysis regarding design features that healthcare websites should have.</li>
                             </ul>
                         </section>
-                
+
                         <section id="awards">
                         </section>
-                        
+                        <br>
                         <section id="extras">
-                            <h2 class="headercolor">Extracurricular:</h2><hr class="linebreak">
-                            <h3>Student Clubs & Organization</h3>
+                            <h2 class="headercolor">Extracurriculars </h2><hr class="linebreak">
+                            <h3 id="subhead">Student Clubs & Organization</h3>
                             <p>
-                                <h4>IST Consultant Group <span class="rightalign">January 2019 - present</span></h4>
-                                
+                                <h4 id="subhead">IST Consultant Group <span class="rightalign">&emsp;&emsp;January 2019 - present</span></h4>
+
                                 <ul>
                                     <li>A student interest group whose main goal is to learn more about different facets of information technology such as User Experience Design, Cybersecurity, Mobile and Web application development.</li>
-                                </ul>			
+                                </ul>
                             </p>
-                
+
                             <p>
                                 <h4>Web Developer Bootcamp (Udemy course)</h4>
                                 <ul>
-                                    <li>-A comprehensive web development course covering a wide range of subjects including but not limited to: HTML5, CSS, Javascript, Bootstrap 4, command-line, Github, MongroDB, etc...</li>
+                                    <li>A comprehensive web development course covering a wide range of subjects including but not limited to: HTML5, CSS, Javascript, Bootstrap 4, command-line, Github, MongroDB, etc...</li>
                                 </ul>
                             </p>
                         </section>
-                    
-                
-                        <a href="http://personal.psu.edu/dtn5089"><strong>Projects Portfolio site</strong></a>
+
+
+                        <a href="http://personal.psu.edu/dtn5089" id="portfolioSite"><strong>Projects Portfolio site</strong></a>
                     </main>
 
                 </div>
-                <div class="col-6">
-
+                <div class="col-6" id="aboutMe">
+                    <img src="img/student.jpg" alt="Profile picture here">
+                    <br>
+                    <br>
+                    <hr>
+                    <h1 id="aboutheader">About Me</h1>
+                    <br>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit est perferendis illum sapiente veritatis quisquam consequatur aperiam magnam hic facilis. Quaerat minus temporibus architecto natus fuga voluptas necessitatibus asperiores tenetur ad harum, tempora facere tempore optio. Quam vero inventore, blanditiis assumenda corporis fugit, iusto aliquid praesentium quaerat pariatur, distinctio nobis doloribus deserunt corrupti consequatur ipsam maxime temporibus. Facere ad amet delectus ducimus itaque quam pariatur asperiores! Quidem asperiores adipisci, atque porro ullam voluptates doloribus impedit laborum molestiae cumque eos saepe dignissimos nesciunt qui, corporis rerum nostrum et iure consequuntur. Assumenda, eos dolores expedita eveniet repellendus deleniti placeat ad odit adipisci repudiandae quae blanditiis tempore laborum, dolore nulla voluptates quas veniam quisquam error consequuntur? Expedita architecto hic ducimus id autem, dolorem ullam sapiente deserunt recusandae voluptatum temporibus et obcaecati error earum possimus velit quam suscipit, debitis beatae modi aliquam quia perferendis! Ab magnam veniam blanditiis dicta labore, voluptatum consectetur repudiandae repellat?
+                    </p>
                 </div>
             </div>
         </div>
 
-        <!--Bottom Nav-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+
+        <nav class="navbar navbar-expand-lg navbar-dark">
             <ul class="navbar nav">
                 <li class="nav-item">
                     <a class="nav-link text-white">Contact Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white">###-###-###</a>
+                    <a class="nav-link text-white">1-800-Resume</a>
                 </li>
                 <li class="nav-item">
-                    <a href="mailto:dtn5089@psu.com">email</a>.<br>
+                    <a href="mailto:dtn5089@psu.com" id="footerEmail">email</a><br>
                 </li>
         </nav>
 
-        
+
 
     </body>
 </html>
