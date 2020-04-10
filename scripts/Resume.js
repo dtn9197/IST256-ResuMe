@@ -11,9 +11,6 @@ $(".editButton").click(editText);
 $(".cancelButton").click(cancelEdit);
 
 
-
-
-
 /*
   display a skilltab sequentially based on a counter,
  there are four additional skill tabs to be added.
@@ -36,37 +33,38 @@ a function that replaces textboxes with textareas that can be edited
 //create corresponding # number of textarea elements based on the list
 //add the individual textcontent to each new textarea
 //replace all the textboxes with the new textareas
+**note, parallel arrays is bad, redo use case for next sprints if there's time
 */
 function editText() {
-$(".cancelButton").show();
-$(".editButton").attr("disabled","true");
-textBoxList = $(".editable");
+  $(".cancelButton").show();
+  $(".editButton").attr("disabled","true");
 
+  //store all textboxes on the page in textBoxList
+  textBoxList = $(".editable");
 
-//transfer text content of each textbox to a list called textContentList
-textBoxList.each(function(index, textBox) {
-    textContentList.push($(textBox).text());
-});
+  //transfer text content of each textbox to a list called textContentList
+  textBoxList.each(function(index, textBox) {
+      textContentList.push($(textBox).text());
+  });
 
-//create the text areas and store in a list called textAreaList
-for (var i = 0; i < textContentList.length; i++) {
-  textAreaList.push($("<textarea></textarea>"));
-}
-
-//transfer every text content in the textContentList to each textArea
-$(textAreaList).each(function(index, textArea) {
-  $(textArea).text(textContentList[index]);
-});
-
-//replace the textboxes with the new textareas
-textBoxList.each(function(index, textBox) {
-  if($(textBoxList[index]).is("p")) {
-    $(textAreaList[index]).css("width", "100%");
-    $(textAreaList[index]).css("height", "300px");
+  //create the text areas and store in a list called textAreaList
+  for (var i = 0; i < textContentList.length; i++) {
+    textAreaList.push($("<textarea></textarea>"));
   }
-  $(textBox).replaceWith(textAreaList[index]);
-});
 
+  //transfer every text content in the textContentList to each textArea
+  $(textAreaList).each(function(index, textArea) {
+    $(textArea).text(textContentList[index]);
+  });
+
+  //replace the textboxes with the new textareas
+  textBoxList.each(function(index, textBox) {
+    if($(textBoxList[index]).is("p")) {
+      $(textAreaList[index]).css("width", "100%");
+      $(textAreaList[index]).css("height", "300px");
+    }
+    $(textBox).replaceWith(textAreaList[index]);
+  });
 
 }
 /*
@@ -77,10 +75,6 @@ function cancelEdit() {
   $("textarea").each(function(index, textArea) {
     $(textArea).replaceWith(textBoxList[index]);
   });
-  
- 
-    
-  
 }
 
 
