@@ -4,6 +4,12 @@ var counter = 0;
 //event handler for add skill button
 $("#addSkill").click(addSkills);
 
+$(".editButton").click(editText);
+
+
+
+
+
 /*
   display a skilltab sequentially based on a counter,
  there are four additional skill tabs to be added.
@@ -12,9 +18,70 @@ function addSkills() {
   counter++;
   if(counter <= 4) {
     var skillID = "#skill" + counter + "Tab";
-    $(skillID).css("visibility", "visible");
-    $(skillID).css("display", "block");
+    $(skillID).css({
+      visibility: "visible",
+      display: "block"
+    });
   } else counter = 0;
+}
+
+/*
+a function that turns p elements into text areas that can be edited
+
+//store each text content of the paragraphs in a list
+//create # number of textarea element based on the list
+//add the text content to each textarea element in order
+//replace the paragraph elements with the new textarea elements
+*/
+function editText() {
+var textContentList = [];
+var textAreaList = [];
+var paragraphList = $(".editable");
+
+//transfer text and dimensions of each paragrapht to textContentList and attributesList
+paragraphList.each(function(index, paragraph) {
+    textContentList.push($(paragraph).text());
+});
+//create the text areas
+for (var i = 0; i < textContentList.length; i++) {
+  textAreaList.push($("<textarea></textarea>"));
+}
+
+//transfer textContentList to textAreaList
+$(textAreaList).each(function(index, textArea) {
+  $(textArea).text(textContentList[index]);
+});
+
+
+//replace dom elements
+paragraphList.each(function(index, paragraph) {
+  $(paragraph).replaceWith(textAreaList[index]);
+});
+
+}
+
+
+
+
+
+
+
+
+function createTextArea() {
+  var textAreaList = [];
+  var paragraphList = $(".skillParagraph");
+  textAreaList.push($("<textarea> text area 1 </textarea>"));
+  textAreaList.push($("<textarea> text area 2 </textarea>"));
+  textAreaList.push($("<textarea> text area 3 </textarea>"));
+  textAreaList.push($("<textarea> text area 4 </textarea>"));
+
+  console.log(textAreaList);
+
+  paragraphList.each(function(index, paragraph) {
+    $(paragraph).replaceWith(textAreaList[index]);
+  });
+
+
 }
 
 
