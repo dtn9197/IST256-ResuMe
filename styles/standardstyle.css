@@ -260,13 +260,6 @@ white shadow
     height: 400px;
 }
 
-textarea {
-  width: 100%;
-  height: 400px;
-}
-
-
-
 
 
 /*
@@ -522,3 +515,13 @@ textarea {
 .involvementDescription {
   text-align: right;
 }
+
+textarea {
+  resize: auto;
+  width: 100%;
+}
+
+.cancelButton {
+  display: none;
+}
+

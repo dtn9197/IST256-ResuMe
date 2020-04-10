@@ -1,10 +1,14 @@
 
 var counter = 0;
+var textContentList = [];
+var textAreaList = [];
+var textBoxList = [];
 
 //event handler for add skill button
 $("#addSkill").click(addSkills);
-
+//event handler for edit button
 $(".editButton").click(editText);
+$(".cancelButton").click(cancelEdit);
 
 
 
@@ -26,63 +30,77 @@ function addSkills() {
 }
 
 /*
-a function that turns p elements into text areas that can be edited
+a function that replaces textboxes with textareas that can be edited
 
-//store each text content of the paragraphs in a list
-//create # number of textarea element based on the list
-//add the text content to each textarea element in order
-//replace the paragraph elements with the new textarea elements
+//store the text content  of each individual textboxes in a list
+//create corresponding # number of textarea elements based on the list
+//add the individual textcontent to each new textarea
+//replace all the textboxes with the new textareas
 */
 function editText() {
-var textContentList = [];
-var textAreaList = [];
-var paragraphList = $(".editable");
+$(".cancelButton").show();
+$(".editButton").attr("disabled","true");
+textBoxList = $(".editable");
 
-//transfer text and dimensions of each paragrapht to textContentList and attributesList
-paragraphList.each(function(index, paragraph) {
-    textContentList.push($(paragraph).text());
+
+//transfer text content of each textbox to a list called textContentList
+textBoxList.each(function(index, textBox) {
+    textContentList.push($(textBox).text());
 });
-//create the text areas
+
+//create the text areas and store in a list called textAreaList
 for (var i = 0; i < textContentList.length; i++) {
   textAreaList.push($("<textarea></textarea>"));
 }
 
-//transfer textContentList to textAreaList
+//transfer every text content in the textContentList to each textArea
 $(textAreaList).each(function(index, textArea) {
   $(textArea).text(textContentList[index]);
 });
 
-
-//replace dom elements
-paragraphList.each(function(index, paragraph) {
-  $(paragraph).replaceWith(textAreaList[index]);
+//replace the textboxes with the new textareas
+textBoxList.each(function(index, textBox) {
+  if($(textBoxList[index]).is("p")) {
+    $(textAreaList[index]).css("width", "100%");
+    $(textAreaList[index]).css("height", "300px");
+  }
+  $(textBox).replaceWith(textAreaList[index]);
 });
 
+
 }
-
-
-
-
-
-
-
-
-function createTextArea() {
-  var textAreaList = [];
-  var paragraphList = $(".skillParagraph");
-  textAreaList.push($("<textarea> text area 1 </textarea>"));
-  textAreaList.push($("<textarea> text area 2 </textarea>"));
-  textAreaList.push($("<textarea> text area 3 </textarea>"));
-  textAreaList.push($("<textarea> text area 4 </textarea>"));
-
-  console.log(textAreaList);
-
-  paragraphList.each(function(index, paragraph) {
-    $(paragraph).replaceWith(textAreaList[index]);
+/*
+replace the textareas with the original textboxes
+*/
+function cancelEdit() {
+  $(".editButton").removeAttr("disabled");
+  $("textarea").each(function(index, textArea) {
+    $(textArea).replaceWith(textBoxList[index]);
   });
-
-
+  
+ 
+    
+  
 }
+
+
+
+//test function, proof-of-concept only
+// function createTextArea() {
+//   var textAreaList = [];
+//   var textBoxList = $(".skillParagraph");
+//   textAreaList.push($("<textarea> text area 1 </textarea>"));
+//   textAreaList.push($("<textarea> text area 2 </textarea>"));
+//   textAreaList.push($("<textarea> text area 3 </textarea>"));
+//   textAreaList.push($("<textarea> text area 4 </textarea>"));
+
+//   console.log(textAreaList);
+
+//   textBoxList.each(function(index, paragraph) {
+//     $(paragraph).replaceWith(textAreaList[index]);
+//   });
+
+// }
 
 
 
