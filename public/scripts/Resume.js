@@ -4,9 +4,8 @@ var textContentList = [];
 var textAreaList = [];
 var textBoxList = [];
 
-//event handler for add skill button
+
 $("#addSkill").click(addSkills);
-//event handler for edit button
 $(".editButton").click(editText);
 $(".cancelButton").click(cancelEdit);
 
@@ -33,7 +32,6 @@ a function that replaces textboxes with textareas that can be edited
 //create corresponding # number of textarea elements based on the list
 //add the individual textcontent to each new textarea
 //replace all the textboxes with the new textareas
-**note, parallel arrays is bad, redo use case for next sprints if there's time
 */
 function editText() {
   $(".cancelButton").show();
