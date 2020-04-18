@@ -4,11 +4,9 @@ var textContentList = [];
 var textAreaList = [];
 var textBoxList = [];
 
-
 $("#addSkill").click(addSkills);
 $(".editButton").click(editText);
 $(".cancelButton").click(cancelEdit);
-
 
 /*
   display a skilltab sequentially based on a counter,
@@ -24,6 +22,7 @@ function addSkills() {
     });
   } else counter = 0;
 }
+
 
 /*
 a function that replaces textboxes with textareas that can be edited
