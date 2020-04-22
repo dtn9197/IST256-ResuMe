@@ -2,24 +2,27 @@ var express = require('express');
 var router = express.Router();
 
 
-var homepageConstructor = require("../models/homePage");
+var siteConstructor = require("../models/site");
 
-var aboutMe = new homepageConstructor({
-    aboutMe: "Hello"
-});
+var homepage = {
+    aboutMe: "Hello";
+}
+var education ={
+    schoolTitle: "PennState",
+    aboutSchool: "Not Much here",
+    major: "IST",
+    minor: "SRA",
+    undergraduate: "random stuff",
+    graduate: "more random text",
+},
 
-aboutMe.save(function(error, content) {
-    if(error)
-        console.log("an error occured");
-    else
-        console.log("content saved");
-        console.log("content");
-        console.log("content is of type: " +  typeof(content));
-});
+var skills = [{skill: "HTML", skillDescription: "HTML is a markup language......"}];
+
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('homepage.html', { title: 'homepage' });
+    res.render('homepage', { title: 'homepage' });
   });
   
 module.exports = router;
