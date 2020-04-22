@@ -27,6 +27,191 @@
         <script src="scripts/Resume.js" defer></script>
     </head>
     <body>
+        
+        <!--below are six consecutive Bootstrap modal popup, enabled by clicking on edit buttons next to the resume headers-->
+        <!-----header Modal-->
+        <div class="modal fade" id="headerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                              <label for="nameInput">Name</label>
+                              <input type="text" class="form-control" id="nameInput" aria-describedby="emailHelp" placeholder="Enter your Name">
+                            </div>
+                            <div class="form-group">
+                              <label for="addressInput">address</label>
+                              <input type="text" class="form-control" id="addressInput" placeholder="e.g 2707 Main Street, Steelton, PA, 16801">
+                            </div>
+                            <div class="form-group">
+                              <label for="phoneNumberInput">Phone</label>
+                              <input type="tel" class="form-control" id="phoneNumberInput" placeholder="e.g 532-536-1575">
+                            </div>
+                            <div class="form-group">
+                              <label for="emailInput">email</label>
+                              <input type="email" class="form-control" id="emailInput" placeholder="e.g asi5928@gmail.com">
+                              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                          </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Modal -->
+        <div class="modal fade" id="educationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Work Experience Modal -->
+        <div class="modal fade" id="workExperienceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Work Experience</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!---entire body is a collapsible accordion-->
+                        <div id="testAccordion" class="accordion">
+
+                            
+                            <!-- <div class="card">
+                              <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Collapsible Group Item #2
+                                  </button>
+                                </h5>
+                              </div>
+                              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card">
+                              <div class="card-header" id="headingThree">
+                                <h5 class="mb-0">
+                                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Collapsible Group Item #3
+                                  </button>
+                                </h5>
+                              </div>
+                              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                <div class="card-body">
+                                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                              </div>
+                            </div> -->
+                          </div>
+                    </div>
+                    <div class="container-fluid modalItemContainer">
+                        <input type="text" name="modalItemName" placeholder="company name, role, etc..">
+                        <button type="button" class="btn btn-secondary addModalItemButton">Add</button>
+                        <button type="button" class="btn btn-secondary cancelModalButton">Cancel</button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary modalAddButton">Add Work Experience</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Academics Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Extracurriculars Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!---Navigation bar-->
         <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
             <a class="navbar-brand mr-auto" href="#" id="brand">ResuMe</a>
             <ul class="navbar nav">
@@ -54,11 +239,16 @@
             </ul>
         </nav>
 
+        <!----Grid containing resume to the left, about me section to the right-->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-6" id="resume">
                     <header id="header">
-                        <h1 id="resumeheader">John Doe</h1>
+                        <h1 id="resumeheader">John Doe
+                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#headerModal">
+                            Edit
+                          </button>
+                        </h1>
                         <address id="address">411 Waupelani Drive &emsp;-&emsp; 717-614-0744 &emsp;-&emsp; dtn5089@psu.edu</address>
                     </header>
                     <br>
@@ -66,7 +256,7 @@
                     <br>
                     <main id="main">
                         <section id="education">
-                            <h2 class="headercolor">Education</h2>
+                            <h2 class="headercolor">Education <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#educationModal">Edit</button></h2>
                             <hr class="linebreak">
 
                             <h3 id="subhead">Pennsylvania State University, University Park <span class="rightalign"> &emsp;&emsp;May 2021 (Estimated)</span></h3>
@@ -74,11 +264,9 @@
                             <p>
                                 <span id="major">Major: B.S Information Sciences and Technology</span>
 
-                                <span class="rightalign">Cumulative GPA: 3.42</span>
                             </p>
                             <p>
                                 Minors:
-                                <span class="rightalign">Major GPA: 3.56</span>
                             </p>
                             <ul>
                                 <li>Security & Risk Analysis <span class="rightalign">Dean's List: Fall 2018, Spring 2019</span></li>
@@ -87,7 +275,7 @@
                         </section>
                         <br>
                         <section id="experience">
-                            <h2 class="headercolor">Work Experience</h2><hr class="linebreak">
+                            <h2 class="headercolor">Work Experience <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#workExperienceModal">Edit</button><hr class="linebreak">
                             <h3 id="subhead">Turkey Hill Mini Market, Cashier <span class="rightalign">&emsp;&emsp;January - May 2018</span></h3>
                             <ul>
                                 <li>Coordinated with team to accomplish tasks on schedule</li>
@@ -98,18 +286,26 @@
                         </section>
                         <br>
                         <section id="skills">
-                            <h2 class="headercolor">Technical Skills </h2> <hr class="linebreak">
-                            <p>
-                                Computer Programming: Java, Javascript, HTML, CSS, Bootstrap Framework, UML Modeling
-                            </p>
-                            <p>
-                                Software Tools: Github, Microsoft Word, Powerpoint, Microsoft Visio, Adobe XD, Wordpress, Draw.io
-                            </p>
+                            <h2 class="headercolor">Technical Skills <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#educationModal">Edit</button> <hr class="linebreak">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-3"><li>Project Management</li></div>
+                                    <div class="col-3"><li>Brand Management</li></div>
+                                    <div class="col-3"><li>Java programming</li></div>
+                                    <div class="col-3"><li>Microsoft Office</li></div>
+                                    <div class="col-3"><li>Data Analysis</li></div>
+                                    <div class="col-3"><li>Databases</li></div>
+                                    <div class="col-3"><li>Networking</li></div>
+                                    <div class="col-3"><li>Supply Chain</li></div>
+                                    <div class="col-3"><li>Marketing</li></div>
+                                    <div class="col-3"><li>Finance</li></div>
+                                </div>
+                            </div>
                         </section>
                         <br>
                         <section id="projects">
 
-                            <h2 class="headercolor">Academic Experience and Projects </h2> <hr class="linebreak">
+                            <h2 class="headercolor">Academic Experience and Projects <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#educationModal">Edit</button> <hr class="linebreak">
 
                             <h3 id="subhead">Database Systems & Organization of Data</h3>
                             <ul>
@@ -147,8 +343,7 @@
                         </section>
                         <br>
                         <section id="extras">
-                            <h2 class="headercolor">Extracurriculars </h2><hr class="linebreak">
-                            <h3 id="subhead">Student Clubs & Organization</h3>
+                            <h2 class="headercolor">Extracurriculars <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#educationModal">Edit</button> </h2><hr class="linebreak">
                             <p>
                                 <h4 id="subhead">IST Consultant Group <span class="rightalign">&emsp;&emsp;January 2019 - present</span></h4>
 
@@ -187,7 +382,7 @@
         </div>
 
 
-
+        <!---bottom nav bar-->
         <nav class="navbar navbar-expand-lg navbar-dark">
             <ul class="navbar nav">
                 <li class="nav-item">
@@ -203,5 +398,30 @@
 
 
 
+        <div class="card" id="templateCard">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Collapsible Group Item #1
+                </button>
+                <button type="button" class="deleteItemButton">Delete</button>
+              </h5>
+            </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#testAccordion">
+              <div class="card-body">
+                <ul>
+                    <li class="bulletPointClicked">Coordinated with team to accomplish tasks on schedule</li>
+                    <li>Stocked/restocked merchandise</li>
+                    <li>Provided customer service such as answering phones</li>
+                </ul>
+                <button class="addResponsibilityButton">add responsibility</button> <br>
+                <div class="addResponsibilityContainer">
+                    <input type="text">
+                    <button class="addBulletPointButton">Add</button>
+                    <button class="cancelResponsibilityButton">Cancel</button>
+                </div>
+              </div>
+            </div>
+        </div>
     </body>
 </html>

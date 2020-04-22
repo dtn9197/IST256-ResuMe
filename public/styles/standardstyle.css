@@ -104,6 +104,40 @@ hr{
   bottom: 0px;
 }
 
+#skills li {
+  font-size: 1rem;
+}
+
+#resume button {
+  position: absolute;
+  right: 10px;
+}
+
+.modalAddButton {
+  position: absolute;
+  left: 5px;
+}
+
+.modalItemContainer{
+  display: none;
+  padding-top: 200px;
+}
+
+.deleteItemButton {
+  position: absolute;
+  right: 10px;
+}
+.addResponsibilityContainer {
+  display: none;
+}
+
+
+
+
+
+
+
+
 
 
 /*

@@ -3,10 +3,87 @@ var counter = 0;
 var textContentList = [];
 var textAreaList = [];
 var textBoxList = [];
+var modalCard = $("#templateCard").clone();
 
 $("#addSkill").click(addSkills);
 $(".editButton").click(editText);
 $(".cancelButton").click(cancelEdit);
+
+
+
+/* 
+  resume-related scripts BEGIN
+ */
+$(".modalAddButton").click(function() {
+  $(".modalItemContainer").toggle();
+});
+$(".cancelModalButton").click(function() {
+  $(".modalItemContainer").toggle();
+});
+
+$(".addModalItemButton").click(addItem);
+
+
+
+
+
+
+/*
+  this method takes a user input and add an item into the accordion
+*/
+function addItem(event) {
+  var inputFieldData = event.target.previousElementSibling.value;
+  if(inputFieldData !=="") {
+    // newElement = $(".accordion:first").clone();
+    var modalAccordion = $(event.target).parent().siblings(".modal-body").find(".accordion:first");
+    // var newElement = modalAccordion.children(".card:first").clone();
+    var newElement = modalCard.clone();
+    var buttonElement = newElement.find("button:first");
+    buttonElement.html(inputFieldData);
+    var deleteButton = newElement.find("button.deleteItemButton");
+    deleteButton.click(deleteItem);
+    $(modalAccordion).append(newElement);
+  } else {
+    window.alert("field cannot be empty");
+  }
+
+  $(".addResponsibilityButton").click(function() {
+    $(".addResponsibilityContainer").toggle();
+  });
+  $(".cancelResponsibilityButton").click(function() {
+    $(".addResponsibilityContainer").toggle();
+  });
+
+  $(".addBulletPointButton").click(addBulletPoint);
+
+}
+
+function addBulletPoint(event) {
+  var description = $(event.target).siblings("input").val();
+  var newBulletPoint = $("<li></li>");
+  newBulletPoint.html(description);
+  //add eventlistener
+
+  var list = $(event.target).parent().siblings("ul");
+  list.append(newBulletPoint);
+
+}
+
+function deleteItem(event) {
+  // console.log("clicked");
+  // var deleteButton = event.target;
+  // $(deleteButton).parentsUntil(".modal-body").remove();
+
+  var deleteButton = event.target;
+  console.log($(deleteButton).parentsUntil(".accordion").length);
+  $(deleteButton).parentsUntil(".accordion").remove();
+}
+
+/*
+resume related scripts END
+*/
+
+
 
 /*
   display a skilltab sequentially based on a counter,
@@ -76,6 +153,9 @@ function cancelEdit() {
 
 
 
+
+
+
 //test function, proof-of-concept only
 // function createTextArea() {
 //   var textAreaList = [];
@@ -139,3 +219,13 @@ function showSkillTab3(){
 function showSkillTab4(){
   document.getElementById("skill4TabContent").style.visibility = "visible";
 }
+
+$('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var modal = $(this)
+  modal.find('.modal-title').text('New message to ' + recipient)
+  modal.find('.modal-body input').val(recipient)
+})
