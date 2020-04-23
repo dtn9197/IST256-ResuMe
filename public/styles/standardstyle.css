@@ -555,7 +555,8 @@ textarea {
   width: 100%;
 }
 
-.cancelButton {
+.cancelButton, .saveButton {
   display: none;
 }
+
 

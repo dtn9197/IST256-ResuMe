@@ -8,6 +8,7 @@ var modalCard = $("#templateCard").clone();
 $("#addSkill").click(addSkills);
 $(".editButton").click(editText);
 $(".cancelButton").click(cancelEdit);
+$(".saveButton").click(sendData);
 
 
 
@@ -111,6 +112,7 @@ a function that replaces textboxes with textareas that can be edited
 */
 function editText() {
   $(".cancelButton").show();
+  $(".saveButton").show();
   $(".editButton").attr("disabled","true");
 
   //store all textboxes on the page in textBoxList
@@ -149,6 +151,63 @@ function cancelEdit() {
   $("textarea").each(function(index, textArea) {
     $(textArea).replaceWith(textBoxList[index]);
   });
+  $(".cancelButton").hide();
+  $(".saveButton").hide();
+}
+
+/*
+create an array
+store all textboxes as dom
+//call ajax post request
+  //attach text inside ajax body to server
+
+
+*/
+function sendData() {
+    var textBoxes = $("textarea");
+    var aboutMeContent = $(textBoxes[0]).val();
+    $.ajax({
+      type: "post",
+      url: "http://localhost:3000/homepage",
+      //headers property will be accessible in the route
+      headers: {
+          "Some-header": "Some-header-value"
+      },
+      data: {
+          aboutMeContent: aboutMeContent
+      },
+
+      success: function(data) {
+          console.log("update successful");
+          console.log(data);
+          saveContent(data);
+      }
+  });
+
+}
+/*
+  //store all textboxes in array as dom nodes
+  //for each dom node
+    //store text content based on id
+*/
+function saveContent(pageData) {
+  textBoxList.each(function(index, textBox) {
+    $(textBox).text(pageData[textBox.id]);
+    console.log($(textBox).text());
+  });
+  $("textarea").each(function(index, textArea) {
+    $(textArea).replaceWith(textBoxList[index]);
+  });
+
+  $(".saveButton").hide();
+  $(".editButton").removeAttr("disabled");
+  $(".cancelButton").hide();
+
+
+
+
+  
+
 }
 
 
