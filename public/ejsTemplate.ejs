@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>EJS Engine Test</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <script src="" async defer></script>
+        <script
+        src="https://code.jquery.com/jquery-3.5.0.js"
+        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
+        crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+        <h1>Hellow world</h1>
+
+ <h2> 
+        <%=names[0]%>
+        <ul>
+            <% for(var i = 0; i < names.length; i++) { %>
+                <li><%=names[i]%></li>
+            <% } %>
+
+        </ul>
+       
+</h2>
+
+       
+        
+    </body>
+</html>

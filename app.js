@@ -10,6 +10,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 app.set("views", "ejs");
+app.set("views", path.join(__dirname, 'public'));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
