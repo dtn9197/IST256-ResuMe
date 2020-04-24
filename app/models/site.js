@@ -1,4 +1,4 @@
-var mongoose = require("../database.js");
+var mongoose = require("../../database.js");
 //create schema
 var siteSchema =  new mongoose.Schema({
     _id: String,
@@ -21,18 +21,9 @@ var siteSchema =  new mongoose.Schema({
 });
 
 
-//create test data
+//initialize standard template
 var siteConstructor = mongoose.model("site", siteSchema);
-siteConstructor.findById("dtn5089", function(error,document) {
-    if(document == null) {
-        console.log("couldn't find document");
-        initializeTestData();
-    }
-        
-    else {
-        console.log("document already initialized");
-    }    
-});
+exports.initializeData = initializeTestData;
 
 
 module.exports = siteConstructor;

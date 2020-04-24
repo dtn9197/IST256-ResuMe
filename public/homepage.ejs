@@ -26,8 +26,8 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-        <link rel="stylesheet" href="styles/standardstyle.css">
-        <script src="scripts/Resume.js" defer></script>
+        <link rel="stylesheet" href="../styles/standardstyle.css">
+        <script src="../scripts/Resume.js" defer></script>
     </head>
     <body>
         
@@ -369,15 +369,13 @@
 
                 </div>
                 <div class="col-6" id="aboutMe">
-                    <img src="img/student.jpg" alt="Profile picture here">
+                    <img src="../img/student.jpg" alt="Profile picture here">
                     <br>
                     <br>
                     <hr>
                     <h1 id="aboutheader">About Me</h1>
                     <br>
-                    <p id="aboutMe" class="editable">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit est perferendis illum sapiente veritatis quisquam consequatur aperiam magnam hic facilis. Quaerat minus temporibus architecto natus fuga voluptas necessitatibus asperiores tenetur ad harum, tempora facere tempore optio. Quam vero inventore, blanditiis assumenda corporis fugit, iusto aliquid praesentium quaerat pariatur, distinctio nobis doloribus deserunt corrupti consequatur ipsam maxime temporibus. Facere ad amet delectus ducimus itaque quam pariatur asperiores! Quidem asperiores adipisci, atque porro ullam voluptates doloribus impedit laborum molestiae cumque eos saepe dignissimos nesciunt qui, corporis rerum nostrum et iure consequuntur. Assumenda, eos dolores expedita eveniet repellendus deleniti placeat ad odit adipisci repudiandae quae blanditiis tempore laborum, dolore nulla voluptates quas veniam quisquam error consequuntur? Expedita architecto hic ducimus id autem, dolorem ullam sapiente deserunt recusandae voluptatum temporibus et obcaecati error earum possimus velit quam suscipit, debitis beatae modi aliquam quia perferendis! Ab magnam veniam blanditiis dicta labore, voluptatum consectetur repudiandae repellat?
-                    </p>
+                    <p id="aboutMe" class="editable"><%= data.aboutMe %></p>
                     <button type="button" class="editButton">editContent</button>
                     <button type="button" class="cancelButton">Cancel</button>
                     <button type="button" class="saveButton">Save</button>

@@ -1,20 +1,21 @@
 
+
 var counter = 0;
 var textContentList = [];
 var textAreaList = [];
 var textBoxList = [];
 var modalCard = $("#templateCard").clone();
 
+$(document).ready(function() {
 $("#addSkill").click(addSkills);
 $(".editButton").click(editText);
 $(".cancelButton").click(cancelEdit);
 $(".saveButton").click(sendData);
 
+//posible login
+// $("#signUpSubmit").click(signUpValidation);
+// $("#loginSubmit").click(loginValidation);
 
-
-/* 
-  resume-related scripts BEGIN
- */
 $(".modalAddButton").click(function() {
   $(".modalItemContainer").toggle();
 });
@@ -25,9 +26,14 @@ $(".cancelModalButton").click(function() {
 $(".addModalItemButton").click(addItem);
 
 
+});
 
 
 
+
+/* 
+  resume-related scripts BEGIN
+ */
 
 /*
   this method takes a user input and add an item into the accordion
@@ -176,11 +182,10 @@ function sendData() {
       data: {
           aboutMeContent: aboutMeContent
       },
-
       success: function(data) {
-          console.log("update successful");
-          console.log(data);
-          saveContent(data);
+          // console.log(data);
+          // saveContent(data);
+          location.reload();
       }
   });
 
@@ -209,28 +214,6 @@ function saveContent(pageData) {
   
 
 }
-
-
-
-
-
-
-//test function, proof-of-concept only
-// function createTextArea() {
-//   var textAreaList = [];
-//   var textBoxList = $(".skillParagraph");
-//   textAreaList.push($("<textarea> text area 1 </textarea>"));
-//   textAreaList.push($("<textarea> text area 2 </textarea>"));
-//   textAreaList.push($("<textarea> text area 3 </textarea>"));
-//   textAreaList.push($("<textarea> text area 4 </textarea>"));
-
-//   console.log(textAreaList);
-
-//   textBoxList.each(function(index, paragraph) {
-//     $(paragraph).replaceWith(textAreaList[index]);
-//   });
-
-// }
 
 
 
@@ -288,3 +271,60 @@ $('#exampleModal').on('show.bs.modal', function (event) {
   modal.find('.modal-title').text('New message to ' + recipient)
   modal.find('.modal-body input').val(recipient)
 })
+
+
+//possible login
+
+// function signUpValidation(){
+//   // e.preventDefault();
+//   var userId = $("#signUpButton").val();
+//   console.log("userName is " + userId);
+//   $.ajax({
+//     type:"post",
+//     url: "http://localhost:3000/:userName/createAccount",
+//     data: {
+//       userName: userId
+//     },
+//     success: function(data) {
+//       // console.log(data);
+//     },
+//     error: function(data) {
+//       // console.log("an error ocurred:" + data.error);
+
+//     }
+
+//   });
+// }
+
+// function loginValidation() {
+//   // e.preventDefault();
+//   var userId = $("#loginButton").val();
+//   console.log("userName is " + userId);
+//   $.ajax({
+//     type:"post",
+//     url: "http://localhost:3000/:userName/login",
+//     data: {
+//       userName: userId
+//     }
+//     // success: function(data) {
+//     //   console.log(data);
+//     //     //another get ajax here??
+//     //     // var urlString = "http://localhost:3000/" + userId +"/homepage";
+//     //     // console.log(urlString);
+//     //     // $.ajax({
+//     //     //   type:"get",
+//     //     //   url: urlString,
+//     //     //   success: function(data) {
+//     //     //     $("html").html(data);
+//     //     //   }
+//     //     // });
+  
+//     // },
+//     // error: function(data) {
+//     //   console.log("an error ocurred:" + data.error);
+
+//     // }
+
+//   });
+
+// }
