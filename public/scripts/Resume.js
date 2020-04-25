@@ -7,26 +7,39 @@ var textBoxList = [];
 var modalCard = $("#templateCard").clone();
 
 $(document).ready(function() {
-$("#addSkill").click(addSkills);
-$(".editButton").click(editText);
-$(".cancelButton").click(cancelEdit);
-$(".saveButton").click(sendData);
+    $("#addSkill").click(addSkills);
+    $(".editButton").click(editText);
+    $(".cancelButton").click(cancelEdit);
+    $("#homepageSaveButton").click(sendData);
 
-//posible login
-// $("#signUpSubmit").click(signUpValidation);
-// $("#loginSubmit").click(loginValidation);
+    //posible login
+    $("#signUpSubmit").click(signUpValidation);
+    // $("#loginSubmit").click(loginValidation);
 
-$(".modalAddButton").click(function() {
-  $(".modalItemContainer").toggle();
+    $(".modalAddButton").click(function() {
+      $(".modalItemContainer").toggle();
+    });
+    $(".cancelModalButton").click(function() {
+      $(".modalItemContainer").toggle();
+    });
+
+    $(".addModalItemButton").click(addItem);
+    $("#educationSaveButton").click(sendDataEducation);
+
+    $("#testButtonPost").click(testButtonPost);
+    $("#testButtonGet").click(testButtonGet);
+    $("#skillsSaveButton").click(sendDataSkills);
+    $("#extrasSaveButton").click(sendDataExtras);
+
+
 });
-$(".cancelModalButton").click(function() {
-  $(".modalItemContainer").toggle();
-});
 
-$(".addModalItemButton").click(addItem);
-
-
-});
+function domTest() {
+  var textBoxes = $("textarea");
+  $(textBoxes).each(function(index, textbox) {
+    console.log(textbox);
+  });
+}
 
 
 
@@ -120,24 +133,27 @@ function editText() {
   $(".cancelButton").show();
   $(".saveButton").show();
   $(".editButton").attr("disabled","true");
+  
 
   //store all textboxes on the page in textBoxList
-  textBoxList = $(".editable");
+   textBoxList = $(".editable");
+  
+  
+   //create the text areas and store in a list called textAreaList
+   for (var i = 0; i < textBoxList.length; i++) {
+    textAreaList.push($("<textarea></textarea>"));
+  }
 
   //transfer text content of each textbox to a list called textContentList
   textBoxList.each(function(index, textBox) {
       textContentList.push($(textBox).text());
   });
 
-  //create the text areas and store in a list called textAreaList
-  for (var i = 0; i < textContentList.length; i++) {
-    textAreaList.push($("<textarea></textarea>"));
-  }
+for (var i = 0; i < textBoxList.length;i++) {
+  $(textAreaList[i]).attr("id", $(textBoxList[i]).attr("id"));
+  $(textAreaList[i]).text($(textBoxList[i]).text());
+}
 
-  //transfer every text content in the textContentList to each textArea
-  $(textAreaList).each(function(index, textArea) {
-    $(textArea).text(textContentList[index]);
-  });
 
   //replace the textboxes with the new textareas
   textBoxList.each(function(index, textBox) {
@@ -172,6 +188,8 @@ store all textboxes as dom
 function sendData() {
     var textBoxes = $("textarea");
     var aboutMeContent = $(textBoxes[0]).val();
+    //need a way to access by textbox val by id
+    //jquery filter
     $.ajax({
       type: "post",
       url: "http://localhost:3000/homepage",
@@ -190,6 +208,115 @@ function sendData() {
   });
 
 }
+
+function sendDataSkills() {
+  var textBoxes = $("textarea");
+  // $(textBoxes).each(function(index, textBox) {
+  //   var textBoxId = $(textBox).attr("id");
+  //   $(textBox).text($(textBoxes).filter(textBoxId).text());
+  // });
+  
+  var dataArray = [
+    {
+      skill: $(textBoxes).filter("#skill1Tab").val(),
+      skillDescription: $(textBoxes).filter("#skill1Description").val()
+    },
+    {
+      skill: $(textBoxes).filter("#skill2Tab").val(),
+      skillDescription: $(textBoxes).filter("#skill2Description").val()
+    },
+    {
+      skill: $(textBoxes).filter("#skill3Tab").val(),
+      skillDescription: $(textBoxes).filter("#skill3Description").val()
+    },
+    {
+      skill: $(textBoxes).filter("#skill4Tab").val(),
+      skillDescription: $(textBoxes).filter("#skill4Description").val()
+    },
+    {
+      skill: $(textBoxes).filter("#skill5Tab").val(),
+      skillDescription: $(textBoxes).filter("#skill5Description").val()
+    },
+    {
+      skill: $(textBoxes).filter("#skill6Tab").val(),
+      skillDescription: $(textBoxes).filter("#skill6Description").val()
+    },
+    {
+      skill: $(textBoxes).filter("#skill7Tab").val(),
+      skillDescription: $(textBoxes).filter("#skill7Description").val()
+    },
+    {
+      skill: $(textBoxes).filter("#skill8Tab").val(),
+      skillDescription: $(textBoxes).filter("#skill8Description").val()
+    }
+];
+
+console.log(dataArray);
+$.ajax({
+  type: "post",
+  //use relative
+  url: "/skills",
+  //headers property will be accessible in the route
+  // contentType: 'application/json',
+  data: {
+    skillsData: JSON.stringify(dataArray)
+  },
+  success: function(data) {
+      console.log(data);
+      // saveContent(data);
+      location.reload();
+  }
+});
+}
+
+function sendDataExtras() {
+  console.log("send extras function run");
+  var textBoxes = $(".editable");
+  console.log(textBoxes);
+  console.log(textBoxes);
+  console.log(textBoxes);
+  console.log(textBoxes);
+  console.log("hi");
+}
+
+
+
+function sendDataEducation() {
+  var textBoxes = $("textarea");
+  var dataObject = {
+    schoolTitle: $(textBoxes).filter("#schoolTitle").val(),
+    aboutSchool: $(textBoxes).filter("#aboutSchool").val(),
+    major: $(textBoxes).filter("#major").val(),
+    minor: $(textBoxes).filter("#minor").val(),
+    undergraduate: $(textBoxes).filter("#undergraduate").val(),
+    graduate: $(textBoxes).filter("#graduate").val(),
+  }
+  console.log(dataObject);
+
+  
+  
+  $.ajax({
+    type: "post",
+    //use relative
+    url: "/education",
+    //headers property will be accessible in the route
+    // contentType: 'application/json',
+    data: {
+      educationData: JSON.stringify(dataObject)
+    },
+    // data: dataObject,
+    // processData: false,
+    success: function(data) {
+        console.log(data);
+        //turn content aback into text box and save
+        // saveContent(data);
+        location.reload();
+    }
+});
+
+}
+
+
 /*
   //store all textboxes in array as dom nodes
   //for each dom node
@@ -208,59 +335,85 @@ function saveContent(pageData) {
   $(".editButton").removeAttr("disabled");
   $(".cancelButton").hide();
 
+}
 
-
-
+function testButtonPost() {
+  console.log("testButtonPost ran")
+  $.ajax({
+    type: "post",
+    url: "http://localhost:3000/ejs",
+    //headers property will be accessible in the route
+    contentType: 'application/json',
+    success: function(data) {
+        console.log(data);
+        // saveContent(data);
+        // location.reload();
+    }
+});
   
-
+}
+function testButtonGet() {
+  console.log("testButtonGet ran")
+  $.ajax({
+    type: "get",
+    url: "http://localhost:3000/ejs",
+    //headers property will be accessible in the route
+    contentType: 'application/json',
+    success: function(data) {
+        console.log(data);
+        // saveContent(data);
+        // location.reload();
+    }
+});
+  
 }
 
 
 
 /* The below functions allow users to remove a skill. */
 
-function removeSkill1(){
-  document.getElementById("skill1Tab").style.visibility = "hidden";
-  document.getElementById("skill1Tab").style.display = "none";
-  document.getElementById("skill1TabContent").style.visibility = "hidden";
-}
+// function removeSkill1(){
+//   document.getElementById("skill1Tab").style.visibility = "hidden";
+//   document.getElementById("skill1Tab").style.display = "none";
+//   document.getElementById("skill1TabContent").style.visibility = "hidden";
+// }
 
-function removeSkill2(){
-  document.getElementById("skill2Tab").style.visibility = "hidden";
-  document.getElementById("skill2Tab").style.display = "none";
-  document.getElementById("skill2TabContent").style.visibility = "hidden";
-}
+// function removeSkill2(){
+//   document.getElementById("skill2Tab").style.visibility = "hidden";
+//   document.getElementById("skill2Tab").style.display = "none";
+//   document.getElementById("skill2TabContent").style.visibility = "hidden";
+// }
 
-function removeSkill3(){
-  document.getElementById("skill3Tab").style.visibility = "hidden";
-  document.getElementById("skill3Tab").style.display = "none";
-  document.getElementById("skill3TabContent").style.visibility = "hidden";
-}
+// function removeSkill3(){
+//   document.getElementById("skill3Tab").style.visibility = "hidden";
+//   document.getElementById("skill3Tab").style.display = "none";
+//   document.getElementById("skill3TabContent").style.visibility = "hidden";
+// }
 
-function removeSkill4(){
-  document.getElementById("skill4Tab").style.visibility = "hidden";
-  document.getElementById("skill4Tab").style.display = "none";
-  document.getElementById("skill4TabContent").style.visibility = "hidden";
-}
+// function removeSkill4(){
+//   document.getElementById("skill4Tab").style.visibility = "hidden";
+//   document.getElementById("skill4Tab").style.display = "none";
+//   document.getElementById("skill4TabContent").style.visibility = "hidden";
+// }
 
 /* The below functions allow new skills to be added and be visible even after a user has clicked the
 "remove skill" buttons. */
 
-function showSkillTab1(){
-  document.getElementById("skill1TabContent").style.visibility = "visible";
-}
+// function showSkillTab1(){
+//   document.getElementById("skill1TabContent").style.visibility = "visible";
+// }
 
-function showSkillTab2(){
-  document.getElementById("skill2TabContent").style.visibility = "visible";
-}
+// function showSkillTab2(){
+//   document.getElementById("skill2TabContent").style.visibility = "visible";
+// }
 
-function showSkillTab3(){
-  document.getElementById("skill3TabContent").style.visibility = "visible";
-}
+// function showSkillTab3(){
+//   document.getElementById("skill3TabContent").style.visibility = "visible";
+// }
 
-function showSkillTab4(){
-  document.getElementById("skill4TabContent").style.visibility = "visible";
-}
+// function showSkillTab4(){
+//   document.getElementById("skill4TabContent").style.visibility = "visible";
+// }
 
 $('#exampleModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Button that triggered the modal
@@ -275,26 +428,26 @@ $('#exampleModal').on('show.bs.modal', function (event) {
 
 //possible login
 
-// function signUpValidation(){
-//   // e.preventDefault();
-//   var userId = $("#signUpButton").val();
-//   console.log("userName is " + userId);
-//   $.ajax({
-//     type:"post",
-//     url: "http://localhost:3000/:userName/createAccount",
-//     data: {
-//       userName: userId
-//     },
-//     success: function(data) {
-//       // console.log(data);
-//     },
-//     error: function(data) {
-//       // console.log("an error ocurred:" + data.error);
+function signUpValidation(){
+  // e.preventDefault();
+  var userId = $("#signUpButton").val();
+  console.log("userName is " + userId);
+  $.ajax({
+    type:"post",
+    url: "http://localhost:3000/createAccount",
+    data: {
+      userName: userId
+    },
+    success: function(data) {
+      console.log(data);
+    },
+    error: function(data) {
+      // console.log("an error ocurred:" + data.error);
 
-//     }
+    }
 
-//   });
-// }
+  });
+}
 
 // function loginValidation() {
 //   // e.preventDefault();
@@ -302,7 +455,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
 //   console.log("userName is " + userId);
 //   $.ajax({
 //     type:"post",
-//     url: "http://localhost:3000/:userName/login",
+//     url: "http://localhost:3000/createAccount",
 //     data: {
 //       userName: userId
 //     }

@@ -1,11 +1,33 @@
 module.exports = (app) => {
   const siteConstructor = require("../controllers/controller.js");
   
-  app.get("/homepage",siteConstructor.get);
-  // app.post("/createAccount",siteConstructor.create);
-  // app.post("/login",siteConstructor.login);
+  app.get("/homepage",siteConstructor.getHomepage);
   app.post("/homepage",siteConstructor.loadHomepage);
-  // app.get("/ejs", siteConstructor.ejs);
+
+  app.post("/education",siteConstructor.loadEducation);
+  app.get("/education",siteConstructor.getEducation);
+
+  app.post("/skills",siteConstructor.loadSkills);
+  app.get("/skills",siteConstructor.getSkills);
+
+  app.post("/experience",siteConstructor.loadExperience);
+  app.get("/experience",siteConstructor.getExperience);
+
+  app.post("/awards",siteConstructor.loadAwards);
+  app.get("/awards",siteConstructor.getAwards);
+
+  app.post("/extras",siteConstructor.loadExtras);
+  app.get("/extras",siteConstructor.getExtras);
+
+  app.post("/projects",siteConstructor.loadProjects);
+  app.get("/projects",siteConstructor.getProjects);
+  app.post("/createAccount",siteConstructor.create);
+  // app.post("/login",siteConstructor.login);
+  
+
+  //test functions only
+  app.post("/ejs", siteConstructor.postEJS);
+  app.get("/ejs", siteConstructor.getEJS);
 
 
 }

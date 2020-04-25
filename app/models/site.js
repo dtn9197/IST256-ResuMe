@@ -14,16 +14,40 @@ var siteSchema =  new mongoose.Schema({
         graduate: String,
     },
     skills: [{skill: String, skillDescription: String}],
-    experience: [{workExperience: String, aboutDescription: String, responsibilities: [{responsibility: String, responsibilityDescription: String}]}],
+    experience: [
+        {
+            workExperience: String,
+            aboutDescription: String, 
+            responsibilities: [
+                {
+                    responsibility: String,
+                    responsibilityDescription: String
+                }
+            ]
+        }
+    ],
+
     award: {award: String, awardDescription: String},
-    extras: {undergraduate: [{undergradExtra: String, extraDescription: String}], graduate: [{gradExtra: String, extraDescription: String}]}
+    extras: {
+        undergraduate: {
+            undergradExtra1: {undergradExtra: String, extraDescription: String},
+            undergradExtra2: {undergradExtra: String, extraDescription: String}, 
+            undergradExtra3: {undergradExtra: String, extraDescription: String} 
+        },
+        graduate: {
+            gradExtra1: {gradExtra: String, extraDescription: String},
+            gradExtra2: {gradExtra: String, extraDescription: String},
+            gradExtra3: {gradExtra: String, extraDescription: String}
+        } 
+        
+    }
     
 });
 
 
 //initialize standard template
 var siteConstructor = mongoose.model("site", siteSchema);
-exports.initializeData = initializeTestData;
+// exports.initializeData = initializeTestData;
 
 
 module.exports = siteConstructor;
@@ -31,8 +55,9 @@ module.exports = siteConstructor;
 
 
 
-function initializeTestData() {
-    var _id = "dtn5089";
+function initializeTestData(userName) {
+    
+    var _id = userName;
     var homepage = {
         aboutMe: "Hello"
     };
@@ -57,7 +82,19 @@ function initializeTestData() {
 
     var award = {award: "Dean's List 2019", awardDescription: "HIGH GPA!!!"};
 
-    var extras = {undergraduate: [{undergradExtra: "Involvement 1", extraDescription: "Club involvement"}], graduate: [{gradExtra: "ISTConsultant", extraDescription: "Extracurriculum"}]};
+    var extras = {
+        undergraduate: {
+            undergradExtra1: {undergradExtra: "undergrad1", extraDescription: "description1"},
+            undergradExtra2: {undergradExtra: "undergrad2", extraDescription: "description2"}, 
+            undergradExtra3: {undergradExtra: "undergrad3", extraDescription: "description3"} 
+        },
+        graduate: {
+            gradExtra1: {gradExtra: "gradEextra1", extraDescription: "gradescription1"},
+            gradExtra2: {gradExtra: "gradEextra2", extraDescription: "gradescription2"},
+            gradExtra3: {gradExtra: "gradEextra3", extraDescription: "gradescription3"}
+        } 
+        
+    }
     var data = {
         _id: _id,
         homepage: homepage,

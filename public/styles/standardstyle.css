@@ -150,7 +150,7 @@ Education Page style
     margin: auto;
 }
 
-#educationheader {
+#schoolTitle {
   font-family: "Big Caslon FB";
   font-size: 30pt;
   color: #344349;
@@ -164,11 +164,7 @@ Education Page style
   font-weight: lighter;
 }
 
-#major, #minor{
-  font-family: "Big Caslon FB";
-  font-size: 20pt;
-  color: #344349;
-}
+
 
 #home, #profile, #contact{
   background-color: #D3E1E5;
@@ -216,10 +212,10 @@ nav:first-of-type{
   background-color: #D3E1E5;
 }
 
-#skill4Tab, #skill3Tab, #skill2Tab, #skill1Tab{
+/* #skill4Tab, #skill3Tab, #skill2Tab, #skill1Tab{
   visibility: hidden;
   display: none;
-}
+} */
 
 .nav-link :active{
   background-color: white;
@@ -435,13 +431,13 @@ white shadow
 /*Awards Page Style
 */
 
-#awardstype{
+#awardDescription{
   font-family: "Big Caslon FB";
   font-size: 25pt;
   color: #344349;
 }
 
-#awardHeader{
+#award{
   font-family: "Big Caslon FB";
   font-size: 25pt;
   color: #344349;
@@ -471,7 +467,7 @@ white shadow
 #awardImage {
   width: 100%;
 }
-#awardHeader {
+#award {
   text-align: right;
 }
 #awardSecondGrid {

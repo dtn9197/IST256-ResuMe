@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>Skills</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <!-- jQuery -->
+        <script
+        src="https://code.jquery.com/jquery-3.5.0.js"
+        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
+        crossorigin="anonymous"></script>
+
+        <!-- Popper.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+        <!-- Bootstrap JavaScript -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="styles/standardstyle.css">
+        <script src="scripts/Resume.js" defer></script>
+        </head>
+    <body id="skillsBody">
+        <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+            <a class="navbar-brand mr-auto" href="#" id="brand">ResuMe</a>
+            <ul class="navbar nav">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="homepage">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/Education">Education</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/Experience">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/Projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/Awards">Awards</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/Extras">Extras</a>
+                </li>
+            </ul>
+        </nav>
+        <h2 id="skillsLabel">My skills</h2>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3">
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link editable active" id="skill1Tab" data-toggle="pill" href="#skill1TabContent" role="tab" aria-controls="skill1TabContent" aria-selected="true"><%= data[0].skill %></a>
+                        <a class="nav-link editable" id="skill2Tab" data-toggle="pill" href="#skill2TabContent" role="tab" aria-controls="skill2TabContent" aria-selected="false"><%= data[1].skill %></a>
+                        <a class="nav-link editable" id="skill3Tab" data-toggle="pill" href="#skill3TabContent" role="tab" aria-controls="skill3TabContent" aria-selected="false"><%= data[2].skill %></a>
+                        <a class="nav-link editable" id="skill4Tab" data-toggle="pill" href="#skill4TabContent" role="tab" aria-controls="skill4TabContent" aria-selected="false"><%= data[3].skill %></a>
+                        <a class="nav-link editable" id="skill5Tab" data-toggle="pill" href="#skill5TabContent" role="tab" aria-controls="skill5TabContent" aria-selected="false"><%= data[4].skill %></a>
+                        <a class="nav-link editable" id="skill6Tab" data-toggle="pill" href="#skill6TabContent" role="tab" aria-controls="skill6TabContent" aria-selected="false"><%= data[5].skill %></a>
+                        <a class="nav-link editable" id="skill7Tab" data-toggle="pill" href="#skill7TabContent" role="tab" aria-controls="skill7TabContent" aria-selected="false"><%= data[6].skill %></a>
+                        <a class="nav-link editable" id="skill8Tab" data-toggle="pill" href="#skill8TabContent" role="tab" aria-controls="skill8TabContent" aria-selected="false"><%= data[7].skill %></a>
+                        
+                    </div>
+                    <br>
+                    <button type="button" id="addSkill">Add Skill</button>
+                    <button type="button" class="editButton">editContent</button>
+                    <button type="button" class="cancelButton">Cancel</button>
+                    <button type="button" class="saveButton" id="skillsSaveButton">Save</button>
+                </div>
+                <div class="col-9">
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active skillsContentPage" id="skill1TabContent" role="tabpanel" aria-labelledby="skill1Tab">
+                            <br>
+                            <h2 id="skills"><%= data[0].skill %></h2>
+                            <hr>
+                            <p class="editable" id="skill1Description"><%= data[0].skillDescription %></p>
+                              
+                        </div>
+                        <div class="tab-pane fade skillsContentPage" id="skill2TabContent" role="tabpanel" aria-labelledby="skill2Tab">
+                            <br>
+                            <h2 id="skills"><%= data[1].skill %></h2>
+                            <hr>
+                            <p class="editable" id="skill2Description"><%= data[1].skillDescription %></p>
+                        </div>
+                        <div class="tab-pane fade skillsContentPage" id="skill3TabContent" role="tabpanel" aria-labelledby="skill3Tab">
+                            <br>
+                            <h2 id="skills"><%= data[2].skill %></h2>
+                            <hr>
+                            <p class="editable" id="skill3Description"><%= data[2].skillDescription%></p>
+                        </div>
+                        <div class="tab-pane fade skillsContentPage" id="skill4TabContent" role="tabpanel" aria-labelledby="skill4Tab">
+                            <br>
+                            <h2 id="skills"><%= data[3].skill %></h2>
+                            <hr>
+                            <p class="editable" id="skill4Description"><%= data[3].skillDescription %></p>
+                        </div>
+                        <div class="tab-pane fade skillsContentPage" id="skill5TabContent" role="tabpanel" aria-labelledby="skill5Tab">
+                            <br>
+                            <h2 id="skills"><%= data[4].skill %></h2>
+                            <hr>
+                            <p class="editable" id="skill5Description"><%= data[5].skillDescription %></p>
+                            <!-- <button type="button" onclick="removeSkill1();" id="removeSkill">Remove Skill</button> -->
+                        </div>
+                        <div class="tab-pane fade skillsContentPage" id="skill6TabContent" role="tabpanel" aria-labelledby="skill6Tab">
+                            <br>
+                            <h2 id="skills"><%= data[5].skill %></h2>
+                            <hr>
+                            <p class="editable" id="skill6Description"><%= data[5].skillDescription %></p>
+                            <!-- <button type="button" onclick="removeSkill2();" id="removeSkill">Remove Skill</button> -->
+                        </div>
+                        <div class="tab-pane fade skillsContentPage" id="skill7TabContent" role="tabpanel" aria-labelledby="skill7Tab">
+                            <br>
+                            <h2 id="skills"><%= data[6].skill %></h2>
+                            <hr>
+                            <p class="editable" id="skill7Description"><%= data[6].skillDescription %></p>
+                            <!-- <button type="button" onclick="removeSkill3();" id="removeSkill">Remove Skill</button> -->
+                        </div>
+                        <div class="tab-pane fade skillsContentPage" id="skill8TabContent" role="tabpanel" aria-labelledby="skill8Tab">
+                            <br>
+                            <h2 id="skills"><%= data[7].skill %></h2>
+                            <hr>
+                            <p class="editable" id="skill8Description"><%= data[7].skillDescription%></p>
+                            <!-- <button type="button" onclick="removeSkill4();" id="removeSkill">Remove Skill</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <ul class="navbar nav">
+                <li class="nav-item">
+                    <a class="nav-link text-white">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white">1-800-Resume</a>
+                </li>
+                <li class="nav-item">
+                    <a href="mailto:dtn5089@psu.com" id="footerEmail">email</a><br>
+                </li>
+        </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+            <!--bottom nav, enable later-->
+        <!-- <div class="container border border-primary">
+            <div class="bg bg-primary">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae, facere. Delectus ea ducimus odit vitae impedit. Sunt dicta dolorem minima sequi pariatur commodi asperiores ab, amet quis nam, aut ullam.
+            </div>
+        </div> -->
+
+
+
+    </body>
+</html>

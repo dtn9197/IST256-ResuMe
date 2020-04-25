@@ -8,8 +8,10 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
         <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script
+        src="https://code.jquery.com/jquery-3.5.0.js"
+        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
+        crossorigin="anonymous"></script>
 
         <!-- Popper.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
@@ -23,29 +25,29 @@
         <script src="scripts/Resume.js" defer></script>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
             <a class="navbar-brand mr-auto" href="#" id="brand">ResuMe</a>
             <ul class="navbar nav">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="homepage.html">Home</a>
+                    <a class="nav-link text-white" href="homepage">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="Education.html">Education</a>
+                    <a class="nav-link text-white" href="">Education</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="Skills.html">Skills</a>
+                    <a class="nav-link text-white" href="/Skills">Skills</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="Experience.html">Experience</a>
+                    <a class="nav-link text-white" href="/Experience">Experience</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="Projects.html">Projects</a>
+                    <a class="nav-link text-white" href="/Projects">Projects</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="Awards.html">Awards</a>
+                    <a class="nav-link text-white" href="/Awards">Awards</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="Extras.html">Extras</a>
+                    <a class="nav-link text-white" href="/Extras">Extras</a>
                 </li>
             </ul>
         </nav>
@@ -53,22 +55,15 @@
         <div class="container-fluid" id="collegePage">
             <div class="row">
                 <div class="col-6" id="collegeAbout">
-                    <h1 class="editable" id="educationheader">Pennsylvania State University
-                     <hr></h1>
+                    <h1 class="editable" id="schoolTitle"><%= data.schoolTitle %><hr></h1>
                      <button type="button" class="editButton">editContent</button>
                      <button type="button" class="cancelButton">Cancel</button>
+                     <button type="button" class="saveButton" id="educationSaveButton">Save</button>
                     <img src="img/College.JPEG" alt="College campus image here" id="collegeImage">
                     <br>
                     <br>
-                    <h1 id="educationheader">About <hr></h1>
-                    <p class="editable">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium animi maiores praesentium sint. Minus, molestiae delectus iusto
-                        harum ea libero aliquid nemo necessitatibus molestias totam quam quibusdam dolorum obcaecati alias dolorem? In, neque? Consequatur
-                        cum incidunt exercitationem hic debitis unde eum dicta repudiandae, quibusdam quia vero! Hic assumenda eaque sapiente, commodi
-                        natus nemo laborum et velit obcaecati veniam corrupti, soluta consectetur veritatis dolor aspernatur optio nam magni incidunt.
-                        Reiciendis natus consectetur omnis vel enim placeat repellat aperiam at necessitatibus nulla quod ab modi beatae amet, non inventore alias
-                        iste voluptatum totam animi a in molestiae. Eius quidem quos deserunt fuga.
-                    </p>
+                    <h1>About <hr></h1>
+                    <p class="editable" id="aboutSchool"><%= data.aboutSchool %></p>
                     <br>
                 </div>
                 <div class="col-6">
@@ -86,27 +81,19 @@
                       <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
-                            <h1 id="major">Major</h1>
-                            <p class="editable" >
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, totam odio! Debitis vero obcaecati earum placeat quasi, eaque consequuntur tempora iusto quos? Enim alias obcaecati corrupti facere culpa ex totam aspernatur ipsa nulla, ullam dolor repellendus natus neque sit laborum aperiam ut excepturi corporis vel perferendis? Autem soluta dolores veniam sed quo pariatur minima ut saepe debitis animi sunt eveniet, obcaecati nostrum, suscipit culpa quam alias, repudiandae quaerat voluptatibus hic. Earum quis recusandae, reiciendis ipsa atque, eligendi vero voluptates praesentium explicabo aliquid dolores suscipit magni culpa, facilis temporibus. Distinctio adipisci laboriosam voluptatum dolor voluptatem reprehenderit itaque earum veritatis incidunt asperiores?
-                            </p>
+                            <h1>Major</h1>
+                            <p class="editable" id="major"> <%= data.major %></p>
 
-                            <h1 id="minor">Minor</h1>
-                            <p class="editable" >
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo in, veniam deserunt exercitationem velit accusantium harum voluptates, numquam animi at, consequuntur illo molestias error quidem necessitatibus? In corrupti aperiam porro enim blanditiis. Sed fuga temporibus autem ad, vitae ullam sit provident laboriosam dicta dolor nesciunt, magni, vero enim vel qui placeat ducimus inventore! Nostrum deleniti dignissimos explicabo adipisci nobis quidem sint dolore itaque accusantium natus, modi tenetur, placeat vero alias reiciendis quo accusamus omnis, illum nihil vitae laudantium cupiditate? Quod temporibus fugiat voluptas eligendi saepe officia quibusdam iure consequuntur, aperiam ipsa exercitationem corrupti cupiditate id maiores quos? Architecto, laudantium odio!
-                            </p>
+                            <h1>Minor</h1>
+                            <p class="editable" id="minor" ><%= data.minor %></p>
                             <br>
                         </div>
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"> 
-                            <p class="editable">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe non rerum voluptas qui error quos aspernatur perspiciatis vel velit? Sed commodi maiores corrupti voluptatem vero voluptatibus, perferendis omnis non neque, inventore odit dolorem sunt quia qui. Quia nostrum distinctio voluptatibus numquam ut vel aspernatur doloremque, facilis nulla voluptatem! Suscipit cupiditate, blanditiis est molestiae cumque expedita sed at quos, animi aut deleniti molestias aspernatur.
-                            </p>
+                            <p class="editable" id="undergraduate"><%= data.undergraduate %></p>
                             
                         </div>
-                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                        <p class="editable">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores autem odit excepturi eos ipsa totam sit magnam? Perspiciatis voluptatum quis perferendis et quisquam a illum odio quidem iure error aut vitae labore repellat aperiam, eaque quibusdam hic praesentium ut nisi similique sint nesciunt numquam esse ipsam. Alias.
-                        </p>
+                        <div class="tab-pane fade" id ="contact" role="tabpanel" aria-labelledby="contact-tab">
+                        <p class="editable" id="graduate"> <%= data.graduate %></p>
                         </div>
                         
                       </div>
