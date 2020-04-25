@@ -408,47 +408,47 @@ exports.create = function(req,res,next) {
                 taskDescription: "Sales Experience"
                 },
                 {
-                  task: "Sales",
-                  taskDescription: "Sales Experience"
+                  task: "Retail",
+                  taskDescription: "customer service"
                 },
                 {
-                  task: "Sales",
-                  taskDescription: "Sales Experience"
+                  task: "stock inventory",
+                  taskDescription: "heavy lift"
                 },
                 {
-                  task: "Sales",
-                  taskDescription: "Sales Experience"
+                  task: "answer phone",
+                  taskDescription: "efficientdsf"
                 },
                 {
-                  task: "Sales",
-                  taskDescription: "Sales Experience"
+                  task: "training",
+                  taskDescription: "have to train new employees"
                 }
             ]
 
         },
         workExperience2: {
-            employerName:"Sheetz",
-            aboutDescription: "Gas Station",
+            employerName:"Pennstate",
+            aboutDescription: "public school",
             tasks: [
                 {
-                task: "Sales",
+                task: "Teaching assiatnt",
                 taskDescription: "Sales Experience"
                 },
                 {
-                  task: "Sales",
-                  taskDescription: "Sales Experience"
+                  task: "study group",
+                  taskDescription: "help student study"
                 },
                 {
-                  task: "Sales",
-                  taskDescription: "Sales Experience"
+                  task: "organize events",
+                  taskDescription: "school involvement"
                 },
                 {
-                  task: "Sales",
-                  taskDescription: "Sales Experience"
+                  task: "production specialist",
+                  taskDescription: "Smanage video"
                 },
                 {
-                  task: "Sales",
-                  taskDescription: "Sales Experience"
+                  task: "IT suppprot",
+                  taskDescription: "Shelpdesk"
                 }
             ]
         },
@@ -489,7 +489,7 @@ exports.create = function(req,res,next) {
           else {
               console.log("save successful");
               console.log("the data saved is: /n");
-              console.log(site.experience[0].responsibilities[0]);
+              console.log(site);
           }
       });
   }

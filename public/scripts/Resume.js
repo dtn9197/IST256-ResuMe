@@ -535,7 +535,7 @@ function signUpValidation(){
   console.log("userName is " + userId);
   $.ajax({
     type:"post",
-    url: "createAccount",
+    url: "/createAccount",
     data: {
       userName: userId
     },
