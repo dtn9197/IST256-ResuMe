@@ -10,7 +10,6 @@ $(document).ready(function() {
     $("#addSkill").click(addSkills);
     $(".editButton").click(editText);
     $(".cancelButton").click(cancelEdit);
-    $("#homepageSaveButton").click(sendData);
 
     //posible login
     $("#signUpSubmit").click(signUpValidation);
@@ -28,8 +27,13 @@ $(document).ready(function() {
 
     $("#testButtonPost").click(testButtonPost);
     $("#testButtonGet").click(testButtonGet);
+
+    $("#homepageSaveButton").click(sendData);
     $("#skillsSaveButton").click(sendDataSkills);
     $("#extrasSaveButton").click(sendDataExtras);
+    $("#experienceSaveButton").click(sendDataExperience);
+    $("#awardSaveButton").click(sendDataAward);
+    
 
 
 });
@@ -40,6 +44,8 @@ function domTest() {
     console.log(textbox);
   });
 }
+
+
 
 
 
@@ -192,7 +198,7 @@ function sendData() {
     //jquery filter
     $.ajax({
       type: "post",
-      url: "http://localhost:3000/homepage",
+      url: "/homepage",
       //headers property will be accessible in the route
       headers: {
           "Some-header": "Some-header-value"
@@ -211,11 +217,6 @@ function sendData() {
 
 function sendDataSkills() {
   var textBoxes = $("textarea");
-  // $(textBoxes).each(function(index, textBox) {
-  //   var textBoxId = $(textBox).attr("id");
-  //   $(textBox).text($(textBoxes).filter(textBoxId).text());
-  // });
-  
   var dataArray = [
     {
       skill: $(textBoxes).filter("#skill1Tab").val(),
@@ -269,14 +270,84 @@ $.ajax({
 });
 }
 
+function sendDataExperience() {
+  var textBoxes = $("textarea");
+  console.log(textBoxes);
+  var dataArray = initializeExperienceData(textBoxes);
+  console.log(dataArray);
+
+  $.ajax({
+    type: "post",
+    //use relative
+    url: "/experience",
+    //headers property will be accessible in the route
+    // contentType: 'application/json',
+    data: {
+      experience: JSON.stringify(dataArray)
+    },
+    // data: dataObject,
+    // processData: false,
+    success: function(data) {
+        // console.log(data);
+        // turn content aback into text box and save
+        // saveContent(data);
+        location.reload();
+    }
+
+
+  });
+}
+
 function sendDataExtras() {
-  console.log("send extras function run");
-  var textBoxes = $(".editable");
-  console.log(textBoxes);
-  console.log(textBoxes);
-  console.log(textBoxes);
-  console.log(textBoxes);
-  console.log("hi");
+  var textBoxes = $("textarea");
+  var dataObject =  {
+    undergraduate: {
+      undergradExtra1: {
+        undergradExtra: $(textBoxes).filter("#undergradExtra1").val(),
+        extraDescription: $(textBoxes).filter("#undergradExtra1Description").val()},
+      undergradExtra2: {
+        undergradExtra: $(textBoxes).filter("#undergradExtra2").val(),
+        extraDescription: $(textBoxes).filter("#undergradExtra2Description").val()}, 
+      undergradExtra3: {
+        undergradExtra: $(textBoxes).filter("#undergradExtra3").val(),
+        extraDescription: $(textBoxes).filter("#undergradExtra3Description").val()} 
+  },
+  graduate: {
+      gradExtra1: {
+        gradExtra: $(textBoxes).filter("#gradExtra1").val(),
+        extraDescription: $(textBoxes).filter("#gradExtra1Description").val()},
+      gradExtra2: {
+        gradExtra: $(textBoxes).filter("#gradExtra2").val(),
+        extraDescription: $(textBoxes).filter("#gradExtra2Description").val()},
+      gradExtra3: {
+        gradExtra: $(textBoxes).filter("#gradExtra3").val(),
+        extraDescription: $(textBoxes).filter("#gradExtra3Description").val()}
+  } 
+  };
+  
+  
+  console.log(dataObject);
+
+  
+  
+  $.ajax({
+    type: "post",
+    //use relative
+    url: "/extras",
+    //headers property will be accessible in the route
+    // contentType: 'application/json',
+    data: {
+      extras: JSON.stringify(dataObject)
+    },
+    // data: dataObject,
+    // processData: false,
+    success: function(data) {
+        // console.log(data);
+        //turn content aback into text box and save
+        // saveContent(data);
+        location.reload();
+    }
+});
 }
 
 
@@ -316,6 +387,36 @@ function sendDataEducation() {
 
 }
 
+function sendDataAward(){
+  var textBoxes = $("textarea");
+  var dataObject = {
+   award: $(textBoxes).filter("#award").val(),
+   awardDescription: $(textBoxes).filter("#awardDescription").val()
+  }
+  console.log(dataObject);
+
+  $.ajax({
+    type: "post",
+    //use relative
+    url: "/awards",
+    //headers property will be accessible in the route
+    // contentType: 'application/json',
+    data: {
+      award: JSON.stringify(dataObject)
+    },
+    // data: dataObject,
+    // processData: false,
+    success: function(data) {
+        // console.log(data);
+        //turn content aback into text box and save
+        // saveContent(data);
+        location.reload();
+    }
+});
+
+
+}
+
 
 /*
   //store all textboxes in array as dom nodes
@@ -341,7 +442,7 @@ function testButtonPost() {
   console.log("testButtonPost ran")
   $.ajax({
     type: "post",
-    url: "http://localhost:3000/ejs",
+    url: "ejs",
     //headers property will be accessible in the route
     contentType: 'application/json',
     success: function(data) {
@@ -356,7 +457,7 @@ function testButtonGet() {
   console.log("testButtonGet ran")
   $.ajax({
     type: "get",
-    url: "http://localhost:3000/ejs",
+    url: "ejs",
     //headers property will be accessible in the route
     contentType: 'application/json',
     success: function(data) {
@@ -434,7 +535,7 @@ function signUpValidation(){
   console.log("userName is " + userId);
   $.ajax({
     type:"post",
-    url: "http://localhost:3000/createAccount",
+    url: "createAccount",
     data: {
       userName: userId
     },
@@ -455,14 +556,14 @@ function signUpValidation(){
 //   console.log("userName is " + userId);
 //   $.ajax({
 //     type:"post",
-//     url: "http://localhost:3000/createAccount",
+//     url: "createAccount",
 //     data: {
 //       userName: userId
 //     }
 //     // success: function(data) {
 //     //   console.log(data);
 //     //     //another get ajax here??
-//     //     // var urlString = "http://localhost:3000/" + userId +"/homepage";
+//     //     // var urlString = "userId +"/homepage";
 //     //     // console.log(urlString);
 //     //     // $.ajax({
 //     //     //   type:"get",
@@ -481,3 +582,65 @@ function signUpValidation(){
 //   });
 
 // }
+
+//query dom on Experience Page and map it to database schema,
+// too long, nothing interesting here
+function initializeExperienceData(textBoxes) {
+  
+  var dataArray = {
+    workExperience1: {
+      employerName: $(textBoxes).filter("#workExperience1").val(),
+      aboutDescription: $(textBoxes).filter("#aboutDescription1").val(),
+      tasks: [
+          {
+          task: $(textBoxes).filter("#emp1Task1").val(),
+          taskDescription: $(textBoxes).filter("#emp1Task1Desc").val()
+          },
+          {
+          task: $(textBoxes).filter("#emp1Task2").val(),
+          taskDescription: $(textBoxes).filter("#emp1Task2Desc").val()
+          },
+          {
+          task: $(textBoxes).filter("#emp1Task3").val(),
+          taskDescription: $(textBoxes).filter("#emp1Task3Desc").val()
+          },
+          {
+          task: $(textBoxes).filter("#emp1Task4").val(),
+          taskDescription: $(textBoxes).filter("#emp1Task4Desc").val()
+          },
+          {
+          task: $(textBoxes).filter("#emp1Task5").val(),
+          taskDescription: $(textBoxes).filter("#emp1Task5Desc").val()
+          }
+      ]
+  },
+   workExperience2: {
+      employerName: $(textBoxes).filter("#workExperience2").val(),
+      aboutDescription: $(textBoxes).filter("#aboutDescription2").val(),
+      tasks: [
+          {
+          task: $(textBoxes).filter("#emp2Task1").val(),
+          taskDescription: $(textBoxes).filter("#emp2Task1Desc").val()
+          },
+          {
+          task: $(textBoxes).filter("#emp2Task2").val(),
+          taskDescription: $(textBoxes).filter("#emp2Task2Desc").val()
+          },
+          {
+          task: $(textBoxes).filter("#emp2Task3").val(),
+          taskDescription: $(textBoxes).filter("#emp2Task3Desc").val()
+          },
+          {
+          task: $(textBoxes).filter("#emp2Task4").val(),
+          taskDescription: $(textBoxes).filter("#emp2Task4Desc").val()
+          },
+          {
+          task: $(textBoxes).filter("#emp2Task5").val(),
+          taskDescription: $(textBoxes).filter("#emp2Task5Desc").val()
+          }
+      ]
+  },
+};
+
+  return dataArray;
+}

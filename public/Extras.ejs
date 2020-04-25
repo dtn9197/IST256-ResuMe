@@ -61,69 +61,59 @@
                     </div>
                     <button type="button" class="editButton">editContent</button>
                     <button type="button" class="cancelButton">Cancel</button>
-                    <button type="button" class="cancelButton" id="extrasSaveButton">Save</button>
+                    <button type="button" class="saveButton" id="extrasSaveButton">Save</button>
                 </div>
                 <div class="col-9">
                     <div class="tab-content" id="extrasTabContent">
                         <div class="tab-pane fade show active" id="extrasUndergraduateContent" role="tabpanel" aria-labelledby="extrasUndergraduateTab">
                             <div class="container">
                                 <br>
-                                <h2  class="editable" id="undergradExtra1">Eclipse</h2>
+                                <h2  class="editable" id="undergradExtra1"><%= data.undergraduate.undergradExtra1.undergradExtra %></h2>
                                 <div id="bluebox">
                                 <hr>
-                                <h2 class="involvementDescription" id="descriptionI">Description</h2>
+                                <h2  class="involvementDescription descriptionI">Description</h2>
 
-                                <p  class="editable"id="extrasparagraph">
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium eum tempora quis et molestias. Dolorem excepturi obcaecati nemo non cumque similique ullam dolores, natus aut eaque delectus dignissimos repellendus quisquam autem harum, sunt voluptates ab expedita ex! Optio sapiente cum ducimus ipsa eum sunt hic quis deleniti. Eum nemo facere eaque ea vitae.
-                                </p>
+                                <p  class="extrasparagraph editable" id="undergradExtra1Description"><%= data.undergraduate.undergradExtra1.extraDescription %></p>
                               </div>
                                 <br>
-                                <h2  class="editable" id="undergradExtra2">Moving On</h2>
+                                <h2  class="editable" id="undergradExtra2"><%= data.undergraduate.undergradExtra2.undergradExtra %></h2>
                                 <div id="bluebox">
                                 <hr>
-                                <h2 class="involvementDescription" id="descriptionI">Description</h2>
-                                <p  class="editable"id="extrasparagraph">
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium eum tempora quis et molestias. Dolorem excepturi obcaecati nemo non cumque similique ullam dolores, natus aut eaque delectus dignissimos repellendus quisquam autem harum, sunt voluptates ab expedita ex! Optio sapiente cum ducimus ipsa eum sunt hic quis deleniti. Eum nemo facere eaque ea vitae.
-                                </p>
+                                <h2  class="involvementDescription descriptionI">Description</h2>
+                                <p  class="extrasparagraph editable" id="undergradExtra2Description"><%= data.undergraduate.undergradExtra2.extraDescription %></p>
                               </div>
                                 <br>
-                                <h2  class="editable" id="undergradExtra3">Dash</h2>
+                                <h2  class="editable" id="undergradExtra3"><%= data.undergraduate.undergradExtra3.undergradExtra %></h2>
                                 <div id="bluebox">
                                 <hr>
-                                <h2 class="involvementDescription" id="descriptionI">Description</h2>
-                                <p  class="editable"id="extrasparagraph">
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium eum tempora quis et molestias. Dolorem excepturi obcaecati nemo non cumque similique ullam dolores, natus aut eaque delectus dignissimos repellendus quisquam autem harum, sunt voluptates ab expedita ex! Optio sapiente cum ducimus ipsa eum sunt hic quis deleniti. Eum nemo facere eaque ea vitae.
-                                </p>
+                                <h2  class="involvementDescription descriptionI">Description</h2>
+                                <p  class="extrasparagraph editable" id="undergradExtra3Description"><%= data.undergraduate.undergradExtra3.extraDescription %></p>
                               </div>
                             </div>
                         </div>
                         <div class="tab-pane fade show" id="extrasGraduateContent" role="tabpanel" aria-labelledby="extrasGraduateTab">
                             <div class="container">
                                 <br>
-                                <h2  class="editable" id="extrasnames">Master Thesis</h2>
+                                <h2  class="editable extrasnames" id="gradExtra1"><%= data.graduate.gradExtra1.gradExtra %></h2>
                                 <div id="bluebox">
                                 <hr>
-                                <h2 class="involvementDescription" id="descriptionI">Description</h2>
+                                <h2  class="involvementDescription descriptionI">Description</h2>
 
-                                <p  class="editable"id="extrasparagraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum molestiae harum eum amet libero culpa asperiores magni ratione autem illum tenetur veritatis facere eligendi dicta soluta, obcaecati incidunt architecto quos hic nostrum, aspernatur reiciendis. Ducimus earum maiores nostrum consequatur, ex vitae quisquam inventore atque dolore facere eaque eum repellat nam consectetur temporibus.</p>
+                                <p  class="extrasparagraph editable" id="gradExtra1Description"><%= data.graduate.gradExtra1.extraDescription %></p>
                               </div>
                                 <br>
-                                <h2  class="editable" id="extrasnames">Scholarship</h2>
+                                <h2  class="editable extrasnames" id="gradExtra2"><%= data.graduate.gradExtra2.gradExtra %></h2>
                                 <div id="bluebox">
                                 <hr>
-                                <h2 class="involvementDescription" id="descriptionI">Description</h2>
-                                <p  class="editable"id="extrasparagraph">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque magni ab aut nobis cupiditate minus quod aspernatur blanditiis illo? Quis fugit laborum, autem error mollitia ipsam ex ratione facilis aliquid animi beatae consectetur aliquam inventore explicabo sit iusto deserunt tempora. Ipsa veritatis rerum dolores doloribus, quia nisi deserunt a possimus velit fuga. Nisi accusantium laboriosam aut odit quis repudiandae soluta non ipsum, quas numquam veritatis aliquam, consequatur ut neque dolores? Quidem, reprehenderit! Quibusdam, dolor quam sint, eaque saepe culpa consequuntur dicta eligendi tempore natus laborum.
-                                </p>
+                                <h2  class="involvementDescription descriptionI">Description</h2>
+                                <p  class="extrasparagraph editable" id="gradExtra2Description"> <%= data.graduate.gradExtra2.extraDescription %></p>
                               </div>
                                 <br>
-                                <h2  class="editable" id="extrasnames">Travel Abroad</h2>
+                                <h2  class="editable extrasnames" id="gradExtra3"><%= data.graduate.gradExtra3.gradExtra %></h2>
                                 <div id="bluebox">
                                 <hr>
-                                <h2 class="involvementDescription" id="descriptionI">Description</h2>
-                                <p  class="editable"id="extrasparagraph">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores in aperiam nulla vero ex. Placeat, harum aliquam? Similique totam vel aliquid numquam. Quibusdam ullam ex enim numquam et, quam fuga? Quidem accusantium architecto eveniet vitae cumque reprehenderit ducimus consequuntur nobis, hic voluptatibus minima debitis veritatis porro blanditiis mollitia molestias? Accusamus eius vitae id repudiandae aliquid quam vero repellendus at ex! Laborum architecto nemo quam, ea voluptatem corrupti quidem harum perferendis ipsum dignissimos repellat, quod odit explicabo id deleniti qui. Eos, sed odit.
-                                </p>
+                                <h2  class="involvementDescription descriptionI">Description</h2>
+                                <p  class="extrasparagraph editable" id="gradExtra3Description"> <%= data.graduate.gradExtra3.extraDescription %></p>
                               </div>
                             </div>
                         </div>
@@ -131,11 +121,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
 
         <nav class="navbar navbar-expand-lg navbar-dark">
             <ul class="navbar nav">
@@ -149,56 +134,6 @@
                     <a href="mailto:dtn5089@psu.com" id="footerEmail">email</a><br>
                 </li>
         </nav>
-
-    <!--TESTING DON'T TOUCH-->
-    <!--
-                   <div class="row">
-                <div class="col-3">
-                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><span>Undergraduate<span></a>
-                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><span>Graduate<span></a>
-                    </div>
-                </div>
-                <div class="col-9">
-                    <div class="tab-content" id="v-pills-tabContent">
-                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                            <div class="container">
-                                <br>
-                                <h2>Eclipse</h2>
-                                <hr>
-                                <h2 class="involvementDescription">Description</h2>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium eum tempora quis et molestias. Dolorem excepturi obcaecati nemo non cumque similique ullam dolores, natus aut eaque delectus dignissimos repellendus quisquam autem harum, sunt voluptates ab expedita ex! Optio sapiente cum ducimus ipsa eum sunt hic quis deleniti. Eum nemo facere eaque ea vitae.
-                                </p>
-                                <br>
-
-                                <h2>Moving On</h2>
-                                <hr>
-                                <h2 class="involvementDescription">Description</h2>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium eum tempora quis et molestias. Dolorem excepturi obcaecati nemo non cumque similique ullam dolores, natus aut eaque delectus dignissimos repellendus quisquam autem harum, sunt voluptates ab expedita ex! Optio sapiente cum ducimus ipsa eum sunt hic quis deleniti. Eum nemo facere eaque ea vitae.
-                                </p>
-
-                                <h2>Dash</h2>
-                                <hr>
-                                <h2 class="involvementDescription">Description</h2>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium eum tempora quis et molestias. Dolorem excepturi obcaecati nemo non cumque similique ullam dolores, natus aut eaque delectus dignissimos repellendus quisquam autem harum, sunt voluptates ab expedita ex! Optio sapiente cum ducimus ipsa eum sunt hic quis deleniti. Eum nemo facere eaque ea vitae.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade skillsContentPage" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                            <br>
-                            <h2 id="skills">HTML</h2>
-                            <hr>
-                            <p id="skillsParagraph">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium eum tempora quis et molestias. Dolorem excepturi obcaecati nemo non cumque similique ullam dolores, natus aut eaque delectus dignissimos repellendus quisquam autem harum, sunt voluptates ab expedita ex! Optio sapiente cum ducimus ipsa eum sunt hic quis deleniti. Eum nemo facere eaque ea vitae consequuntur voluptatibus iste laboriosam amet libero, odio optio veritatis totam? Sequi eligendi quidem tenetur eius odit voluptatibus aliquam asperiores at ex rem similique explicabo amet magnam reprehenderit quis, illo praesentium temporibus. At dolorem impedit reiciendis delectus saepe? Aperiam facilis aspernatur molestiae. Veniam autem facere excepturi debitis et!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    -->
 
     </body>
 </html>

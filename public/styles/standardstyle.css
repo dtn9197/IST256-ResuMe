@@ -493,7 +493,7 @@ white shadow
     margin-bottom: 50px;
   }
 
-#extrasparagraph{
+.extrasparagraph{
     background-color: white;
     border: 1px solid white;
     padding: 20px;
@@ -503,13 +503,13 @@ white shadow
 
   }
 
-  #extrasnames{
+  .extrasnames{
     font-family: "Big Caslon FB";
     font-size: 25pt;
     color: #344349;
   }
 
-  #descriptionI{
+  .descriptionI{
     font-family: "Big Caslon FB";
     font-size: 25pt;
     color: #344349;

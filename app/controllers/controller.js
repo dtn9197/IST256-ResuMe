@@ -69,7 +69,6 @@ exports.loadEducation = function(req,res,next) {
 
 exports.getEducation = function(req,res,next) {
   console.log("getEducation route hit");
-
   siteConstructor.findById("dtn5089", function(error,document) {
     if(document == null) {
       console.log("error occur:");
@@ -115,6 +114,7 @@ exports.getSkills = function(req,res,next) {
       var pageData = document.skills;
       console.log(document.skills);
       res.render("Skills.ejs", {data: pageData});
+      // res.send(document.skills);
     }
   });
 
@@ -122,29 +122,119 @@ exports.getSkills = function(req,res,next) {
 };
 
 exports.loadExperience = function(req,res,next) {
+  console.log("post experience route hit");
+  var pageData = JSON.parse(req.body.experience);
+  console.log("data is:");
+  console.log(pageData);
+
+  siteConstructor.findByIdAndUpdate("dtn5089",{experience: pageData},{new: true}, function(error, document) {
+    if (error) {
+      console.log("error occurred");
+      console.log(error.messages);
+      res.send(error.messages);
+    } else {
+      console.log("update successful");
+      res.redirect("/experience");
+    }
+});
+
 
 };
 
 exports.getExperience = function(req,res,next) {
-  res.render("Experience.ejs");
+  console.log("getExperience route hit");
+
+  siteConstructor.findById("dtn5089", function(error,document) {
+    if(document == null) {
+      console.log("error occur:");
+      console.log(error.messages);
+      res.send("error occurred: " + error.messages);
+    } else {
+      console.log("document retrieved");
+      var pageData = document.experience;
+      console.log(document.experience);
+      res.render("Experience.ejs", {data: pageData});
+      // res.send(document.skills);
+    }
+  });
 
 };
 
 exports.loadAwards = function(req,res,next) {
 
+  console.log("post award route hit");
+  var pageData = JSON.parse(req.body.award);
+  console.log("data is:");
+  console.log(pageData);
+  siteConstructor.findByIdAndUpdate("dtn5089",{award: pageData},{new: true}, function(error, document) {
+    if (error) {
+      console.log("error occurred");
+      console.log(error.messages);
+      res.send(error.messages);
+    } else {
+      console.log("update successful");
+      res.redirect("awards");
+    }
+});
+  
+
 };
 
 exports.getAwards = function(req,res,next) {
-  res.render("Awards.ejs");
+  console.log("get award route hit");
+
+  siteConstructor.findById("dtn5089", function(error,document) {
+    if(document == null) {
+      console.log("error occur:");
+      console.log(error.messages);
+      res.send("error occurred: " + error.messages);
+    } else {
+      console.log("document retrieved");
+      var pageData = document.award;
+      console.log(document.award);
+      res.render("Awards.ejs", {data: pageData});
+      // res.send(document.award);
+    }
+  });
 
 };
 
 exports.loadExtras = function(req,res,next) {
+  
+  console.log("post extras route hit");
+  var pageData = JSON.parse(req.body.extras);
+  console.log("data is:");
+  console.log(pageData);
+  siteConstructor.findByIdAndUpdate("dtn5089",{extras: pageData},{new: true}, function(error, document) {
+    if (error) {
+      console.log("error occurred");
+      console.log(error.messages);
+      res.send(error.messages);
+    } else {
+      console.log("update successful");
+      res.redirect("extras");
+      
+    }
+});
 
 };
 
 exports.getExtras = function(req,res,next) {
-  res.render("Extras.ejs");
+  console.log("get extras route hit");
+
+  siteConstructor.findById("dtn5089", function(error,document) {
+    if(document == null) {
+      console.log("error occur:");
+      console.log(error.messages);
+      res.send("error occurred: " + error.messages);
+    } else {
+      console.log("document retrieved");
+      var pageData = document.extras;
+      console.log(document.extras);
+      res.render("Extras.ejs", {data: pageData});
+      // res.send(document.award);
+    }
+  });
 
 };
 
@@ -275,11 +365,95 @@ exports.create = function(req,res,next) {
       var skills = [
           {
               skill: "HTML",
-              skillDescription: "HTML is a markup language......"
-          }
+              skillDescription: "HTdsfdML is a markup languagdsfe......"
+          },
+          {
+              skill: "Java",
+              skillDescription: "HTdsfsdfML is a markup languasdfge......"
+          },
+          {
+              skill: "javascriptL",
+              skillDescription: "HTdsfdsfML is a markup language......"
+          },
+          {
+              skill: "business",
+              skillDescription: "HdsfdsTML isdsfds a markup language......"
+          },
+          {
+              skill: "something",
+              skillDescription: "dsfds is a sdfdsfmarkup language......"
+          },
+          {
+              skill: "piano",
+              skillDescription: "HdsfsdfdML is a sdfdsfmarkup language......"
+          },
+          {
+              skill: "mvc",
+              skillDescription: "HdsfL is a markup sdlanguage......"
+          },
+          {
+              skill: "photoshop",
+              skillDescription: "Hdsfdsfdsfds is a markup language......"
+          },
       ];
   
-      var experience = [{workExperience: "Turkey Hill", aboutDescription: "Gas Station", responsibilities: [{responsibility: "Sales", responsibilityDescription: "Sales Experience"}]}];
+      var experience = 
+      {
+        workExperience1: {
+            employerName: "Turkey Hill",
+            aboutDescription: "Gas Station",
+            tasks: [
+                {
+                task: "Sales",
+                taskDescription: "Sales Experience"
+                },
+                {
+                  task: "Sales",
+                  taskDescription: "Sales Experience"
+                },
+                {
+                  task: "Sales",
+                  taskDescription: "Sales Experience"
+                },
+                {
+                  task: "Sales",
+                  taskDescription: "Sales Experience"
+                },
+                {
+                  task: "Sales",
+                  taskDescription: "Sales Experience"
+                }
+            ]
+
+        },
+        workExperience2: {
+            employerName:"Sheetz",
+            aboutDescription: "Gas Station",
+            tasks: [
+                {
+                task: "Sales",
+                taskDescription: "Sales Experience"
+                },
+                {
+                  task: "Sales",
+                  taskDescription: "Sales Experience"
+                },
+                {
+                  task: "Sales",
+                  taskDescription: "Sales Experience"
+                },
+                {
+                  task: "Sales",
+                  taskDescription: "Sales Experience"
+                },
+                {
+                  task: "Sales",
+                  taskDescription: "Sales Experience"
+                }
+            ]
+        },
+
+      };
   
       var award = {award: "Dean's List 2019", awardDescription: "HIGH GPA!!!"};
   

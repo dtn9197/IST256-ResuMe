@@ -56,22 +56,21 @@
             <div class="row">
                 <div class="col-3" id="experienceLeftGrid">
                     <div class="nav flex-column nav-pills" id="experienceTab" role="tablist" aria-orientation="vertical">
-                        <a class="nav-link editable active" id="experienceEmployer1Tab" data-toggle="pill" href="#employer1ContentTab" role="tab" aria-controls="employer1ContentTab" aria-selected="true">Employer 1</a>
-                        <a class="nav-link editable" id="experienceEmployer2Tab" data-toggle="pill" href="#employer2ContentTab" role="tab" aria-controls="employer2ContentTab" aria-selected="false">Employer 2</a>
+                        <a class="nav-link editable active" id="workExperience1" data-toggle="pill" href="#employer1ContentTab" role="tab" aria-controls="employer1ContentTab" aria-selected="true"><%= data.workExperience1.employerName%></a>
+                        <a class="nav-link editable" id="workExperience2" data-toggle="pill" href="#employer2ContentTab" role="tab" aria-controls="employer2ContentTab" aria-selected="false"><%= data.workExperience2.employerName%></a>
                     </div>
                     <button type="button" class="editButton">editContent</button>
                     <button type="button" class="cancelButton">Cancel</button>
+                    <button type="button" class="saveButton" id="experienceSaveButton">Save</button>
                 </div>
                 <div class="col-9">
                     <div class="tab-content" id="experienceTabContent">
-                        <div class="tab-pane fade show active experienceContentPage" id="employer1ContentTab" role="tabpanel" aria-labelledby="employer1ContentTab">
+                        <div class="tab-pane fade show active experienceContentPage" id="employer1ContentTab" role="tabpanel" aria-labelledby="workExperience1">
                             <div class="container-fluid">
-                                <h2 id="Employerfont">Employer 1</h2>
+                                <h2 id="Employerfont"><%= data.workExperience1.employerName%></h2>
                                 <hr>
                                 <h2  id="EmfontItalicised">About Employer</h2>
-                                <p class="editable">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium eum tempora quis et molestias. Dolorem excepturi obcaecati nemo non cumque similique ullam dolores, natus aut eaque delectus dignissimos repellendus quisquam autem harum, sunt voluptates ab expedita ex! Optio sapiente cum ducimus ipsa eum sunt hic quis deleniti. Eum nemo facere eaque ea vitae consequuntur voluptatibus iste laboriosam amet libero, odio optio veritatis totam? Sequi eligendi quidem tenetur eius odit voluptatibus aliquam asperiores at ex rem similique explicabo amet magnam reprehenderit quis, illo praesentium temporibus. At dolorem impedit reiciendis delectus saepe? Aperiam facilis aspernatur molestiae. Veniam autem facere excepturi debitis et!
-                                </p>
+                                <p class="editable" id="aboutDescription1"><%= data.workExperience1.aboutDescription%></p>
                             </div>
                             <div id="backgroundcolor">
                             <h2 id="Employerfont">Responsibilities</h2>
@@ -79,60 +78,61 @@
                             <div class="container-fluid">
                                 <ul class="nav nav-pills mb-3" id="responsibilitiesTab" role="tablist">
                                     <li class="nav-item">
-                                      <a class="nav-link editable active" id="employer1Responsibility1Tab" data-toggle="pill" href="#employer1Responsibility1Content" role="tab" aria-controls="employer2Responsibility2Content" aria-selected="true">Cashier</a>
+                                      <a class="nav-link editable active" id="emp1Task1" data-toggle="pill" href="#emp1Task1Pane" role="tab" aria-controls="emp1Task1Pane" aria-selected="true"><%= data.workExperience1.tasks[0].task%></a>
                                     </li>
 
                                     <li class="nav-item">
-                                      <a class="nav-link editable" id="employer1Responsibility2Tab" data-toggle="pill" href="#employer1Responsibility2Content" role="tab" aria-controls="employer1Responsibility2Content" aria-selected="false">Dish</a>
+                                      <a class="nav-link editable" id="emp1Task2" data-toggle="pill" href="#emp1Task2Pane" role="tab" aria-controls="emp1Task2Pane" aria-selected="false"><%= data.workExperience1.tasks[1].task%></a>
                                     </li>
 
                                     <li class="nav-item">
-                                      <a class="nav-link editable" id="employer1Responsibility3Tab" data-toggle="pill" href="#employer1Responsibility3Content" role="tab" aria-controls="employer1Responsibility3Content" aria-selected="false">Baker</a>
+                                      <a class="nav-link editable" id="emp1Task3" data-toggle="pill" href="#emp1Task3Pane" role="tab" aria-controls="emp1Task3Pane" aria-selected="false"><%= data.workExperience1.tasks[2].task%></a>
                                     </li>
                                     <li class="nav-item">
-                                      <a class="nav-link editable" id="employer1Responsibility4Tab" data-toggle="pill" href="#employer1Responsibility4Content" role="tab" aria-controls="employer1Responsibility4Content" aria-selected="false">Something</a>
+                                      <a class="nav-link editable" id="emp1Task4" data-toggle="pill" href="#emp1Task4Pane" role="tab" aria-controls="emp1Task4Pane" aria-selected="false"><%= data.workExperience1.tasks[3].task%></a>
                                     </li>
                                     <li class="nav-item">
-                                      <a class="nav-link editable" id="employer1Responsibility5Tab" data-toggle="pill" href="#employer1Responsibility5Content" role="tab" aria-controls="employer1Responsibility5Content" aria-selected="false">Something2</a>
+                                      <a class="nav-link editable" id="emp1Task5" data-toggle="pill" href="#emp1Task5Pane" role="tab" aria-controls="emp1Task5Pane" aria-selected="false"><%= data.workExperience1.tasks[4].task%></a>
                                     </li>
                                 </ul>
                                 <br>
                                 <div class="tab-content" id="pills-tabContent">
-                                    <div class="tab-pane fade show active" id="employer1Responsibility1Content" role="tabpanel" aria-labelledby="employer1Responsibility1Tab"><h2 id="jobnames">Cashier</h2>
+                                    <div class="tab-pane fade show active" id="emp1Task1Pane" role="tabpanel" aria-labelledby="emp1Task1"><h2 id="jobnames"><%= data.workExperience1.tasks[0].task%></h2>
                                         <hr>
                                         <h2 id="responsibility">Responsibilities</h2>
-                                        <p  class="editable"id="Employerparagraph">
-                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum impedit dolores debitis ipsam nostrum eveniet in repudiandae aspernatur, amet perspiciatis eos. Architecto, cumque distinctio.
+                                        <p  class="editable"id="emp1Task1Desc">
+                                            <%= data.workExperience1.tasks[0].taskDescription%>
                                         </p>
                                     </div>
-                                    <div class="tab-pane fade" id="employer1Responsibility2Content" role="tabpanel" aria-labelledby="employer1Responsibility2Tab"><h2 id="jobnames">Dish</h2>
+                                    <div class="tab-pane fade" id="emp1Task2Pane" role="tabpanel" aria-labelledby="emp1Task2"><h2 id="jobnames"><%= data.workExperience1.tasks[1].task%></h2>
                                         <hr>
                                         <h2 id="responsibility">Responsibilites</h2>
-                                        <p class="editable" id="Employerparagraph">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque atque possimus voluptate minus sequi inventore ratione beatae obcaecati, labore tempore aliquam eius debitis, iste iusto exercitationem et numquam excepturi odit odio quae dicta! Eveniet eos quidem labore blanditiis explicabo nulla voluptatem velit cupiditate aspernatur vero porro odio, quae magnam dolor aut fuga impedit quibusdam mollitia hic nisi reiciendis ad! Corporis, veniam optio?
+                                        <p class="editable" id="emp1Task2Desc">
+                                            <%= data.workExperience1.tasks[1].taskDescription%>
                                         </p>
                                     </div>
-                                    <div class="tab-pane fade" id="employer1Responsibility3Content" role="tabpanel" aria-labelledby="employer1Responsibility3Tab"><h2 id="jobnames">Baker</h2>
+                                    <div class="tab-pane fade" id="emp1Task3Pane" role="tabpanel" aria-labelledby="emp1Task3"><h2 id="jobnames"><%= data.workExperience1.tasks[2].task%></h2>
                                         <hr>
                                         <h2 id="responsibility">Responsibilites</h2>
-                                        <p  class="editable"id="Employerparagraph">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias provident architecto libero consectetur nostrum veritatis tenetur consequuntur nesciunt sequi quo illo incidunt, enim fugiat consequatur ea eius sapiente ipsum necessitatibus exercitationem saepe nam! Repellendus quod accusantium veniam, quis quisquam eum fuga architecto illum eius atque hic, dolorem soluta aperiam voluptatibus ad explicabo nobis perspiciatis sapiente. Magni eligendi quis sit maiores fuga maxime eius, voluptatum ut aliquam assumenda quae fugit doloribus ducimus officiis.
-                                        </p>
-
-                                    </div>
-                                    <div class="tab-pane fade" id="employer1Responsibility4Content" role="tabpanel" aria-labelledby="employer1Responsibility4Tab"><h2 id="jobnames">Baker</h2>
-                                        <hr>
-                                        <h2 id="responsibility">Responsibilites</h2>
-                                        <p  class="editable"id="Employerparagraph">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis autem qui natus, eveniet ullam consectetur eos nobis tenetur aspernatur nam sit, aliquam quia nesciunt soluta placeat corrupti temporibus exercitationem eum similique sapiente accusamus facere dolor rem. Nostrum quisquam, eum a quae consectetur enim similique et? Dignissimos fuga consectetur cupiditate ducimus, temporibus ipsa mollitia, voluptatibus voluptatum ad quod vel earum amet quasi atque deleniti, doloremque iste aliquam impedit odit nemo! Sunt et recusandae, eius deserunt provident aperiam. Nisi sunt magni expedita quod consequatur, illo blanditiis veritatis quaerat modi tempora quisquam, soluta dicta ullam!
+                                        <p  class="editable"id="emp1Task3Desc">
+                                            <%= data.workExperience1.tasks[2].taskDescription%>
                                         </p>
 
                                     </div>
-                                    <div class="tab-pane fade" id="employer1Responsibility5Content" role="tabpanel" aria-labelledby="employer1Responsibility5Tab"><h2 id="jobnames">Baker</h2>
+                                    <div class="tab-pane fade" id="emp1Task4Pane" role="tabpanel" aria-labelledby="emp1Task4"><h2 id="jobnames"><%= data.workExperience1.tasks[3].task%></h2>
                                         <hr>
                                         <h2 id="responsibility">Responsibilites</h2>
-                                        <p  class="editable"id="Employerparagraph">
-                                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis laborum inventore mollitia doloribus fugit dolores in et sit suscipit ullam nobis saepe dolorum a, voluptas nemo velit modi libero molestias! Quidem nulla fugiat libero optio repellat eum non iste natus ullam neque?
+                                        <p  class="editable"id="emp1Task4Desc">
+                                            <%= data.workExperience1.tasks[3].taskDescription%>
+                                        </p>
+
+                                    </div>
+                                    <div class="tab-pane fade" id="emp1Task5Pane" role="tabpanel" aria-labelledby="emp1Task5"><h2 id="jobnames">
+                                        <%= data.workExperience1.tasks[4].task%></h2>
+                                        <hr>
+                                        <h2 id="responsibility">Responsibilites</h2>
+                                        <p  class="editable"id="emp1Task5Desc">
+                                            <%= data.workExperience1.tasks[4].taskDescription%>
                                         </p>
 
                                     </div>
@@ -141,69 +141,70 @@
                             </div>
                         </div>
                       </div>
-                        <div class="tab-pane fade experienceContentPage" id="employer2ContentTab" role="tabpanel" aria-labelledby="employer2ContentTab">
-                            <h2  id="Employerfont">Employer 2 Info</h2>
+                        <div class="tab-pane fade experienceContentPage" id="employer2ContentTab" role="tabpanel" aria-labelledby="workExperience2">
+                            <h2  id="Employerfont"><%= data.workExperience2.employerName%></h2>
                             <hr>
-                            <p class ="editable" id="Employerparagraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, adipisci ex officia fugiat ea deleniti, eligendi assumenda doloremque ipsa natus commodi architecto ipsam repellat deserunt facere! Dolore porro provident accusantium voluptatem atque? Dolor id provident repellat eligendi nihil fugit neque? Sequi eligendi numquam beatae! Consequuntur, eum. Inventore, modi. Eveniet, officiis!</p>
+                            <p class ="editable" id="aboutDescription2"><%= data.workExperience2.aboutDescription%></p>
                             <h2 id="Employerfont">Responsibilities</h2>
                             <br>
                             <div class="container-fluid">
                                 <ul class="nav nav-pills mb-3" id="responsibilitiesTab" role="tablist">
                                     <li class="nav-item">
-                                      <a class="nav-link editable active" id="employer2Responsibility1Tab" data-toggle="pill" href="#employer2Responsibility1Content" role="tab" aria-controls="employer2Responsibility1Content" aria-selected="true">Engineering</a>
+                                      <a class="nav-link editable active" id="emp2Task1" data-toggle="pill" href="#emp2Task1Pane" role="tab" aria-controls="emp2Task1Pane" aria-selected="true"><%= data.workExperience2.tasks[0].task%></a>
                                     </li>
 
                                     <li class="nav-item">
-                                      <a class="nav-link editable" id="employer2Responsibility2Tab" data-toggle="pill" href="#employer2Responsibility2Content" role="tab" aria-controls="employer2Responsibility2Content" aria-selected="false">Marketing</a>
+                                      <a class="nav-link editable" id="emp2Task2" data-toggle="pill" href="#emp2Task2Pane" role="tab" aria-controls="emp2Task2Pane" aria-selected="false"><%= data.workExperience2.tasks[1].task%></a>
                                     </li>
 
                                     <li class="nav-item">
-                                      <a class="nav-link editable" id="employer2Responsibility3Tab" data-toggle="pill" href="#employer2Responsibility3Content" role="tab" aria-controls="employer2Responsibility3Content" aria-selected="false">Supply Chain</a>
+                                      <a class="nav-link editable" id="emp2Task3" data-toggle="pill" href="#emp2Task3Pane" role="tab" aria-controls="emp2Task3Pane" aria-selected="false"><%= data.workExperience2.tasks[2].task%></a>
                                     </li>
                                     <li class="nav-item">
-                                      <a class="nav-link editable" id="employer2Responsibility4Tab" data-toggle="pill" href="#employer2Responsibility4Content" role="tab" aria-controls="employer2Responsibility4Content" aria-selected="false">Coding</a>
+                                      <a class="nav-link editable" id="emp2Task4" data-toggle="pill" href="#emp2Task4Pane" role="tab" aria-controls="emp2Task4Pane" aria-selected="false"><%= data.workExperience2.tasks[3].task%></a>
                                     </li>
                                     <li class="nav-item">
-                                      <a class="nav-link editable" id="employer2Responsibility5Tab" data-toggle="pill" href="#employer2Responsibility5Content" role="tab" aria-controls="employer2Responsibility5Content" aria-selected="false">Quality Assurance</a>
+                                      <a class="nav-link editable" id="emp2Task5" data-toggle="pill" href="#emp2Task5Pane" role="tab" aria-controls="emp2Task5Pane" aria-selected="false"><%= data.workExperience2.tasks[4].task%></a>
                                     </li>
                                 </ul>
                                 <br>
                                 <div class="tab-content" id="pills-tabContent">
-                                    <div class="tab-pane fade show active" id="employer2Responsibility1Content" role="tabpanel" aria-labelledby="employer2Responsibility1Tab"><h2 id="jobnames">Engineering</h2>
+                                    <div class="tab-pane fade show active" id="emp2Task1Pane" role="tabpanel" aria-labelledby="emp2Task1">
+                                        <h2 id="jobnames"><%= data.workExperience2.tasks[0].task%></h2>
                                         <hr>
                                         <h2 id="responsibility">Responsibilities</h2>
-                                        <p  class="editable"id="Employerparagraph">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium eum tempora quis et molestias. Dolorem excepturi obcaecati nemo non cumque similique ullam dolores, natus aut eaque delectus dignissimos repellendus quisquam autem harum, sunt voluptates ab expedita ex! Optio sapiente cum ducimus ipsa eum sunt hic quis deleniti. Eum nemo facere eaque ea vitae consequuntur voluptatibus iste laboriosam amet libero, odio optio veritatis totam? Sequi eligendi quidem tenetur eius odit voluptatibus aliquam asperiores at ex rem similique explicabo amet magnam reprehenderit quis, illo praesentium temporibus. At dolorem impedit reiciendis delectus saepe? Aperiam facilis aspernatur molestiae. Veniam autem facere excepturi debitis et!
+                                        <p  class="editable"id="emp2Task1Desc">
+                                            <%= data.workExperience2.tasks[0].taskDescription%>
                                         </p>
                                     </div>
-                                    <div class="tab-pane fade" id="employer2Responsibility2Content" role="tabpanel" aria-labelledby="employer2Responsibility2Tab"><h2 id="jobnames">Marketing</h2>
+                                    <div class="tab-pane fade" id="emp2Task2Pane" role="tabpanel" aria-labelledby="emp2Task2"><h2 id="jobnames"><%= data.workExperience2.tasks[1].task%></h2>
                                         <hr>
                                         <h2 id="responsibility">Responsibilites</h2>
-                                        <p class="editable" id="Employerparagraph">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat modi ducimus ipsa suscipit aliquid ipsum dolore itaque sunt eaque porro!
+                                        <p class="editable" id="emp2Task2Desc">
+                                            <%= data.workExperience2.tasks[1].taskDescription%>
                                         </p>
                                     </div>
-                                    <div class="tab-pane fade" id="employer2Responsibility3Content" role="tabpanel" aria-labelledby="employer2Responsibility3Tab"><h2 id="jobnames">Supply Chain</h2>
+                                    <div class="tab-pane fade" id="emp2Task3Pane" role="tabpanel" aria-labelledby="emp2Task3"><h2 id="jobnames"><%= data.workExperience2.tasks[2].task%></h2>
                                         <hr>
                                         <h2 id="responsibility">Responsibilites</h2>
-                                        <p  class="editable"id="Employerparagraph">
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus corrupti reprehenderit, architecto similique illo minus, perspiciatis natus suscipit voluptates velit nostrum nesciunt quis rerum iusto asperiores praesentium tempore consectetur obcaecati iure nisi. Soluta asperiores a ab at excepturi fugiat voluptate delectus accusantium velit totam neque, similique eaque repellat deserunt cupiditate dolorem, incidunt dignissimos esse nulla ex voluptates repudiandae praesentium? Quam.
-                                        </p>
-
-                                    </div>
-                                    <div class="tab-pane fade" id="employer2Responsibility4Content" role="tabpanel" aria-labelledby="employer2Responsibility4Tab"><h2 id="jobnames">Coding</h2>
-                                        <hr>
-                                        <h2 id="responsibility">Responsibilites</h2>
-                                        <p  class="editable"id="Employerparagraph">
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus corrupti reprehenderit, architecto similique illo minus, perspiciatis natus suscipit voluptates velit nostrum nesciunt quis rerum iusto asperiores praesentium tempore consectetur obcaecati iure nisi. Soluta asperiores a ab at excepturi fugiat voluptate delectus accusantium velit totam neque, similique eaque repellat deserunt cupiditate dolorem, incidunt dignissimos esse nulla ex voluptates repudiandae praesentium? Quam.
+                                        <p  class="editable"id="emp2Task3Desc">
+                                            <%= data.workExperience2.tasks[2].taskDescription%>
                                         </p>
 
                                     </div>
-                                    <div class="tab-pane fade" id="employer2Responsibility5Content" role="tabpanel" aria-labelledby="employer2Responsibility5Tab"><h2 id="jobnames">Quality Assurance</h2>
+                                    <div class="tab-pane fade" id="emp2Task4Pane" role="tabpanel" aria-labelledby="emp2Task4"><h2 id="jobnames"><%= data.workExperience2.tasks[3].task%></h2>
                                         <hr>
                                         <h2 id="responsibility">Responsibilites</h2>
-                                        <p  class="editable"id="Employerparagraph">
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus corrupti reprehenderit, architecto similique illo minus, perspiciatis natus suscipit voluptates velit nostrum nesciunt quis rerum iusto asperiores praesentium tempore consectetur obcaecati iure nisi. Soluta asperiores a ab at excepturi fugiat voluptate delectus accusantium velit totam neque, similique eaque repellat deserunt cupiditate dolorem, incidunt dignissimos esse nulla ex voluptates repudiandae praesentium? Quam.
+                                        <p  class="editable"id="emp2Task4Desc">
+                                            <%= data.workExperience2.tasks[3].taskDescription%>
+                                        </p>
+
+                                    </div>
+                                    <div class="tab-pane fade" id="emp2Task5Pane" role="tabpanel" aria-labelledby="emp2Task5"><h2 id="jobnames"><%= data.workExperience2.tasks[4].task%></h2>
+                                        <hr>
+                                        <h2 id="responsibility">Responsibilites</h2>
+                                        <p  class="editable"id="emp2Task5Desc">
+                                            <%= data.workExperience2.tasks[4].taskDescription%>
                                         </p>
 
                                     </div>
