@@ -375,10 +375,48 @@
                     <hr>
                     <h1 id="aboutheader">About Me</h1>
                     <br>
-                    <p id="aboutMe" class="editable"><%= data.aboutMe %></p>
-                    <button type="button" class="editButton">editContent</button>
+                    <p id="aboutMeText" class="editable"><%= data.aboutMe %></p>
+                    <button type="button" class="editButton">Edit Content</button>
                     <button type="button" class="cancelButton">Cancel</button>
-                    <button type="button" class="saveButton" id="homepageSaveButton">Save</button>
+                    <button type="button" class="saveButton" id="homepageSaveButton">Save</button><hr>
+
+                    <div class="center">  
+                        <h1 id="aboutheader">Job Board</h1> 
+                    </div>
+                    <div class="container-fluid" id="jobBoardContainer">
+                        <div class="row">
+                            <div class="col"><span class="jobBoardHeader">Employer: </span><span id="employerContent"></span></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6"> <span class="jobBoardHeader">Job Title: </span> <span id="jobTitleContent"></span></div>
+                            <div class="col-6"> <span class="jobBoardHeader">Location: </span> <span id="jobLocationContent"></span></div>
+                        </div>
+                        <div class="row">
+                            <div class="col"> <span class="jobBoardHeader">Type: </span> <span id="jobTypeContent"></span> </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6"><input type="text" placeholder="search terms here" id="jobSearch"></div>
+                            <div class="col-6"><button type="button" id="apiButton">Search</button></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <h4 id="descriptionHeader">Description</h4>
+                            </div>
+                            <div class="col-9 d-inline-flex flex-row justify-content-end">
+                                <button type="button" id="previousButton">Previous</button>
+                                <button type="button" id="nextButton">Next</button>
+                                
+                            </div>
+                            
+                        </div>
+
+                        <p id="jobDescription">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta dolor sapiente dolores totam sed quaerat, ex est? Eaque odit sit inventore nihil voluptatem quasi facere doloribus eveniet, quae natus deserunt eius blanditiis, est, sequi esse quia nam tempore ipsum praesentium unde. Laudantium est recusandae provident sunt, amet dolore quae maiores assumenda facilis. Repellendus commodi tempora error accusamus corporis reiciendis eveniet. Numquam quibusdam ad labore deleniti iste ex a aperiam ratione dolores! Culpa sunt mollitia doloribus labore perspiciatis, dolores odit neque enim est! Pariatur quod esse dicta deserunt quae nulla doloremque optio ea deleniti! Distinctio officiis ratione, iste doloribus tempora numquam dolores libero maiores autem. Fuga doloremque veniam totam qui quam id architecto maxime soluta dolorem voluptates odit eligendi cupiditate, perferendis quas sit itaque cum earum ullam eos quaerat! Explicabo amet sit non obcaecati, quas laudantium sequi, velit quae dignissimos praesentium ab, alias rem officia sunt error quasi unde repudiandae dicta? Autem culpa doloribus soluta natus, officiis optio voluptas, alias voluptate doloremque aliquam hic amet? Tempore, alias aliquid. Cum aliquid vel perspiciatis magnam possimus at ad recusandae nam, ut quam a eius quaerat alias porro cumque provident omnis sed nulla sit, odit repellendus id itaque? Consequuntur, nulla? Facere praesentium eum sit quam excepturi et possimus mollitia, suscipit porro? Id consequuntur quam ex dolorum. Adipisci reprehenderit sint cupiditate assumenda numquam dicta totam repellendus corporis tempora ad, fugit quia asperiores soluta aliquam perferendis voluptates earum, illo, dolor incidunt quidem excepturi autem? Officia, voluptates, culpa impedit magnam asperiores rerum sunt suscipit voluptatum soluta omnis inventore ea ex ipsa architecto neque quod. Libero dolorum amet a quasi rem nostrum, hic ipsa adipisci perspiciatis, voluptas excepturi tenetur esse officiis iusto facere. Qui nobis rerum neque ea architecto consectetur quis nisi! Vitae provident molestiae dolores, magnam explicabo reprehenderit earum autem iure quo, impedit non animi et perspiciatis.
+                        </p>
+                    </div>
+
+
+                    
                 </div>
             </div>
         </div>

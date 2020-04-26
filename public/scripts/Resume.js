@@ -5,54 +5,192 @@ var textContentList = [];
 var textAreaList = [];
 var textBoxList = [];
 var modalCard = $("#templateCard").clone();
+var jobsList;
+var jobsListIndex = 0;
 
 $(document).ready(function() {
-    $("#addSkill").click(addSkills);
-    $(".editButton").click(editText);
-    $(".cancelButton").click(cancelEdit);
-
-    //posible login
-    $("#signUpSubmit").click(signUpValidation);
-    // $("#loginSubmit").click(loginValidation);
-
+    //resume edit buttons
     $(".modalAddButton").click(function() {
       $(".modalItemContainer").toggle();
     });
     $(".cancelModalButton").click(function() {
       $(".modalItemContainer").toggle();
     });
-
     $(".addModalItemButton").click(addItem);
-    $("#educationSaveButton").click(sendDataEducation);
 
-    $("#testButtonPost").click(testButtonPost);
-    $("#testButtonGet").click(testButtonGet);
 
+    //edit textboxes or cancel
+    $(".editButton").click(editText);
+    $(".cancelButton").click(cancelEdit);
+
+
+    //all the save Buttons for each page
     $("#homepageSaveButton").click(sendData);
     $("#skillsSaveButton").click(sendDataSkills);
     $("#extrasSaveButton").click(sendDataExtras);
     $("#experienceSaveButton").click(sendDataExperience);
     $("#awardSaveButton").click(sendDataAward);
+    $("#educationSaveButton").click(sendDataEducation);
+
+
+    //api buttons
+    $("#apiButton").click(getAPI);
+    $("#nextButton").click(getNextJob);
+    $("#previousButton").click(getPreviousJob);
+
+     //testing functionalities only
+     $("#testButtonPost").click(testButtonPost);
+     $("#testButtonGet").click(testButtonGet);
+ 
+    //posible login features, not working
+    // $("#signUpSubmit").click(signUpValidation);
+    // $("#loginSubmit").click(loginValidation);
+
     
-
-
 });
 
-function domTest() {
-  var textBoxes = $("textarea");
-  $(textBoxes).each(function(index, textbox) {
-    console.log(textbox);
+
+
+
+
+
+
+/*
+a function that replaces textboxes with textareas that can be edited
+
+//store the text content  of each individual textboxes in a list
+//create corresponding # number of textarea elements based on the list
+//add the individual textcontent to each new textarea
+//replace all the textboxes with the new textareas
+*/
+function editText() {
+  $(".cancelButton").show();
+  $(".saveButton").show();
+  $(".editButton").attr("disabled","true");
+  
+  //store all textboxes on the page in textBoxList
+   textBoxList = $(".editable");
+  
+  
+   //create the text areas and store in a list called textAreaList
+   for (var i = 0; i < textBoxList.length; i++) {
+    textAreaList.push($("<textarea></textarea>"));
+  }
+
+  //transfer text content of each textbox to a list called textContentList
+  textBoxList.each(function(index, textBox) {
+      textContentList.push($(textBox).text());
   });
+
+for (var i = 0; i < textBoxList.length;i++) {
+  $(textAreaList[i]).attr("id", $(textBoxList[i]).attr("id"));
+  $(textAreaList[i]).text($(textBoxList[i]).text());
+}
+
+
+  //replace the textboxes with the new textareas
+  textBoxList.each(function(index, textBox) {
+    if($(textBoxList[index]).is("p")) {
+      $(textAreaList[index]).css("width", "100%");
+      $(textAreaList[index]).css("height", "300px");
+    }
+    $(textBox).replaceWith(textAreaList[index]);
+  });
+
+}
+/*
+replace the textareas back with the original textboxes
+*/
+function cancelEdit() {
+  $(".editButton").removeAttr("disabled");
+  $("textarea").each(function(index, textArea) {
+    $(textArea).replaceWith(textBoxList[index]);
+  });
+  $(".cancelButton").hide();
+  $(".saveButton").hide();
 }
 
 
 
 
 
+//api is for jos listing
+function getAPI() {
+  console.log("API key hit");
+  var userInput = $("#jobSearch").val();
+  console.log("Your input is " + userInput);
+  urlString = `https://github-jobs-proxy.appspot.com/positions?description=${userInput}&location=`;
+  console.log("the GET url string is: " + urlString);
+  
+  $.ajax({
+    type: "get",
+    //use relative
+    url: urlString,
 
-/* 
-  resume-related scripts BEGIN
- */
+    //headers property will be accessible in the route
+    // contentType: 'application/json',
+    success: function(data) {
+        jobsList = data;
+        try {
+          $("#employerContent").text(jobsList[0].company);
+          $("#jobTitleContent").text(jobsList[0].title);
+          $("#jobLocationContent").text(jobsList[0].location);
+          $("#jobTypeContent").text(jobsList[0].type);
+          $("#jobDescription").html(jobsList[0].description);
+
+        } catch(err) {
+          console.log(err.message);
+          window.alert("error: no jobs found");
+          return;
+        }
+        $("#nextButton").show();
+        $("#previousButton").show();
+    }
+  });
+
+}
+
+
+//these two functions scroll through a list job postings
+function getNextJob() {
+  if(jobsListIndex < jobsList.length - 1)
+    jobsListIndex++;
+    displayJob(jobsListIndex);
+
+}
+
+function getPreviousJob() {
+  if(jobsListIndex > 0)
+    jobsListIndex--;
+  displayJob(jobsListIndex);
+
+}
+
+
+
+
+//display certain job's data on webpage
+function displayJob(jobNum) {
+  $("#employerContent").text(jobsList[jobNum].company);
+  $("#jobTitleContent").text(jobsList[jobNum].title);
+  $("#jobLocationContent").text(jobsList[jobNum].location);
+  $("#jobTypeContent").text(jobsList[jobNum].type);
+  $("#jobDescription").html(jobsList[jobNum].description);
+
+}
+
+
+// From Bootstrap documentation, keep for reference
+$('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var modal = $(this)
+  modal.find('.modal-title').text('New message to ' + recipient)
+  modal.find('.modal-body input').val(recipient)
+})
+
 
 /*
   this method takes a user input and add an item into the accordion
@@ -105,92 +243,13 @@ function deleteItem(event) {
   $(deleteButton).parentsUntil(".accordion").remove();
 }
 
-/*
-resume related scripts END
-*/
 
 
 
-/*
-  display a skilltab sequentially based on a counter,
- there are four additional skill tabs to be added.
-*/
-function addSkills() {
-  counter++;
-  if(counter <= 4) {
-    var skillID = "#skill" + counter + "Tab";
-    $(skillID).css({
-      visibility: "visible",
-      display: "block"
-    });
-  } else counter = 0;
-}
 
 
-/*
-a function that replaces textboxes with textareas that can be edited
+/**Below are post requests functionalities for each page */
 
-//store the text content  of each individual textboxes in a list
-//create corresponding # number of textarea elements based on the list
-//add the individual textcontent to each new textarea
-//replace all the textboxes with the new textareas
-*/
-function editText() {
-  $(".cancelButton").show();
-  $(".saveButton").show();
-  $(".editButton").attr("disabled","true");
-  
-
-  //store all textboxes on the page in textBoxList
-   textBoxList = $(".editable");
-  
-  
-   //create the text areas and store in a list called textAreaList
-   for (var i = 0; i < textBoxList.length; i++) {
-    textAreaList.push($("<textarea></textarea>"));
-  }
-
-  //transfer text content of each textbox to a list called textContentList
-  textBoxList.each(function(index, textBox) {
-      textContentList.push($(textBox).text());
-  });
-
-for (var i = 0; i < textBoxList.length;i++) {
-  $(textAreaList[i]).attr("id", $(textBoxList[i]).attr("id"));
-  $(textAreaList[i]).text($(textBoxList[i]).text());
-}
-
-
-  //replace the textboxes with the new textareas
-  textBoxList.each(function(index, textBox) {
-    if($(textBoxList[index]).is("p")) {
-      $(textAreaList[index]).css("width", "100%");
-      $(textAreaList[index]).css("height", "300px");
-    }
-    $(textBox).replaceWith(textAreaList[index]);
-  });
-
-}
-/*
-replace the textareas with the original textboxes
-*/
-function cancelEdit() {
-  $(".editButton").removeAttr("disabled");
-  $("textarea").each(function(index, textArea) {
-    $(textArea).replaceWith(textBoxList[index]);
-  });
-  $(".cancelButton").hide();
-  $(".saveButton").hide();
-}
-
-/*
-create an array
-store all textboxes as dom
-//call ajax post request
-  //attach text inside ajax body to server
-
-
-*/
 function sendData() {
     var textBoxes = $("textarea");
     var aboutMeContent = $(textBoxes[0]).val();
@@ -208,7 +267,6 @@ function sendData() {
       },
       success: function(data) {
           // console.log(data);
-          // saveContent(data);
           location.reload();
       }
   });
@@ -289,8 +347,6 @@ function sendDataExperience() {
     // processData: false,
     success: function(data) {
         // console.log(data);
-        // turn content aback into text box and save
-        // saveContent(data);
         location.reload();
     }
 
@@ -299,145 +355,116 @@ function sendDataExperience() {
 }
 
 function sendDataExtras() {
-  var textBoxes = $("textarea");
-  var dataObject =  {
-    undergraduate: {
-      undergradExtra1: {
-        undergradExtra: $(textBoxes).filter("#undergradExtra1").val(),
-        extraDescription: $(textBoxes).filter("#undergradExtra1Description").val()},
-      undergradExtra2: {
-        undergradExtra: $(textBoxes).filter("#undergradExtra2").val(),
-        extraDescription: $(textBoxes).filter("#undergradExtra2Description").val()}, 
-      undergradExtra3: {
-        undergradExtra: $(textBoxes).filter("#undergradExtra3").val(),
-        extraDescription: $(textBoxes).filter("#undergradExtra3Description").val()} 
-  },
-  graduate: {
-      gradExtra1: {
-        gradExtra: $(textBoxes).filter("#gradExtra1").val(),
-        extraDescription: $(textBoxes).filter("#gradExtra1Description").val()},
-      gradExtra2: {
-        gradExtra: $(textBoxes).filter("#gradExtra2").val(),
-        extraDescription: $(textBoxes).filter("#gradExtra2Description").val()},
-      gradExtra3: {
-        gradExtra: $(textBoxes).filter("#gradExtra3").val(),
-        extraDescription: $(textBoxes).filter("#gradExtra3Description").val()}
-  } 
-  };
-  
-  
-  console.log(dataObject);
-
-  
-  
-  $.ajax({
-    type: "post",
-    //use relative
-    url: "/extras",
-    //headers property will be accessible in the route
-    // contentType: 'application/json',
-    data: {
-      extras: JSON.stringify(dataObject)
-    },
-    // data: dataObject,
-    // processData: false,
-    success: function(data) {
-        // console.log(data);
-        //turn content aback into text box and save
-        // saveContent(data);
-        location.reload();
-    }
-});
+      var textBoxes = $("textarea");
+      var dataObject =  {
+        undergraduate: {
+          undergradExtra1: {
+            undergradExtra: $(textBoxes).filter("#undergradExtra1").val(),
+            extraDescription: $(textBoxes).filter("#undergradExtra1Description").val()},
+          undergradExtra2: {
+            undergradExtra: $(textBoxes).filter("#undergradExtra2").val(),
+            extraDescription: $(textBoxes).filter("#undergradExtra2Description").val()}, 
+          undergradExtra3: {
+            undergradExtra: $(textBoxes).filter("#undergradExtra3").val(),
+            extraDescription: $(textBoxes).filter("#undergradExtra3Description").val()} 
+      },
+      graduate: {
+          gradExtra1: {
+            gradExtra: $(textBoxes).filter("#gradExtra1").val(),
+            extraDescription: $(textBoxes).filter("#gradExtra1Description").val()},
+          gradExtra2: {
+            gradExtra: $(textBoxes).filter("#gradExtra2").val(),
+            extraDescription: $(textBoxes).filter("#gradExtra2Description").val()},
+          gradExtra3: {
+            gradExtra: $(textBoxes).filter("#gradExtra3").val(),
+            extraDescription: $(textBoxes).filter("#gradExtra3Description").val()}
+      } 
+      };
+      console.log(dataObject);
+      
+      $.ajax({
+        type: "post",
+        //use relative
+        url: "/extras",
+        //headers property will be accessible in the route
+        // contentType: 'application/json',
+        data: {
+          extras: JSON.stringify(dataObject)
+        },
+        // data: dataObject,
+        // processData: false,
+        success: function(data) {
+            // console.log(data);
+            location.reload();
+        }
+    });
 }
 
 
 
 function sendDataEducation() {
-  var textBoxes = $("textarea");
-  var dataObject = {
-    schoolTitle: $(textBoxes).filter("#schoolTitle").val(),
-    aboutSchool: $(textBoxes).filter("#aboutSchool").val(),
-    major: $(textBoxes).filter("#major").val(),
-    minor: $(textBoxes).filter("#minor").val(),
-    undergraduate: $(textBoxes).filter("#undergraduate").val(),
-    graduate: $(textBoxes).filter("#graduate").val(),
-  }
-  console.log(dataObject);
-
-  
-  
-  $.ajax({
-    type: "post",
-    //use relative
-    url: "/education",
-    //headers property will be accessible in the route
-    // contentType: 'application/json',
-    data: {
-      educationData: JSON.stringify(dataObject)
-    },
-    // data: dataObject,
-    // processData: false,
-    success: function(data) {
-        console.log(data);
-        //turn content aback into text box and save
-        // saveContent(data);
-        location.reload();
-    }
-});
+      var textBoxes = $("textarea");
+      var dataObject = {
+        schoolTitle: $(textBoxes).filter("#schoolTitle").val(),
+        aboutSchool: $(textBoxes).filter("#aboutSchool").val(),
+        major: $(textBoxes).filter("#major").val(),
+        minor: $(textBoxes).filter("#minor").val(),
+        undergraduate: $(textBoxes).filter("#undergraduate").val(),
+        graduate: $(textBoxes).filter("#graduate").val(),
+      }
+      console.log(dataObject);
+ 
+      $.ajax({
+        type: "post",
+        //use relative
+        url: "/education",
+        //headers property will be accessible in the route
+        // contentType: 'application/json',
+        data: {
+          educationData: JSON.stringify(dataObject)
+        },
+        // data: dataObject,
+        // processData: false,
+        success: function(data) {
+            // console.log(data);
+            location.reload();
+        }
+    });
 
 }
 
 function sendDataAward(){
-  var textBoxes = $("textarea");
-  var dataObject = {
-   award: $(textBoxes).filter("#award").val(),
-   awardDescription: $(textBoxes).filter("#awardDescription").val()
-  }
-  console.log(dataObject);
+      var textBoxes = $("textarea");
+      var dataObject = {
+      award: $(textBoxes).filter("#award").val(),
+      awardDescription: $(textBoxes).filter("#awardDescription").val()
+      }
+      console.log(dataObject);
 
-  $.ajax({
-    type: "post",
-    //use relative
-    url: "/awards",
-    //headers property will be accessible in the route
-    // contentType: 'application/json',
-    data: {
-      award: JSON.stringify(dataObject)
-    },
-    // data: dataObject,
-    // processData: false,
-    success: function(data) {
-        // console.log(data);
-        //turn content aback into text box and save
-        // saveContent(data);
-        location.reload();
-    }
-});
-
+      $.ajax({
+        type: "post",
+        //use relative
+        url: "/awards",
+        //headers property will be accessible in the route
+        // contentType: 'application/json',
+        data: {
+          award: JSON.stringify(dataObject)
+        },
+        // data: dataObject,
+        // processData: false,
+        success: function(data) {
+            // console.log(data);
+            location.reload();
+        }
+    });
 
 }
 
 
-/*
-  //store all textboxes in array as dom nodes
-  //for each dom node
-    //store text content based on id
-*/
-function saveContent(pageData) {
-  textBoxList.each(function(index, textBox) {
-    $(textBox).text(pageData[textBox.id]);
-    console.log($(textBox).text());
-  });
-  $("textarea").each(function(index, textArea) {
-    $(textArea).replaceWith(textBoxList[index]);
-  });
 
-  $(".saveButton").hide();
-  $(".editButton").removeAttr("disabled");
-  $(".cancelButton").hide();
 
-}
 
+/**These two methods are test functionalities only */
 function testButtonPost() {
   console.log("testButtonPost ran")
   $.ajax({
@@ -470,85 +497,28 @@ function testButtonGet() {
 }
 
 
+//possible login features, not working
 
-/* The below functions allow users to remove a skill. */
+// function signUpValidation(){
+//   // e.preventDefault();
+//   var userId = $("#signUpButton").val();
+//   console.log("userName is " + userId);
+//   $.ajax({
+//     type:"post",
+//     url: "/createAccount",
+//     data: {
+//       userName: userId
+//     },
+//     success: function(data) {
+//       console.log(data);
+//     },
+//     error: function(data) {
+//       // console.log("an error ocurred:" + data.error);
 
-// function removeSkill1(){
-//   document.getElementById("skill1Tab").style.visibility = "hidden";
-//   document.getElementById("skill1Tab").style.display = "none";
-//   document.getElementById("skill1TabContent").style.visibility = "hidden";
+//     }
+
+//   });
 // }
-
-// function removeSkill2(){
-//   document.getElementById("skill2Tab").style.visibility = "hidden";
-//   document.getElementById("skill2Tab").style.display = "none";
-//   document.getElementById("skill2TabContent").style.visibility = "hidden";
-// }
-
-// function removeSkill3(){
-//   document.getElementById("skill3Tab").style.visibility = "hidden";
-//   document.getElementById("skill3Tab").style.display = "none";
-//   document.getElementById("skill3TabContent").style.visibility = "hidden";
-// }
-
-// function removeSkill4(){
-//   document.getElementById("skill4Tab").style.visibility = "hidden";
-//   document.getElementById("skill4Tab").style.display = "none";
-//   document.getElementById("skill4TabContent").style.visibility = "hidden";
-// }
-
-/* The below functions allow new skills to be added and be visible even after a user has clicked the
-"remove skill" buttons. */
-
-// function showSkillTab1(){
-//   document.getElementById("skill1TabContent").style.visibility = "visible";
-// }
-
-// function showSkillTab2(){
-//   document.getElementById("skill2TabContent").style.visibility = "visible";
-// }
-
-// function showSkillTab3(){
-//   document.getElementById("skill3TabContent").style.visibility = "visible";
-// }
-
-// function showSkillTab4(){
-//   document.getElementById("skill4TabContent").style.visibility = "visible";
-// }
-
-$('#exampleModal').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Button that triggered the modal
-  var recipient = button.data('whatever') // Extract info from data-* attributes
-  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-  var modal = $(this)
-  modal.find('.modal-title').text('New message to ' + recipient)
-  modal.find('.modal-body input').val(recipient)
-})
-
-
-//possible login
-
-function signUpValidation(){
-  // e.preventDefault();
-  var userId = $("#signUpButton").val();
-  console.log("userName is " + userId);
-  $.ajax({
-    type:"post",
-    url: "/createAccount",
-    data: {
-      userName: userId
-    },
-    success: function(data) {
-      console.log(data);
-    },
-    error: function(data) {
-      // console.log("an error ocurred:" + data.error);
-
-    }
-
-  });
-}
 
 // function loginValidation() {
 //   // e.preventDefault();
@@ -582,6 +552,8 @@ function signUpValidation(){
 //   });
 
 // }
+
+
 
 //query dom on Experience Page and map it to database schema,
 // too long, nothing interesting here

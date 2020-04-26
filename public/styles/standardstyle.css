@@ -40,7 +40,7 @@ Homepage style
     text-align: center;
 }
 
-#aboutMe p {
+/* #aboutMe p {
     display: block;
 
     margin-left: 40px;
@@ -50,11 +50,53 @@ Homepage style
     padding: 20px;
     margin-top: 5px;
     border-radius: 6px;
+    max-height: 600px;
+    overflow: scroll;
+} */
+
+#aboutMeText{
+  display: block;
+
+  margin-left: 40px;
+  margin-right: 40px;
+  background-color: #D3E1E5;
+  border: 1px solid #D3E1E5;
+  padding: 20px;
+  margin-top: 5px;
+  border-radius: 6px;
+  max-height: 600px;
+  overflow: scroll;
 }
 
-#aboutMe * {
-    margin-bottom: 50px;
+#jobDescription {
+  text-align: center;
+  display: block;
+  background-color: #D3E1E5;
+  border: 1px solid #D3E1E5;
+  border-radius: 6px;
+  max-height: 600px;
+  overflow: scroll;
 }
+
+#nextButton, #previousButton {
+  display: none;
+}
+
+.jobBoardHeader {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+/* #aboutMe * {
+    margin: 25px;
+} */
 
 #header{
   text-align: center;
@@ -86,7 +128,7 @@ Homepage style
 #resume{
     border: 1px solid #6C848C;
     overflow: scroll;
-    margin: auto;
+    /* margin: auto; */
     margin-bottom: 50px;
     box-shadow: 10px 10px 8px #888888;
     font-family: "Big Caslon FB";
@@ -129,6 +171,17 @@ hr{
 }
 .addResponsibilityContainer {
   display: none;
+}
+
+#apiButton, #addSkill, #removeSkill, .editButton, .cancelButton{
+  margin-left: 10px;
+  font-family: "Futura";
+  font-size: 10pt;
+  color: #D3E1E5;
+  background-color: #344349;
+  padding: 9px;
+  border: 3px solid #D3E1E5;
+  border-radius: 7px;
 }
 
 
@@ -333,6 +386,8 @@ white shadow
   font-size: 25pt;
   color: #344349;
 }
+
+
 
 /*
   Bootstrap

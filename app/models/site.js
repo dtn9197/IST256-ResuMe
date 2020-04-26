@@ -1,5 +1,10 @@
 var mongoose = require("../../database.js");
-//create schema
+//define MongoDB database schema
+//each unique user represents an instance of this data schema with a unique userid
+//data inside each page on the site represents a property of this user instance
+/**NOTE: the only available user will always be "dtn5089" since there might
+ * not be enough time to implement an authentication system
+ */
 var siteSchema =  new mongoose.Schema({
     _id: String,
     homepage: {
@@ -56,10 +61,8 @@ var siteSchema =  new mongoose.Schema({
 });
 
 
-//initialize standard template
-var siteConstructor = mongoose.model("site", siteSchema);
-// exports.initializeData = initializeTestData;
 
+var siteConstructor = mongoose.model("site", siteSchema);
 
 module.exports = siteConstructor;
 

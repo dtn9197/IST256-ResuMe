@@ -1,26 +1,32 @@
 module.exports = (app) => {
   const siteConstructor = require("../controllers/controller.js");
   
+  /**Each page has a get and post route */
   app.get("/homepage",siteConstructor.getHomepage);
-  app.post("/homepage",siteConstructor.loadHomepage);
+  app.post("/homepage",siteConstructor.postHomepage);
 
-  app.post("/education",siteConstructor.loadEducation);
+  app.post("/education",siteConstructor.postEducation);
   app.get("/education",siteConstructor.getEducation);
 
-  app.post("/skills",siteConstructor.loadSkills);
+  app.post("/skills",siteConstructor.postSkills);
   app.get("/skills",siteConstructor.getSkills);
 
-  app.post("/experience",siteConstructor.loadExperience);
+  app.post("/experience",siteConstructor.postExperience);
   app.get("/experience",siteConstructor.getExperience);
 
-  app.post("/awards",siteConstructor.loadAwards);
+  app.post("/awards",siteConstructor.postAwards);
   app.get("/awards",siteConstructor.getAwards);
 
-  app.post("/extras",siteConstructor.loadExtras);
+  app.post("/extras",siteConstructor.postExtras);
   app.get("/extras",siteConstructor.getExtras);
 
-  app.post("/projects",siteConstructor.loadProjects);
+  app.post("/projects",siteConstructor.postProjects);
   app.get("/projects",siteConstructor.getProjects);
+
+
+
+
+  /**possible login features, not fully working */
   app.post("/createAccount",siteConstructor.create);
   // app.post("/login",siteConstructor.login);
   

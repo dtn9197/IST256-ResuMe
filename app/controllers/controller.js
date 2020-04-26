@@ -3,9 +3,8 @@ var siteConstructor = require("../models/site");
 
 
 
-exports.loadHomepage = function(req,res,next) {
+exports.postHomepage = function(req,res,next) {
   var aboutMeContent = req.body.aboutMeContent;
-
   // console.log(aboutMeContent);
   // console.log(req.headers);
   siteConstructor.findByIdAndUpdate("dtn5089", {
@@ -24,16 +23,15 @@ exports.loadHomepage = function(req,res,next) {
 };
 
 
-
 /* GET userHomepage. */
 exports.getHomepage = function(req, res, next) {
-  var data;
-  console.log("get route hit");
+  console.log("get homepage routehit");
   // console.log(res.body);
   //   res.render("homepage", {names: array});
+  
   siteConstructor.findById("dtn5089", function(error,document) {
     if(document == null) {
-      console.log("error occurre: ");
+      console.log("error occurred at get homepage route: ");
       console.log(error.messages);
       res.send("error occurred: " + error.messages);
     } else {
@@ -45,7 +43,9 @@ exports.getHomepage = function(req, res, next) {
   
   };
 
-exports.loadEducation = function(req,res,next) {
+
+
+exports.postEducation = function(req,res,next) {
   
   // console.log(aboutMeContent);
   // console.log(req.headers);
@@ -84,7 +84,10 @@ exports.getEducation = function(req,res,next) {
 
 };
 
-exports.loadSkills = function(req,res,next) {
+
+
+
+exports.postSkills = function(req,res,next) {
   console.log("printing body: " + req.body.skillsData);
   var data = JSON.parse(req.body.skillsData);
   
@@ -117,28 +120,27 @@ exports.getSkills = function(req,res,next) {
       // res.send(document.skills);
     }
   });
-
-
 };
 
-exports.loadExperience = function(req,res,next) {
-  console.log("post experience route hit");
-  var pageData = JSON.parse(req.body.experience);
-  console.log("data is:");
-  console.log(pageData);
-
-  siteConstructor.findByIdAndUpdate("dtn5089",{experience: pageData},{new: true}, function(error, document) {
-    if (error) {
-      console.log("error occurred");
-      console.log(error.messages);
-      res.send(error.messages);
-    } else {
-      console.log("update successful");
-      res.redirect("/experience");
-    }
-});
 
 
+
+exports.postExperience = function(req,res,next) {
+    console.log("post experience route hit");
+    var pageData = JSON.parse(req.body.experience);
+    console.log("data is:");
+    console.log(pageData);
+
+    siteConstructor.findByIdAndUpdate("dtn5089",{experience: pageData},{new: true}, function(error, document) {
+      if (error) {
+        console.log("error occurred");
+        console.log(error.messages);
+        res.send(error.messages);
+      } else {
+        console.log("update successful");
+        res.redirect("/experience");
+      }
+  });
 };
 
 exports.getExperience = function(req,res,next) {
@@ -160,24 +162,26 @@ exports.getExperience = function(req,res,next) {
 
 };
 
-exports.loadAwards = function(req,res,next) {
+
+
+
+exports.postAwards = function(req,res,next) {
 
   console.log("post award route hit");
-  var pageData = JSON.parse(req.body.award);
-  console.log("data is:");
-  console.log(pageData);
-  siteConstructor.findByIdAndUpdate("dtn5089",{award: pageData},{new: true}, function(error, document) {
-    if (error) {
-      console.log("error occurred");
-      console.log(error.messages);
-      res.send(error.messages);
-    } else {
-      console.log("update successful");
-      res.redirect("awards");
-    }
-});
+    var pageData = JSON.parse(req.body.award);
+    console.log("data is:");
+    console.log(pageData);
+    siteConstructor.findByIdAndUpdate("dtn5089",{award: pageData},{new: true}, function(error, document) {
+      if (error) {
+        console.log("error occurred");
+        console.log(error.messages);
+        res.send(error.messages);
+      } else {
+        console.log("update successful");
+        res.redirect("awards");
+      }
+  });
   
-
 };
 
 exports.getAwards = function(req,res,next) {
@@ -199,23 +203,25 @@ exports.getAwards = function(req,res,next) {
 
 };
 
-exports.loadExtras = function(req,res,next) {
-  
-  console.log("post extras route hit");
-  var pageData = JSON.parse(req.body.extras);
-  console.log("data is:");
-  console.log(pageData);
-  siteConstructor.findByIdAndUpdate("dtn5089",{extras: pageData},{new: true}, function(error, document) {
-    if (error) {
-      console.log("error occurred");
-      console.log(error.messages);
-      res.send(error.messages);
-    } else {
-      console.log("update successful");
-      res.redirect("extras");
-      
-    }
-});
+
+
+
+exports.postExtras = function(req,res,next) {
+    console.log("post extras route hit");
+    var pageData = JSON.parse(req.body.extras);
+    console.log("data is:");
+    console.log(pageData);
+    siteConstructor.findByIdAndUpdate("dtn5089",{extras: pageData},{new: true}, function(error, document) {
+      if (error) {
+        console.log("error occurred");
+        console.log(error.messages);
+        res.send(error.messages);
+      } else {
+        console.log("update successful");
+        res.redirect("extras");
+        
+      }
+  });
 
 };
 
@@ -238,7 +244,12 @@ exports.getExtras = function(req,res,next) {
 
 };
 
-exports.loadProjects = function(req,res,next) {
+
+
+
+
+//not implemented
+exports.postProjects = function(req,res,next) {
 
 };
 
@@ -248,7 +259,11 @@ exports.getProjects = function(req,res,next) {
 };
 
 
-/*these are test functions*/
+
+
+
+
+/*these are test functions only*/
 exports.postEJS = function(req,res,next) {
   var array = ["Bob", "Dylan", "George"];
   console.log("ejs get route hit");
@@ -268,16 +283,10 @@ exports.getEJS = function(req,res,next) {
 
 
 
-//testroute
-// exports.ejs = function(req, res,next) {
-//   // var array = ["Dylan", "Bob", "tim", "Alan"];
-//   res.render("ejsTemplate.ejs", {names: array });
-//   // res.render("homepage", {names: array});
-// };
-
-
-/* possible login*/
-//post route create account
+/* possible login feature*/
+/**creates a unique MongoDB document representing a user based on
+ * a userID typed into the input field on the express page(index.html)
+ */
 exports.create = function(req,res,next) {
   var userName = req.body.userName;
   console.log("createAccount route hit");
@@ -297,6 +306,8 @@ exports.create = function(req,res,next) {
 });
 }
 
+
+/**Possible login feature, not working */
 // exports.login = function(req,res,next) {
 //   var userName = req.body.userName;
 //   console.log("login route hit");
@@ -317,34 +328,11 @@ exports.create = function(req,res,next) {
 
 
 
- //login route
-// exports.login = function(req,res,next) {
-//   var userName = req.body.userName;
-//   console.log("login route hit");
-//   console.log(userName);
-//   siteConstructor.findById(userName, function(error,document) {
-//     if(document == null) {
-//         console.log("couldn't find document");
-//         initializeTestData(userName);
-//         res.send("account does not exist");
-//     }
-//     else {
-//         console.log("document already initialized");
-//         res.send("account already exists");
-//     }    
-// });
-
-
-  
-    // siteConstructor.findById("dtn5089", function(error, document) {
-    //   if (document == null) {
-    //     console.log("document not found");
-    //   }
-    //   else {
-    //     console.log("document founded");
-    //     console.log(document.homepage);
-    //   }
-    // });
+/**really long function, this function creates dummy data and initialize a new
+user instance based on the id provided
+note: THE DATA CREATED HAS TO MATCH THE SCHEMA DEFINED IN site.js 
+*/
+//also, move this function to site.js if possible, this is not MVC
 
     function createUserInstance(userName) {
     
