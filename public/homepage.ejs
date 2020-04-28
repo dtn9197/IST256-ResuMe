@@ -16,7 +16,7 @@
         src="https://code.jquery.com/jquery-3.5.0.js"
         integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
         crossorigin="anonymous"></script>
-        
+
 
         <!-- Popper.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
@@ -30,9 +30,9 @@
         <script src="../scripts/Resume.js" defer></script>
     </head>
     <body>
-        
+
         <!--below are six consecutive Bootstrap modal popup, enabled by clicking on edit buttons next to the resume headers-->
-        <!-----header Modal-->
+        <!--header Modal-->
         <div class="modal fade" id="headerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -106,7 +106,7 @@
                         <!---entire body is a collapsible accordion-->
                         <div id="testAccordion" class="accordion">
 
-                            
+
                             <!-- <div class="card">
                               <div class="card-header" id="headingTwo">
                                 <h5 class="mb-0">
@@ -242,15 +242,13 @@
             </ul>
         </nav>
 
-        <!----Grid containing resume to the left, about me section to the right-->
+        <!--Grid containing resume to the left, about me section to the right-->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-6" id="resume">
                     <header id="header">
                         <h1 id="resumeheader">John Doe
-                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#headerModal">
-                            Edit
-                          </button>
+                         <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#headerModal" id="editResume">Edit</button> -->
                         </h1>
                         <address id="address">411 Waupelani Drive &emsp;-&emsp; 717-614-0744 &emsp;-&emsp; dtn5089@psu.edu</address>
                     </header>
@@ -259,13 +257,14 @@
                     <br>
                     <main id="main">
                         <section id="education">
-                            <h2 class="headercolor">Education <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#educationModal">Edit</button></h2>
+                            <h2 class="headercolor">Education</h2>
+                            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#educationModal" id="editResume">Edit</button> -->
                             <hr class="linebreak">
 
                             <h3 id="subhead">Pennsylvania State University, University Park <span class="rightalign"> &emsp;&emsp;May 2021 (Estimated)</span></h3>
 
                             <p>
-                                <span id="major">Major: B.S Information Sciences and Technology</span>
+                                <span>Major: B.S Information Sciences and Technology</span>
 
                             </p>
                             <p>
@@ -278,7 +277,8 @@
                         </section>
                         <br>
                         <section id="experience">
-                            <h2 class="headercolor">Work Experience <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#workExperienceModal">Edit</button><hr class="linebreak">
+                            <h2 class="headercolor">Work Experience <hr class="linebreak">
+                                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#workExperienceModal" id="editResume">Edit</button> -->
                             <h3 id="subhead">Turkey Hill Mini Market, Cashier <span class="rightalign">&emsp;&emsp;January - May 2018</span></h3>
                             <ul>
                                 <li>Coordinated with team to accomplish tasks on schedule</li>
@@ -289,7 +289,8 @@
                         </section>
                         <br>
                         <section id="skills">
-                            <h2 class="headercolor">Technical Skills <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#educationModal">Edit</button> <hr class="linebreak">
+                            <h2 class="headercolor">Technical Skills<hr class="linebreak">
+                                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#educationModal" id="editResume"></button>Edit</button>  -->
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-3"><li>Project Management</li></div>
@@ -308,7 +309,8 @@
                         <br>
                         <section id="projects">
 
-                            <h2 class="headercolor">Academic Experience and Projects <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#educationModal">Edit</button> <hr class="linebreak">
+                            <h2 class="headercolor">Academic Experience and Projects <hr class="linebreak">
+                                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#educationModal" id="editResume">Edit</button> -->
 
                             <h3 id="subhead">Database Systems & Organization of Data</h3>
                             <ul>
@@ -346,7 +348,8 @@
                         </section>
                         <br>
                         <section id="extras">
-                            <h2 class="headercolor">Extracurriculars <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#educationModal">Edit</button> </h2><hr class="linebreak">
+                            <h2 class="headercolor">Extracurriculars </h2><hr class="linebreak">
+                            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#educationModal" id="editResume">Edit</button>  -->
                             <p>
                                 <h4 id="subhead">IST Consultant Group <span class="rightalign">&emsp;&emsp;January 2019 - present</span></h4>
 
@@ -372,32 +375,45 @@
                     <img src="../img/student.jpg" alt="Profile picture here">
                     <br>
                     <br>
-                    <hr>
                     <h1 id="aboutheader">About Me</h1>
+                    <hr>
                     <br>
-                    <p id="aboutMeText" class="editable"><%= data.aboutMe %></p>
-                    <button type="button" class="editButton">Edit Content</button>
-                    <button type="button" class="cancelButton">Cancel</button>
-                    <button type="button" class="saveButton" id="homepageSaveButton">Save</button><hr>
-
-                    <div class="center">  
-                        <h1 id="aboutheader">Job Board</h1> 
+                      <div id="blueBox">
+                        <p id="aboutMeText" class="editable"><%= data.aboutMe %></p>
+                      </div>
+                    <br>
+                    <div class="centerButton">
+                      <button type="button" class="editButton">Edit Content</button>
                     </div>
+                    <br>
+                      <button type="button" class="cancelButton">Cancel</button>
+                      <button type="button" class="saveButton" id="homepageSaveButton">Save</button>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="center">
+                        <h1 id="aboutheader">Job Board</h1>
+                    </div>
+                    <hr>
                     <div class="container-fluid" id="jobBoardContainer">
                         <div class="row">
                             <div class="col"><span class="jobBoardHeader">Employer: </span><span id="employerContent"></span></div>
                         </div>
                         <div class="row">
                             <div class="col-6"> <span class="jobBoardHeader">Job Title: </span> <span id="jobTitleContent"></span></div>
+                        </div>
+                        <div class="row">
                             <div class="col-6"> <span class="jobBoardHeader">Location: </span> <span id="jobLocationContent"></span></div>
                         </div>
                         <div class="row">
-                            <div class="col"> <span class="jobBoardHeader">Type: </span> <span id="jobTypeContent"></span> </div>
+                            <div class="col"> <span class="jobBoardHeader">Job Type: </span> <span id="jobTypeContent"></span> </div>
                         </div>
+                        <br>
                         <div class="row">
                             <div class="col-6"><input type="text" placeholder="search terms here" id="jobSearch"></div>
                             <div class="col-6"><button type="button" id="apiButton">Search</button></div>
                         </div>
+                        <br>
                         <div class="row">
                             <div class="col-3">
                                 <h4 id="descriptionHeader">Description</h4>
@@ -405,18 +421,15 @@
                             <div class="col-9 d-inline-flex flex-row justify-content-end">
                                 <button type="button" id="previousButton">Previous</button>
                                 <button type="button" id="nextButton">Next</button>
-                                
                             </div>
-                            
                         </div>
-
+                        <br>
+                        <div id="blueBox">
                         <p id="jobDescription">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta dolor sapiente dolores totam sed quaerat, ex est? Eaque odit sit inventore nihil voluptatem quasi facere doloribus eveniet, quae natus deserunt eius blanditiis, est, sequi esse quia nam tempore ipsum praesentium unde. Laudantium est recusandae provident sunt, amet dolore quae maiores assumenda facilis. Repellendus commodi tempora error accusamus corporis reiciendis eveniet. Numquam quibusdam ad labore deleniti iste ex a aperiam ratione dolores! Culpa sunt mollitia doloribus labore perspiciatis, dolores odit neque enim est! Pariatur quod esse dicta deserunt quae nulla doloremque optio ea deleniti! Distinctio officiis ratione, iste doloribus tempora numquam dolores libero maiores autem. Fuga doloremque veniam totam qui quam id architecto maxime soluta dolorem voluptates odit eligendi cupiditate, perferendis quas sit itaque cum earum ullam eos quaerat! Explicabo amet sit non obcaecati, quas laudantium sequi, velit quae dignissimos praesentium ab, alias rem officia sunt error quasi unde repudiandae dicta? Autem culpa doloribus soluta natus, officiis optio voluptas, alias voluptate doloremque aliquam hic amet? Tempore, alias aliquid. Cum aliquid vel perspiciatis magnam possimus at ad recusandae nam, ut quam a eius quaerat alias porro cumque provident omnis sed nulla sit, odit repellendus id itaque? Consequuntur, nulla? Facere praesentium eum sit quam excepturi et possimus mollitia, suscipit porro? Id consequuntur quam ex dolorum. Adipisci reprehenderit sint cupiditate assumenda numquam dicta totam repellendus corporis tempora ad, fugit quia asperiores soluta aliquam perferendis voluptates earum, illo, dolor incidunt quidem excepturi autem? Officia, voluptates, culpa impedit magnam asperiores rerum sunt suscipit voluptatum soluta omnis inventore ea ex ipsa architecto neque quod. Libero dolorum amet a quasi rem nostrum, hic ipsa adipisci perspiciatis, voluptas excepturi tenetur esse officiis iusto facere. Qui nobis rerum neque ea architecto consectetur quis nisi! Vitae provident molestiae dolores, magnam explicabo reprehenderit earum autem iure quo, impedit non animi et perspiciatis.
                         </p>
+                      </div>
                     </div>
-
-
-                    
                 </div>
             </div>
         </div>
@@ -441,7 +454,7 @@
         <div class="card" id="templateCard">
             <div class="card-header" id="headingOne">
               <h5 class="mb-0">
-                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" id="collapsableButton">
                   Collapsible Group Item #1
                 </button>
                 <button type="button" class="deleteItemButton">Delete</button>
@@ -451,10 +464,10 @@
               <div class="card-body">
                 <ul>
                     <li class="bulletPointClicked">Coordinated with team to accomplish tasks on schedule</li>
-                    <li>Stocked/restocked merchandise</li>
-                    <li>Provided customer service such as answering phones</li>
+                    <li class="bulletPointClicked">Stocked/restocked merchandise</li>
+                    <li class="bulletPointClicked">Provided customer service such as answering phones</li>
                 </ul>
-                <button class="addResponsibilityButton">add responsibility</button> <br>
+                <button class="addResponsibilityButton">Add Responsibility</button> <br>
                 <div class="addResponsibilityContainer">
                     <input type="text">
                     <button class="addBulletPointButton">Add</button>

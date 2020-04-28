@@ -39,11 +39,24 @@ $(document).ready(function() {
     $("#previousButton").click(getPreviousJob);
 
      //testing functionalities only
-     $("#testButtonPost").click(testButtonPost);
-     $("#testButtonGet").click(testButtonGet);
+    //  $("#testButtonPost").click(testButtonPost);
+    //  $("#testButtonGet").click(testButtonGet);
  
     //posible login features, not working
     // $("#signUpSubmit").click(signUpValidation);
+    $("#signUpSubmit").click(function(event) {
+      var input = $("#signUpButton").val();
+      if(input == "dtn5089") {
+        signUpValidation();
+        $("#enterLink").show();
+
+      } else {
+        window.alert("wrong input");
+      }
+      
+
+
+    })
     // $("#loginSubmit").click(loginValidation);
 
     
@@ -499,26 +512,26 @@ function testButtonGet() {
 
 //possible login features, not working
 
-// function signUpValidation(){
-//   // e.preventDefault();
-//   var userId = $("#signUpButton").val();
-//   console.log("userName is " + userId);
-//   $.ajax({
-//     type:"post",
-//     url: "/createAccount",
-//     data: {
-//       userName: userId
-//     },
-//     success: function(data) {
-//       console.log(data);
-//     },
-//     error: function(data) {
-//       // console.log("an error ocurred:" + data.error);
+function signUpValidation(){
+  // e.preventDefault();
+  var userId = $("#signUpButton").val();
+  console.log("userName is " + userId);
+  $.ajax({
+    type:"post",
+    url: "/createAccount",
+    data: {
+      userName: userId
+    },
+    success: function(data) {
+      console.log(data);
+    },
+    error: function(data) {
+      // console.log("an error ocurred:" + data.error);
 
-//     }
+    }
 
-//   });
-// }
+  });
+}
 
 // function loginValidation() {
 //   // e.preventDefault();

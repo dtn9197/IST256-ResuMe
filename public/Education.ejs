@@ -56,14 +56,22 @@
             <div class="row">
                 <div class="col-6" id="collegeAbout">
                     <h1 class="editable" id="schoolTitle"><%= data.schoolTitle %><hr></h1>
-                     <button type="button" class="editButton">editContent</button>
+                    <div class="row">
+                     <button type="button" class="editButton">Edit Content</button>
+                   </div>
+                     <br>
+                     <div class="row">
                      <button type="button" class="cancelButton">Cancel</button>
                      <button type="button" class="saveButton" id="educationSaveButton">Save</button>
+                   </div>
+                     <br>
                     <img src="img/College.JPEG" alt="College campus image here" id="collegeImage">
                     <br>
                     <br>
-                    <h1>About <hr></h1>
+                    <h1 id="about">About<hr></h1>
+                    <div id="blueBox">
                     <p class="editable" id="aboutSchool"><%= data.aboutSchool %></p>
+                    </div>
                     <br>
                 </div>
                 <div class="col-6">
@@ -81,21 +89,21 @@
                       <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
-                            <h1>Major</h1>
-                            <p class="editable" id="major"> <%= data.major %></p>
-
-                            <h1>Minor</h1>
-                            <p class="editable" id="minor" ><%= data.minor %></p>
+                            <h1 id="majorHeader">Major</h1>
+                            <p class="editable" id="major" id="blueBox"> <%= data.major %></p>
+                            <br>
+                            <h1 id="minorHeader">Minor</h1>
+                            <p class="editable" id="minor" id="blueBox" ><%= data.minor %></p>
                             <br>
                         </div>
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"> 
-                            <p class="editable" id="undergraduate"><%= data.undergraduate %></p>
-                            
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <p class="editable" id="undergraduate" id="blueBox"><%= data.undergraduate %></p>
+
                         </div>
                         <div class="tab-pane fade" id ="contact" role="tabpanel" aria-labelledby="contact-tab">
-                        <p class="editable" id="graduate"> <%= data.graduate %></p>
+                        <p class="editable" id="graduate" id="blueBox"> <%= data.graduate %></p>
                         </div>
-                        
+
                       </div>
 
                     <!-- <h1>Major<hr></h1>

@@ -59,7 +59,8 @@
                         <a class="nav-link editable active" id="workExperience1" data-toggle="pill" href="#employer1ContentTab" role="tab" aria-controls="employer1ContentTab" aria-selected="true"><%= data.workExperience1.employerName%></a>
                         <a class="nav-link editable" id="workExperience2" data-toggle="pill" href="#employer2ContentTab" role="tab" aria-controls="employer2ContentTab" aria-selected="false"><%= data.workExperience2.employerName%></a>
                     </div>
-                    <button type="button" class="editButton">editContent</button>
+                    <br>
+                    <button type="button" class="editButton">Edit Content</button>
                     <button type="button" class="cancelButton">Cancel</button>
                     <button type="button" class="saveButton" id="experienceSaveButton">Save</button>
                 </div>
@@ -70,7 +71,7 @@
                                 <h2 id="Employerfont"><%= data.workExperience1.employerName%></h2>
                                 <hr>
                                 <h2  id="EmfontItalicised">About Employer</h2>
-                                <p class="editable" id="aboutDescription1"><%= data.workExperience1.aboutDescription%></p>
+                                <p class="editable Employerparagraph" id="aboutDescription1" ><%= data.workExperience1.aboutDescription%></p>
                             </div>
                             <div id="backgroundcolor">
                             <h2 id="Employerfont">Responsibilities</h2>
@@ -100,21 +101,21 @@
                                     <div class="tab-pane fade show active" id="emp1Task1Pane" role="tabpanel" aria-labelledby="emp1Task1"><h2 id="jobnames"><%= data.workExperience1.tasks[0].task%></h2>
                                         <hr>
                                         <h2 id="responsibility">Responsibilities</h2>
-                                        <p  class="editable"id="emp1Task1Desc">
+                                        <p  class="editable whiteShadow" id="emp1Task1Desc">
                                             <%= data.workExperience1.tasks[0].taskDescription%>
                                         </p>
                                     </div>
                                     <div class="tab-pane fade" id="emp1Task2Pane" role="tabpanel" aria-labelledby="emp1Task2"><h2 id="jobnames"><%= data.workExperience1.tasks[1].task%></h2>
                                         <hr>
                                         <h2 id="responsibility">Responsibilites</h2>
-                                        <p class="editable" id="emp1Task2Desc">
+                                        <p class="editable whiteShadow"  id="emp1Task2Desc">
                                             <%= data.workExperience1.tasks[1].taskDescription%>
                                         </p>
                                     </div>
                                     <div class="tab-pane fade" id="emp1Task3Pane" role="tabpanel" aria-labelledby="emp1Task3"><h2 id="jobnames"><%= data.workExperience1.tasks[2].task%></h2>
                                         <hr>
                                         <h2 id="responsibility">Responsibilites</h2>
-                                        <p  class="editable"id="emp1Task3Desc">
+                                        <p  class="editable whiteShadow" id="emp1Task3Desc">
                                             <%= data.workExperience1.tasks[2].taskDescription%>
                                         </p>
 
@@ -122,7 +123,7 @@
                                     <div class="tab-pane fade" id="emp1Task4Pane" role="tabpanel" aria-labelledby="emp1Task4"><h2 id="jobnames"><%= data.workExperience1.tasks[3].task%></h2>
                                         <hr>
                                         <h2 id="responsibility">Responsibilites</h2>
-                                        <p  class="editable"id="emp1Task4Desc">
+                                        <p  class="editable whiteShadow" id="emp1Task4Desc">
                                             <%= data.workExperience1.tasks[3].taskDescription%>
                                         </p>
 
@@ -131,7 +132,7 @@
                                         <%= data.workExperience1.tasks[4].task%></h2>
                                         <hr>
                                         <h2 id="responsibility">Responsibilites</h2>
-                                        <p  class="editable"id="emp1Task5Desc">
+                                        <p  class="editable whiteShadow" id="emp1Task5Desc">
                                             <%= data.workExperience1.tasks[4].taskDescription%>
                                         </p>
 
@@ -145,10 +146,11 @@
                             <h2  id="Employerfont"><%= data.workExperience2.employerName%></h2>
                             <hr>
                             <h2  id="EmfontItalicised">About Employer</h2>
-                            <p class ="editable" id="aboutDescription2"><%= data.workExperience2.aboutDescription%></p>
+                            <p class ="editable Employerparagraph" id="aboutDescription2" ><%= data.workExperience2.aboutDescription%></p>
+                            <br><br>
+                          <div id="backgroundcolor">
                             <h2 id="Employerfont">Responsibilities</h2>
                             <br>
-                            
                             <div class="container-fluid">
                                 <ul class="nav nav-pills mb-3" id="responsibilitiesTab" role="tablist">
                                     <li class="nav-item">
@@ -175,21 +177,21 @@
                                         <h2 id="jobnames"><%= data.workExperience2.tasks[0].task%></h2>
                                         <hr>
                                         <h2 id="responsibility">Responsibilities</h2>
-                                        <p  class="editable"id="emp2Task1Desc">
+                                        <p  class="editable whiteShadow" id="emp2Task1Desc" >
                                             <%= data.workExperience2.tasks[0].taskDescription%>
                                         </p>
                                     </div>
                                     <div class="tab-pane fade" id="emp2Task2Pane" role="tabpanel" aria-labelledby="emp2Task2"><h2 id="jobnames"><%= data.workExperience2.tasks[1].task%></h2>
                                         <hr>
                                         <h2 id="responsibility">Responsibilites</h2>
-                                        <p class="editable" id="emp2Task2Desc">
+                                        <p class="editable whiteShadow" id="emp2Task2Desc" >
                                             <%= data.workExperience2.tasks[1].taskDescription%>
                                         </p>
                                     </div>
                                     <div class="tab-pane fade" id="emp2Task3Pane" role="tabpanel" aria-labelledby="emp2Task3"><h2 id="jobnames"><%= data.workExperience2.tasks[2].task%></h2>
                                         <hr>
                                         <h2 id="responsibility">Responsibilites</h2>
-                                        <p  class="editable"id="emp2Task3Desc">
+                                        <p  class="editable whiteShadow" id="emp2Task3Desc" >
                                             <%= data.workExperience2.tasks[2].taskDescription%>
                                         </p>
 
@@ -197,7 +199,7 @@
                                     <div class="tab-pane fade" id="emp2Task4Pane" role="tabpanel" aria-labelledby="emp2Task4"><h2 id="jobnames"><%= data.workExperience2.tasks[3].task%></h2>
                                         <hr>
                                         <h2 id="responsibility">Responsibilites</h2>
-                                        <p  class="editable"id="emp2Task4Desc">
+                                        <p  class="editable whiteShadow" id="emp2Task4Desc" >
                                             <%= data.workExperience2.tasks[3].taskDescription%>
                                         </p>
 
@@ -205,18 +207,18 @@
                                     <div class="tab-pane fade" id="emp2Task5Pane" role="tabpanel" aria-labelledby="emp2Task5"><h2 id="jobnames"><%= data.workExperience2.tasks[4].task%></h2>
                                         <hr>
                                         <h2 id="responsibility">Responsibilites</h2>
-                                        <p  class="editable"id="emp2Task5Desc">
+                                        <p  class="editable whiteShadow" id="emp2Task5Desc" >
                                             <%= data.workExperience2.tasks[4].taskDescription%>
                                         </p>
 
                                     </div>
-                                    
+
                                 </div>
 
                             </div>
 
                         </div>
-                        
+
                     </div>
                 </div>
 

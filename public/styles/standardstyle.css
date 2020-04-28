@@ -68,7 +68,7 @@ Homepage style
   overflow: scroll;
 }
 
-#jobDescription {
+#jobDescription, #blueBox {
   text-align: center;
   display: block;
   background-color: #D3E1E5;
@@ -87,12 +87,11 @@ Homepage style
   font-weight: bold;
 }
 
-
-
-
-
-
-
+.centerButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* #aboutMe * {
     margin: 25px;
@@ -173,7 +172,9 @@ hr{
   display: none;
 }
 
-#apiButton, #addSkill, #removeSkill, .editButton, .cancelButton{
+/* buttons */
+
+#apiButton, #addSkill, #removeSkill, .editButton, .deleteItemButton, .addResponsibilityButton{
   margin-left: 10px;
   font-family: "Futura";
   font-size: 10pt;
@@ -184,18 +185,101 @@ hr{
   border-radius: 7px;
 }
 
+.cancelButton, #homepageSaveButton, #previousButton, #nextButton, #editResume, #educationSaveButton, #skillsSaveButton, #experienceSaveButton, #awardSaveButton, #extrasSaveButton{
+  margin-left: 8px;
+  font-family: "Futura";
+  font-size: 10pt;
+  color: #D3E1E5;
+  background-color: #344349;
+  padding: 6px;
+  border: 3px solid #D3E1E5;
+  border-radius: 9px;
+}
 
+.editButton:hover{
+  background-color: #6C848C;
+}
 
+.cancelButton:hover{
+  background-color: #6C848C;
+}
 
+#homepageSaveButton:hover{
+  background-color: #6C848C;
+}
 
+#previousButton:hover{
+  background-color: #6C848C;
+}
 
+#nextButton:hover{
+  background-color: #6C848C;
+}
 
+#apiButton:hover{
+  background-color: #6C848C;
+}
 
+.deleteItemButton:hover{
+  background-color: #6C848C;
+}
 
+.addResponsibilityButton:hover{
+  background-color: #6C848C;
+}
+
+#educationSaveButton:hover{
+  background-color: #6C848C;
+}
+
+#cancelButton:hover{
+  background-color: #6C848C;
+}
+
+/* api */
+
+#employerContent, #jobTitleContent, #jobLocationContent, #jobTypeContent, .bulletPointClicked{
+    font-family: "Futura";
+    font-size: 12pt;
+    color: #8ba8b0;
+    margin: auto;
+    font-weight: lighter;
+}
+
+.jobBoardHeader, #descriptionHeader, #collapsableButton{
+    font-family: "Big Caslon FB";
+    font-size: 15pt;
+    color: #344349;
+    margin: auto;
+}
 
 /*
 Education Page style
 */
+
+#majorHeader, #minorHeader{
+    font-family: "Big Caslon FB";
+    font-size: 30pt;
+    color: #344349;
+}
+
+#about{
+    font-family: "Big Caslon FB";
+    font-size: 30pt;
+    color: #344349;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+#aboutSchool, #undergraduate, #graduate, #major, #minor{
+  background-color: white;
+  border: 1px solid white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 3px;
+  box-shadow: 10px 10px 10px 2px #888888;
+}
 
 #collegeImage {
     display: block;
@@ -260,11 +344,50 @@ nav:first-of-type{
   border-radius: 6px;
 }
 
-#skill4Tab, #skill3Tab, #skill2Tab, #skill1Tab, #v-pills-home-tab, #v-pills-profile-tab, #v-pills-messages-tab, #v-pills-settings-tab{
+ #emp2Task1, #emp2Task2, #emp2Task3, #emp2Task4, #emp2Task5, #emp1Task1, #emp1Task2, #emp1Task3, #emp1Task4, #emp1Task5, #skill8Tab, #skill7Tab, #skill6Tab, #skill5Tab, #skill4Tab, #skill3Tab, #skill2Tab, #skill1Tab, #v-pills-home-tab, #v-pills-profile-tab, #v-pills-messages-tab, #v-pills-settings-tab{
   color: #344349;
   background-color: #D3E1E5;
 }
 
+#emp1Task1:hover{
+  background-color: white;
+}
+
+#emp1Task2:hover{
+  background-color: white;
+}
+
+#emp1Task3:hover{
+  background-color: white;
+}
+
+#emp1Task4:hover{
+  background-color: white;
+}
+
+#emp1Task5:hover{
+  background-color: white;
+}
+
+#emp2Task1:hover{
+  background-color: white;
+}
+
+#emp2Task2:hover{
+  background-color: white;
+}
+
+#emp2Task3:hover{
+  background-color: white;
+}
+
+#emp2Task4:hover{
+  background-color: white;
+}
+
+#emp2Task5:hover{
+  background-color: white;
+}
 /* #skill4Tab, #skill3Tab, #skill2Tab, #skill1Tab{
   visibility: hidden;
   display: none;
@@ -290,7 +413,7 @@ nav:first-of-type{
   padding-right: 20px;
 }
 
-#skill4TabContent, #skill3TabContent, #skill2TabContent, #skill1TabContent, #v-pills-home, #v-pills-profile, #v-pills-messages, #v-pills-settings {
+ #skill8TabContent, #skill7TabContent, #skill6TabContent, #skill5TabContent, #skill4TabContent, #skill3TabContent, #skill2TabContent, #skill1TabContent, #v-pills-home, #v-pills-profile, #v-pills-messages, #v-pills-settings {
   background-color: #D3E1E5;
   border: 1px solid #D3E1E5;
   padding: 20px;
@@ -298,6 +421,26 @@ nav:first-of-type{
   margin-top: 20px;
   border-radius: 6px;
   margin-bottom: 50px;
+}
+
+#skill8TabContent, #skill7TabContent, #skill6TabContent, #skill5TabContent,
+#skill4TabContent, #skill3TabContent, #skill2TabContent, #skill1TabContent{
+  background-color: #D3E1E5;
+  border: 1px solid #D3E1E5;
+  padding: 20px;
+  margin-top: 5px;
+  border-radius: 6px;
+  margin-bottom: 50px;
+}
+
+
+.whiteShadow{
+  background-color: white;
+  border: 1px solid white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 3px;
+  box-shadow: 10px 10px 10px 2px #888888;
 }
 
 #addSkill, #removeSkill{
@@ -323,7 +466,7 @@ nav:first-of-type{
 white shadow
 */
 
-#skillsParagraph {
+#skillsParagraph, #aboutMeText, #jobDescription{
   background-color: white;
   border: 1px solid white;
   padding: 20px;
@@ -343,12 +486,16 @@ white shadow
     height: 400px;
 }
 
+#enterLink {
+  display: none;
+}
+
 
 
 /*
   EXPERIENCE Page Style
 */
-#backgroundcolor, #employer2ContentTab{
+#backgroundcolor, #employer1ContentTab, #employer2ContentTab{
     background-color: #D3E1E5;
     border: 1px solid #D3E1E5;
     padding: 20px;
@@ -358,7 +505,7 @@ white shadow
   /*
   WHITE
   */
-#Employerparagraph{
+.Employerparagraph{
     background-color: white;
     border: 1px solid white;
     padding: 20px;
@@ -396,7 +543,7 @@ white shadow
 /*
   Bootstrap left tag
 */
-#experienceEmployer1Tab, #experienceEmployer2Tab, #experienceTab{
+#workExperience1, #workExperience2, #experienceTab{
   color: #344349;
   background-color: #D3E1E5;
   border: 1px solid #D3E1E5;
@@ -487,6 +634,21 @@ white shadow
 */
 
 #awardDescription{
+  background-color: white;
+  border: 1px solid white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 3px;
+  box-shadow: 10px 10px 10px 2px #888888;
+}
+
+#descriptionHeader{
+  font-family: "Big Caslon FB";
+  font-size: 25pt;
+  color: #344349;
+}
+
+#awardHeader{
   font-family: "Big Caslon FB";
   font-size: 25pt;
   color: #344349;
@@ -494,7 +656,7 @@ white shadow
 
 #award{
   font-family: "Big Caslon FB";
-  font-size: 25pt;
+  font-size: 20pt;
   color: #344349;
   font-style: italic;
 }
@@ -539,7 +701,14 @@ white shadow
 
 /* Extras Page Style
 */
-#bluebox{
+
+#undergradExtra1, #undergradExtra2, #undergradExtra3{
+  font-family: "Big Caslon FB";
+  font-size: 20pt;
+  color: #344349;
+}
+
+#blueBox{
     background-color: #D3E1E5;
     border: 1px solid #D3E1E5;
     padding: 20px;
@@ -560,13 +729,13 @@ white shadow
 
   .extrasnames{
     font-family: "Big Caslon FB";
-    font-size: 25pt;
+    font-size: 23pt;
     color: #344349;
   }
 
   .descriptionI{
     font-family: "Big Caslon FB";
-    font-size: 25pt;
+    font-size: 20pt;
     color: #344349;
     font-style: italic;
   }
@@ -609,5 +778,3 @@ textarea {
 .cancelButton, .saveButton {
   display: none;
 }
-
-

@@ -55,7 +55,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-6">
-                    <h2>Awards</h2>
+                    <h2 id="awardHeader">Awards</h2>
                     <hr>
                     <h3 id="award" class="editable"> <%=data.award%> </h3>
                     <br>
@@ -63,12 +63,14 @@
                     <img src="img/awards1.jpg" id="awardImage" alt="">
                 </div>
                 <div class="col-6" id="awardSecondGrid">
-                    <h2>Award Description</h2>
+                    <h2 id="descriptionHeader">Description</h2>
                     <hr>
                     <p class="editable"id="awardDescription"><%=data.awardDescription%></p>
-                    <button type="button" class="editButton">editContent</button>
+                    <br>
+                    <button type="button" class="editButton">Edit Content</button>
                     <button type="button" class="cancelButton">Cancel</button>
                     <button type="button" class="saveButton" id="awardSaveButton">Save</button>
+                    <br>
                 </div>
             </div>
         </div>

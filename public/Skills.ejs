@@ -64,67 +64,86 @@
                         <a class="nav-link editable" id="skill6Tab" data-toggle="pill" href="#skill6TabContent" role="tab" aria-controls="skill6TabContent" aria-selected="false"><%= data[5].skill %></a>
                         <a class="nav-link editable" id="skill7Tab" data-toggle="pill" href="#skill7TabContent" role="tab" aria-controls="skill7TabContent" aria-selected="false"><%= data[6].skill %></a>
                         <a class="nav-link editable" id="skill8Tab" data-toggle="pill" href="#skill8TabContent" role="tab" aria-controls="skill8TabContent" aria-selected="false"><%= data[7].skill %></a>
-                        
+
                     </div>
                     <br>
-                    <button type="button" class="editButton">editContent</button>
-                    <button type="button" class="cancelButton">Cancel</button>
-                    <button type="button" class="saveButton" id="skillsSaveButton">Save</button>
+                    <div class="row">
+                      <button type="button" class="editButton">Edit Content</button>
+                      <button type="button" class="cancelButton">Cancel</button>
+                      <button type="button" class="saveButton" id="skillsSaveButton">Save</button>
+                    </div>
+                    <br>
                 </div>
                 <div class="col-9">
                     <div class="tab-content" id="v-pills-tabContent">
+
                         <div class="tab-pane fade show active skillsContentPage" id="skill1TabContent" role="tabpanel" aria-labelledby="skill1Tab">
                             <br>
-                            <h2 id="skills"><%= data[0].skill %></h2>
-                            <hr>
-                            <p class="editable" id="skill1Description"><%= data[0].skillDescription %></p>
-                              
+                            <div class="whiteShadow">
+                              <h2 id="skills"><%= data[0].skill %></h2>
+                              <hr>
+                              <p class="editable" id="skill1Description"><%= data[0].skillDescription %></p>
+                          </div>
                         </div>
                         <div class="tab-pane fade skillsContentPage" id="skill2TabContent" role="tabpanel" aria-labelledby="skill2Tab">
                             <br>
+                          <div class="whiteShadow">
                             <h2 id="skills"><%= data[1].skill %></h2>
                             <hr>
                             <p class="editable" id="skill2Description"><%= data[1].skillDescription %></p>
+                          </div>
                         </div>
                         <div class="tab-pane fade skillsContentPage" id="skill3TabContent" role="tabpanel" aria-labelledby="skill3Tab">
                             <br>
+                          <div class="whiteShadow">
                             <h2 id="skills"><%= data[2].skill %></h2>
                             <hr>
                             <p class="editable" id="skill3Description"><%= data[2].skillDescription%></p>
+                          </div>
                         </div>
                         <div class="tab-pane fade skillsContentPage" id="skill4TabContent" role="tabpanel" aria-labelledby="skill4Tab">
                             <br>
+                          <div class="whiteShadow">
                             <h2 id="skills"><%= data[3].skill %></h2>
                             <hr>
                             <p class="editable" id="skill4Description"><%= data[3].skillDescription %></p>
+                          </div>
                         </div>
                         <div class="tab-pane fade skillsContentPage" id="skill5TabContent" role="tabpanel" aria-labelledby="skill5Tab">
                             <br>
+                          <div class="whiteShadow">
                             <h2 id="skills"><%= data[4].skill %></h2>
                             <hr>
-                            <p class="editable" id="skill5Description"><%= data[5].skillDescription %></p>
+                            <p class="editable" id="skill5Description" id="blueBox"><%= data[4].skillDescription %></p>
                             <!-- <button type="button" onclick="removeSkill1();" id="removeSkill">Remove Skill</button> -->
+                          </div>
                         </div>
                         <div class="tab-pane fade skillsContentPage" id="skill6TabContent" role="tabpanel" aria-labelledby="skill6Tab">
                             <br>
+                          <div class="whiteShadow">
                             <h2 id="skills"><%= data[5].skill %></h2>
                             <hr>
-                            <p class="editable" id="skill6Description"><%= data[5].skillDescription %></p>
+                            <p class="editable" id="skill6Description" id="blueBox"><%= data[5].skillDescription %></p>
                             <!-- <button type="button" onclick="removeSkill2();" id="removeSkill">Remove Skill</button> -->
+                          </div>
                         </div>
                         <div class="tab-pane fade skillsContentPage" id="skill7TabContent" role="tabpanel" aria-labelledby="skill7Tab">
                             <br>
+                          <div class="whiteShadow">
                             <h2 id="skills"><%= data[6].skill %></h2>
                             <hr>
                             <p class="editable" id="skill7Description"><%= data[6].skillDescription %></p>
                             <!-- <button type="button" onclick="removeSkill3();" id="removeSkill">Remove Skill</button> -->
+                          </div>
                         </div>
                         <div class="tab-pane fade skillsContentPage" id="skill8TabContent" role="tabpanel" aria-labelledby="skill8Tab">
                             <br>
+                          <div class="whiteShadow">
                             <h2 id="skills"><%= data[7].skill %></h2>
                             <hr>
                             <p class="editable" id="skill8Description"><%= data[7].skillDescription%></p>
                             <!-- <button type="button" onclick="removeSkill4();" id="removeSkill">Remove Skill</button> -->
+                        </div>
                         </div>
                     </div>
                 </div>
